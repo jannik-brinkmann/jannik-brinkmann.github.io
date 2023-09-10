@@ -72,7 +72,7 @@ h2 {
 #dpic img {
     width: 240px;
     height: 240px;
-    border-radius: 0px;
+    border-radius: 8px;
 }
 .iico {
     width: 28px;
@@ -213,6 +213,16 @@ hr {
     border-radius: 5px;
     border: 1px solid #999;
 }
+.res-int {
+    margin-bottom: 10px;
+}
+.res-int-title {
+    display: inline;
+    font-weight: bold;
+}
+.res-int-desc {
+    display: inline;
+}
 #publications .row {
     grid-column-gap: 10px;
     grid-row-gap: 10px;
@@ -239,8 +249,12 @@ hr {
 }
 .pub-venue {
     display: inline;
+    font-style: italic;
 }
 .pub-authors {
+    display: inline;
+}
+.pub-year {
     display: inline;
 }
 .tul {
@@ -258,4 +272,18 @@ hr {
 .nodot {
     list-style-type: none;
     padding-left: 0;
+}
+
+ol {
+    counter-reset: list;  
+    padding-left: 0.6em;  
+}
+ol > li {
+    list-style: none;
+    margin: 0 0 10px 0;
+}
+ol > li:before {
+    content: " [" counter(list) "] ";
+    counter-increment: list;
+    
 }
