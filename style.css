@@ -27,15 +27,18 @@ body {
 
 /* Props */
 #dhead {
-    margin-top: 20px;
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
 #dpic {
     grid-column: span 6;
     text-align: right;
+    margin: 0 20px 0 20px;
 }
 #ddesc {
-    padding-top: 40px;
-    padding-left: 40px;
+    padding-top: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
     grid-column: span 6;
 }
 @media (max-width: 991px) {
@@ -50,31 +53,31 @@ body {
     }
 }
 h1 {
-    font-size: 34px;
+    font-size: 28px;
     font-weight: normal;
     padding: 0;
-    margin: 0;
+    margin: 0 0 10px 0;
 }
 h2 {
     font-weight: normal;
-    color: #999;
-    font-size: 18px;
+    font-size: 14px;
     padding: 0;
-    margin: 5px 0 10px 0;
+    margin: 5px 0 20px 0;
 }
 @media (min-width: 992px) {
     h2 {
-        max-width: 300px;
+        max-width: 360px;
     }
 }
 #dpic img {
     width: 240px;
     height: 240px;
-    border-radius: 4px;
+    border-radius: 0px;
 }
 .iico {
-    width: 40px;
-    height: 40px;
+    width: 28px;
+    height: 28px;
+    margin: 0 10px 0 10px; 
 }
 #demail {
     margin-top: 10px;
@@ -128,7 +131,6 @@ hr {
     font-size: 14px;
     text-align: right;
     padding-right: 10px;
-    color: #bbb;
 }
 .hassets {
     position: relative;
@@ -144,9 +146,9 @@ hr {
     padding: 0;
 }
 .ctitle {
-    font-size: 36px;
+    font-size: 30px;
     margin-bottom: 20px;
-    margin-top: 40px;
+    margin-top: 24px;
 }
 #featured-talks .row {
     grid-column-gap: 10px;
