@@ -5,7 +5,7 @@ body {
     font-family: sans-serif;
     font-size: 16px;
     line-height: 1.4;
-    color: #333;
+    background-color: white;
 }
 
 /* Layout */
@@ -29,55 +29,81 @@ body {
 #dhead {
     margin-top: 40px;
     margin-bottom: 40px;
+    text-align: center;
 }
 #dpic {
-    grid-column: span 6;
-    text-align: right;
+    grid-column: span 12;
     margin: 0 20px 0 20px;
+    text-align: center;
 }
 #ddesc {
-    padding-top: 30px;
-    padding-left: 30px;
-    padding-right: 30px;
-    grid-column: span 6;
-}
-@media (max-width: 991px) {
-    #dpic {
-      grid-column: span 12;
-      text-align: center;
-    }
-    #ddesc {
-      grid-column: span 12;
-      padding-top: 20px;
-      text-align: center;
-    }
+    padding-top: 20px;
+    grid-column: span 12;
+    text-align: center;
 }
 h1 {
+    color: #006199;
     font-size: 28px;
     font-weight: normal;
     padding: 0;
     margin: 0 0 10px 0;
 }
 h2 {
-    font-weight: normal;
-    font-size: 14px;
+    color: #888888;
+    font-weight: 100;
+    font-size: 16px;
     padding: 0;
     margin: 5px 0 20px 0;
 }
-@media (min-width: 992px) {
-    h2 {
-        max-width: 360px;
-    }
+
+.pub-title {
+    color: black;
+    font-size: 22px;
+    font-weight: normal;
+    padding: 5px 0 0 0;
+    margin: 0 0 10px 0;
 }
+
+.pub-authors {
+    color: black;
+    font-weight: 300;
+    font-size: 18px;
+    padding: 0;
+    margin: 0 0 10px 0;
+}
+
+.pub-publication {
+    color: #888888;
+    font-weight: normal;
+    font-size: 16px;
+    padding: 0;
+    margin: 0 0 6px 0;
+}
+.pub-conference {
+    color: #888888;
+    font-weight: normal;
+    font-size: 16px;
+    padding: 0;
+    margin: 0 0 6px 0;
+}
+.pub-date {
+    color: #888888;
+    font-weight: normal;
+    font-size: 16px;
+    padding: 0;
+    margin: 0 0 6px 0;
+}
+
 #dpic img {
     width: 240px;
     height: 240px;
-    border-radius: 8px;
+    border-radius: 120px;
 }
 .iico {
     width: 28px;
     height: 28px;
-    margin: 0 10px 0 10px; 
+    margin: 0 5px 0 5px; 
+    filter: invert(17%) sepia(98%) saturate(2606%) hue-rotate(186deg) brightness(98%) contrast(101%);
 }
 #demail {
     margin-top: 10px;
@@ -114,11 +140,42 @@ hr {
     padding-left: 20px;
     padding-bottom: 20px;
 }
+
+.edu {
+    grid-column: span 10;
+    vertical-align: top;
+    font-size: 17px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+}
+.edu-timespan {
+    grid-column: span 1;
+    font-size: 15px;
+    margin: 12px 0 0 0;
+    text-align: right;
+    padding-right: 10px;
+}
+.edu-title {
+    color: black;
+    font-weight: 100;
+    font-size: 18px;
+    padding: 0;
+    margin: 0 0 6px 0;
+}
+
+.edu-subtitle {
+    color: #888888;
+    font-weight: normal;
+    font-size: 16px;
+    padding: 0;
+    margin: 0 0 6px 0;
+}
+
 .entry {
 }
 .entry-dot {
     position: absolute;
-    top: 0px;
+    top: 16px;
     left: -8px;
     width: 10px;
     height: 10px;
@@ -126,12 +183,7 @@ hr {
     background-color: #cfcfcf;
     border: 2px solid white;
 }
-.timespan {
-    grid-column: span 1;
-    font-size: 14px;
-    text-align: right;
-    padding-right: 10px;
-}
+
 .hassets {
     position: relative;
 }
@@ -147,6 +199,7 @@ hr {
 }
 .ctitle {
     font-size: 30px;
+    font-weight: normal;
     margin-bottom: 20px;
     margin-top: 24px;
 }
@@ -158,8 +211,8 @@ hr {
 .card {
     grid-column: span 3;
     vertical-align: top;
-    background-color: #eee;
-    border: 1px solid #ddd;
+    background-color: #f7f7f7;
+    border: 1px solid #f7f7f7;
     border-radius: 3px;
     padding: 5px;
     background-color: white;
@@ -190,28 +243,36 @@ hr {
         padding-bottom: 10px;
     }
 }
-#pet-projects .row {
-    grid-column-gap: 10px;
+#publications .row {
+    grid-column-gap: 40px;
     grid-row-gap: 10px;
 }
-.project {
+.publication {
     margin-bottom: 10px;
     padding-bottom: 10px;
     border-bottom: 1px solid #eee;
 }
-.pico {
-    float: left;
-    margin-right: 10px;
-}
+
 .pdesc {
 }
 .pend {
     clear: both;
 }
-.pico img {
-    height: 80px;
-    border-radius: 5px;
-    border: 1px solid #999;
+.pub-image {
+    float: left;
+    height: 200px;
+    width: 200px;
+    margin-right: 24px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.pub-image img {
+    height: 200px;
+    width: 200px;
+    display: block;
+    float: center;
+    object-fit: contain;
+    object-position: center;
 }
 .res-int {
     margin-bottom: 10px;
@@ -232,30 +293,13 @@ hr {
     padding-bottom: 10px;
     border-bottom: 1px solid #eee;
 }
-.pub-image {
-    float: left;
-    margin-right: 20px;
-}
-.pub-image img {
-    height: 80px;
-    border-radius: 5px;
-    border: 1px solid #999;
-}
+
 .pub-desc {
     margin-top: 10px;
-}
-.pub-title {
-    display: inline;
 }
 .pub-venue {
     display: inline;
     font-style: italic;
-}
-.pub-authors {
-    display: inline;
-}
-.pub-year {
-    display: inline;
 }
 .tul {
     text-align: center;
@@ -287,3 +331,23 @@ ol > li:before {
     counter-increment: list;
     
 }
+
+.pub-links {
+    padding: 10px 0px;
+}
+
+.btn {
+    border: 1px solid #006199;
+    border-radius: 3px;
+    background-color: inherit;
+    padding: 1px 5px;
+    font-size: 12px;
+    color: #006199;
+    cursor: pointer;
+    display: inline-block;
+    height: 22px;
+  }
+  
+  /* On mouse-over */
+  .btn:hover {background: #006199; color: white;}
+  
