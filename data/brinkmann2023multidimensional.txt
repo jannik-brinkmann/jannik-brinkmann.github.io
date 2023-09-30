@@ -1,0 +1,9 @@
+@misc{brinkmann2023multidimensional,
+      title={A Multidimensional Analysis of Social Biases in Vision 
+Transformers}, 
+      author={Jannik Brinkmann and Paul Swoboda and Christian Bartelt},
+      year={2023},
+      eprint={2308.01948},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
