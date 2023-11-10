@@ -1,94 +1,78 @@
+/* Font & Main Container */ 
 @font-face {
     font-family: 'Athletics';
     src: url('fonts/Athletics-Regular.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
 }
+body {
+    background-color: white;
+    color: #3c4043;
+    font-family: 'Athletics', sans-serif;
+    font-size: 18px;
+    line-height: 1.4;
+    margin: 0;
+}
+
+
+/* Text Formats */
 h1 {
-    font-size: 28px;
+    font-size: 42px;
     font-weight: normal;
     margin: 0 0 10px 0;
     padding: 0;
 }
 
-/* Main Container */ 
-body {
-    background-color: white;
-    margin: 0;
 
-    /* Font */ 
-    font-family: 'Athletics', sans-serif;
-    font-size: 18px;
-    line-height: 1.4;
-    color: #3c4043;
-}
-
-/* Header */ 
+/* Header - Main Container */ 
 header {
-    background-color: #eef0f1;
-
-    min-height: 48px;
-    
+    background-color: #eef0f1;    
 }
 .h-content {
-    max-width: 70vw;
-
-    /* Spacing */ 
     margin: 0 auto;
+    max-width: 66vw;
     padding: 0 40px 0 40px;
-    transition: padding 0.3s;
     transition: margin 0.3s;
+    transition: padding 0.3s;
 }
+
+
+/* Header - Navigation Bar */ 
 nav {
     align-items: center;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    padding: 8vh 0 8vh 0;
     width: 100%;
-    padding-top: 8vh;
-    padding-bottom: 8vh;
-}
-.a-link {
-    display: inline-block;
-    height: 17px;
-    margin: 0 0 0 6vw; 
-    margin-left: min(80px, 6vw);
-    width: 17px;
 }
 .a-icon {
     filter: invert(22%) sepia(8%) saturate(377%) hue-rotate(163deg) brightness(100%) contrast(92%);
-    height: 17px;
-    width: 17px;
+    height: 18px;
+    width: 18px;
+}
+.a-link {
+    display: inline-block;
+    height: 18px;
+    margin-left: min(80px, 6vw);
+    width: 18px;
 }
 
-/* Personal Information */
+
+/* Header - Personal Information */
 .info {
-    padding: 4vh 0 4vh 0;
+    padding: 2vh 0 2vh 0;
     display: flex; 
 } 
-.info h1 {
-    font-size: 42px;
-    padding: 1vh 0 1vh 0;
-}
 .info-details {
-    padding: 1vh 0 1vh 0;
-    display: flex;
     align-items: center;
-    min-width: 25px;
+    display: flex;
+    padding: 1vh 0 1vh 0;
 }
 .info-image {
-    flex: 5;
+    flex: 4;
 }
 .info-text {
-    flex: 5;
-}
-.info-text h1 {
-    font-size: 36px;
-    margin-bottom: 0.5em;
-}
-.info-text p {
-    line-height: 1.4; 
-    margin-bottom: 0;
+    flex: 7;
 }
 @media (max-width: 600px) {
     .info {
@@ -109,74 +93,27 @@ nav {
     height: 240px;
     border-radius: 120px;
 }
-.i-img-desc {
-    margin-top: 40px;
-    margin-bottom: 40px;
-    text-align: center;
-}
-.info-btn {
-    padding: 2vh 0 1vh 0;
-    display: flex;
-    align-items: center;
-    min-width: 25px;
-    margin-top: 0;
-}
-.i-btn {
-    padding-top: 2px;
-    min-width: 90px;
-    height: 36px;
-    display: inline-block;
-    display: flex;
-    background-color: #e0e3e5;
-    border: 1px solid #e0e3e5;
-    border-radius: 6px;
-    align-items: center; 
-    justify-content: center; 
-    cursor: pointer;
-    text-decoration: none;
-    font-size: 14px;
-    margin-right: 20px;
-    color: #393939;
-}
-.i-btn:hover {
-    background-color: #e3e6e7;
-}
 .info-subtitle {
-    padding: 14vh 0 1vh 0;
+    padding: 8vh 0 1vh 0;
     display: flex;
     align-items: center;
     min-width: 25px;
+    margin: 0;
 }
 
 /* Publication List */
 .main {
-
-    max-width: 70vw;
-
-    /* Spacing */ 
     margin: 0 auto;
-    padding: 0 40px 0 40px;
-    padding-top: 6vh;
-    padding-bottom: 6vh;
-    transition: padding 0.3s;
+    max-width: 66vw;
+    padding: 6vh 40px 6vh 40px;
     transition: margin 0.3s;
-}
-.s-title {
-    font-size: 36px;
-    font-weight: normal;
-    height: 48px;
-}
-.s-description {
-    padding: 3vh 0 3vh 0;
-}
-.link {
-    margin: 0;
+    transition: padding 0.3s;
 }
 .p-card-container {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    margin: 0 auto 4vh auto;
+    margin: 1vh auto 4vh auto;
     float: left;
 }
 .p-card {
@@ -259,6 +196,7 @@ nav {
 .p-description {
     font-size: 16px;
     font-weight: 100;
+    text-align: justify;
 }
 .p-links {
     width: 350px; 
@@ -300,6 +238,6 @@ nav {
         width: 1180px;
     }
     .main {
-        width: 1080px;
+        width: 1180px;
     }
 }
