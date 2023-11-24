@@ -5,11 +5,17 @@
     font-weight: normal;
     font-style: normal;
 }
+@font-face {
+    font-family: 'Athletics-Medium';
+    src: url('fonts/Athletics-Medium.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
 body {
     background-color: white;
     color: #3c4043;
-    font-family: 'Athletics', sans-serif;
     font-size: 18px;
+    font-family: 'Athletics', sans-serif;
     line-height: 1.4;
     margin: 0;
 }
@@ -21,6 +27,10 @@ h1 {
     font-weight: normal;
     margin: 0 0 10px 0;
     padding: 0;
+}
+h2 {
+    font-size: 18px;
+    font-weight: normal;
 }
 
 
@@ -130,7 +140,7 @@ nav {
 }
 .p-content {
     height: calc(100% - 45px);
-    width: 86%;
+    width: calc(100% - 45px);
     padding: 0px;
     position: relative;
 }
@@ -168,12 +178,25 @@ nav {
     font-weight: normal;
     margin-top: 15px;
     margin-bottom: 12px;
+    display: flex;
+   align-items: center;
 }
+.p-title h2:first-child {
+    white-space: nowrap; /* Prevents the number from breaking into multiple lines */
+    align-self: flex-start;
+    color: #9aa0a6;
+    margin: 0 10px 0 0;
+  }
+  
+  .p-title h2:last-child {
+    flex-grow: 1; /* Allows the title to take up the remaining space */
+    margin: 0 10px 0 0;
+  }
 .p-details{
     align-items: center;
     display: flex;       
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin-top: 12px;
+    margin-bottom: 12px;
 }
 .p-icon-container {
     display: flex;
@@ -188,17 +211,16 @@ nav {
     filter: invert(22%) sepia(8%) saturate(377%) hue-rotate(163deg) brightness(100%) contrast(92%);
 }
 .p-icon-desc {
-    padding-left: 10px;
-    margin-right: 20px;
-    padding-top: 3px;
+    padding-left: 6px;
     display: flex;   
     font-size: 16px;    
-    color: #3c4043;
+    color: #333;
 }
 .p-description {
     font-size: 16px;
     font-weight: 100;
     text-align: justify;
+    margin-left: 2px;
 }
 .p-links {
     width: 350px; 
@@ -216,8 +238,8 @@ nav {
 }
 .p-btn {
     padding-top: 2px;
-    min-width: 78px;
-    height: 32px;
+    min-width: 72px;
+    height: 30px;
     display: inline-block;
     display: flex;
     border: 1px solid #dadce0;
@@ -227,7 +249,7 @@ nav {
     cursor: pointer;
     text-decoration: none;
     font-size: 12px;
-    margin-right: 20px;
+    margin-right: 15px;
     color: #393939;
 }
 .p-btn:hover {
@@ -263,17 +285,19 @@ nav {
     flex-direction: column;
     align-items: flex-start; /* Align children to the left */
     flex: 1 1 calc(33.333% - 20px);
-    min-width: 300px;
-    max-width: 410px;
+    min-width: 320px;
+    max-width: 320px;
 }
 
 .text-above-card p {
     font-size: 18px;
     font-style: bold;
+    font-family: 'Athletics-Medium', sans-serif;
     color: #333;
     margin-bottom: 10px; /* Keep this margin reasonable */
     width: 86%; /* Match this with .p-content width inside .p-card */
     text-align: left;
+    margin-left: 5px;
 }
 
 .text-placeholder {
