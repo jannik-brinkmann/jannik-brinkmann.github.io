@@ -181,6 +181,10 @@ nav {
     display: flex;
    align-items: center;
 }
+.p-title h2 {
+    font-size: 18px;
+    font-weight: normal;
+}
 .p-title h2:first-child {
     white-space: nowrap; /* Prevents the number from breaking into multiple lines */
     align-self: flex-start;
