@@ -1,4 +1,4 @@
-/* Font & Main Container */ 
+/* Fonts */ 
 @font-face {
     font-family: 'Athletics';
     src: url('fonts/Athletics-Regular.woff2') format('woff2');
@@ -11,17 +11,7 @@
     font-weight: normal;
     font-style: normal;
 }
-body {
-    background-color: white;
-    color: #3c4043;
-    font-size: 18px;
-    font-family: 'Athletics', sans-serif;
-    line-height: 1.4;
-    margin: 0;
-}
 
-
-/* Text Formats */
 h1 {
     font-size: 42px;
     font-weight: normal;
@@ -34,68 +24,75 @@ h2 {
 }
 
 
-/* Header - Main Container */ 
-header {
-    background-color: #eef0f1;    
+/* Main Container */ 
+body {
+    background-color: white;
+    color: #3c4043;
+    font-size: 18px;
+    font-family: 'Athletics', sans-serif;
+    line-height: 1.4;
+    margin: 0;
 }
-.h-content {
+.main {
     margin: 0 auto;
-    max-width: 66vw;
-    padding: 0 40px 0 40px;
+    max-width: 70vw;
+    padding: 6vh 20px 6vh 20px;
     transition: margin 0.3s;
     transition: padding 0.3s;
 }
 
 
+/* Header */ 
+header {
+    background-color: #eef0f1;    
+}
+.h-content {
+    margin: 0 auto;
+    max-width: 70vw;
+    padding: 0 20px 0 20px;
+    transition: margin 0.3s;
+    transition: padding 0.3s;
+}
 /* Header - Navigation Bar */ 
 nav {
     align-items: center;
     display: flex;
     justify-content: space-between;
     padding: 8vh 0 8vh 0;
+    height: 18px;
     width: 100%;
 }
-.a-icon {
+.n-icon {
+    height: 18px;
+}
+.n-icon {
     filter: invert(22%) sepia(8%) saturate(377%) hue-rotate(163deg) brightness(100%) contrast(92%);
     height: 18px;
     width: 18px;
 }
-.a-link {
+.n-link {
     display: inline-block;
     height: 18px;
     margin-left: min(80px, 6vw);
     width: 18px;
 }
-
-
 /* Header - Personal Information */
 .info {
     padding: 2vh 0 2vh 0;
     display: flex; 
 } 
-.info-details {
+.i-text {
+    flex: 7;
+}
+.i-introduction {
     align-items: center;
     display: flex;
     padding: 1vh 0 1vh 0;
 }
-.info-image {
+.i-portrait {
     flex: 4;
 }
-.info-text {
-    flex: 7;
-}
-@media (max-width: 600px) {
-    .info {
-      flex-direction: column;
-    }
-  
-    .info-image,
-    .info-text {
-      max-width: 100%;
-    }
-}
 .i-img {
-    grid-column: span 12;
     text-align: right;
 }
 .i-img img {
@@ -103,8 +100,8 @@ nav {
     height: 240px;
     border-radius: 2px;
 }
-.info-subtitle {
-    padding: 8vh 0 2vh 0;
+.i-subtitle {
+    padding: 6vh 0 2vh 0;
     display: flex;
     align-items: center;
     min-width: 25px;
@@ -113,18 +110,11 @@ nav {
 }
 
 /* Publication List */
-.main {
-    margin: 0 auto;
-    max-width: 66vw;
-    padding: 6vh 40px 6vh 40px;
-    transition: margin 0.3s;
-    transition: padding 0.3s;
-}
 .p-card-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start; /* This will space out the cards evenly */
     gap: 20px;
+    justify-content: flex-start;
     margin: 1vh auto 4vh auto;
 }
 .p-card {
@@ -144,21 +134,14 @@ nav {
     padding: 0px;
     position: relative;
 }
-.p-line {
-    height: 8px;
-    width: 100%;
-    background-color: #e8eaed;
-    border-radius: 100px;
-    display: block;
-}
 .p-image {
     height: 176px;
     width: 100%;
     background-color: #e8eaed;
     border-radius: 6px;
-    display: flex; /* Enable flexbox */
-    align-items: center; /* Center vertically */
-    justify-content: center; /* Center horizontally */
+    display: flex; 
+    align-items: center;
+    justify-content: center;
 }
 .p-image img {
     height: 80%;
@@ -186,16 +169,15 @@ nav {
     font-weight: normal;
 }
 .p-title h2:first-child {
-    white-space: nowrap; /* Prevents the number from breaking into multiple lines */
+    white-space: nowrap;
     align-self: flex-start;
     color: #9aa0a6;
     margin: 0 10px 0 0;
-  }
-  
-  .p-title h2:last-child {
-    flex-grow: 1; /* Allows the title to take up the remaining space */
+}
+.p-title h2:last-child {
+    flex-grow: 1;
     margin: 0 10px 0 0;
-  }
+}
 .p-details{
     align-items: center;
     display: flex;       
@@ -232,11 +214,11 @@ nav {
     display: inline-block;
     display: flex;
     border-radius: 6px;
-    align-items: center; /* vertical alignment */
-    justify-content: left; /* horizontal alignment */
+    align-items: center;
+    justify-content: left;
     cursor: pointer;
     text-decoration: none;
-    position: absolute;      /* Button positioned absolutely */
+    position: absolute;
     bottom: 0px;
     font-size: 14px;
 }
@@ -260,37 +242,13 @@ nav {
     background-color: #f8f9fa;
 }
 
-/* Responsiveness */ 
-@media screen and (min-width: 1460px) {
-    .h-content {
-        width: 1280px;
-    }
-    .main {
-        width: 1280px;
-    }
-}
 
-/* For smaller screens, show 2 cards per row */
-@media screen and (max-width: 1280px) {
-    .p-card {
-        flex: 1 1 calc(50% - 20px);
-    }
-}
-
-/* For very small screens, show 1 card per row */
-@media screen and (max-width: 500px) {
-    .p-card {
-        flex: 1 1 100%;
-    }
-}
 
 .card-wrapper {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Align children to the left */
-    flex: 1 1 calc(33.333% - 20px);
-    min-width: 320px;
-    max-width: 320px;
+    align-items: flex-start; 
+    width: 320px;
 }
 
 .text-above-card p {
@@ -298,13 +256,54 @@ nav {
     font-style: bold;
     font-family: 'Athletics-Medium', sans-serif;
     color: #333;
-    margin-bottom: 10px; /* Keep this margin reasonable */
-    width: 86%; /* Match this with .p-content width inside .p-card */
+    margin-bottom: 10px; 
+    width: 86%; 
     text-align: left;
     margin-left: 5px;
 }
 
 .text-placeholder {
-    height: 53px; /* Set this to the height of your text-above-card */
-    visibility: hidden; /* Makes the element invisible but still occupies space */
+    height: 53px; 
+    visibility: hidden;
+}
+
+
+/* Responsiveness */ 
+@media screen and (min-width: 1460px) {
+
+    /* Main Container Width */ 
+    .main {
+        width: 1280px;
+    }
+    .h-content {
+        width: 1280px;
+    }
+    
+}
+@media screen and (max-width: 1280px) {
+
+    /* Main Container Width */ 
+    .main {
+        max-width: 80vw;
+        padding: 6vh 10px 6vh 10px;
+    }
+    .h-content {
+        max-width: 80vw;
+        padding: 0 10px 0 10px;
+    }
+
+    /* Hide Portrait */ 
+    .i-portrait {
+        display: none;
+    }
+}
+@media (max-width: 600px) {
+    
+    /* Card Width */
+    .card-wrapper {
+        width: 80vw;
+    } 
+}
+@media screen and (max-width: 420px) {
+
 }
