@@ -256,6 +256,7 @@ nav {
     font-style: bold;
     font-family: 'Athletics-Medium', sans-serif;
     color: #333;
+    margin-top: 0;
     margin-bottom: 10px; 
     width: 86%; 
     text-align: left;
@@ -263,7 +264,7 @@ nav {
 }
 
 .text-placeholder {
-    height: 53px; 
+    height: 35px; 
     visibility: hidden;
 }
 
@@ -302,6 +303,11 @@ nav {
     /* Card Width */
     .card-wrapper {
         width: 80vw;
+    } 
+
+    /* Hide Text Placeholder */
+    .text-placeholder {
+        display: none;
     } 
 }
 @media screen and (max-width: 420px) {
