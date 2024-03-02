@@ -436,6 +436,12 @@ div.nav-bar .social .icon a {
   text-align: center;
 }
 
+div.nav-bar .social .icon img {
+  filter: invert(22%) sepia(8%) saturate(377%) hue-rotate(163deg) brightness(100%) contrast(92%);
+  height: 17px;
+  width: 17px;
+}
+
 @media screen and (max-width: 769px) {
   #introduction {
     padding-top: calc(5vh + 27px);
