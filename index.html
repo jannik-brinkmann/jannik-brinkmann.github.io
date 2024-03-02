@@ -10,172 +10,153 @@
     </head>
     <body> 
 
+
+      <!-- Header -->
       <header>
-        <div class="h-content">
+        <div class="container" id="nav-bar">
 
           <!-- Navigation Bar -->
-          <nav>
-            <div class="n-text"><u>Jannik Brinkmann</u></div>
-            <div class="n-icons">
-              <a class="n-link" href="https://twitter.com/BrinkmannJannik">
-                <img class="n-icon" src="assets/icons/twitter.svg">
-              </a>
-              <a class="n-link" href="https://github.com/jannik-brinkmann">
-                <img class="n-icon" src="assets/icons/github.svg">
-              </a>
-              <a class="n-link" href="https://www.linkedin.com/in/brinkmann-jannik/">
-                <img class="n-icon" src="assets/icons/linkedin.svg">
-              </a>
-            </div>
-          </nav>
-          
-          <!-- Personal Information -->
-          <div class="info">
-
-            <!-- Short Introduction -->
-            <div class="i-text">
-              <h1>about me</h1>
-              <p class="i-introduction">
-                  I am a Ph.D. student in Computer Science at the University of Mannheim. 
-                  I am excited about understanding the emergent internal mechanisms of neural networks on complex tasks, such as multi-step reasoning, and using these insights to develop better methods.
-                  I completed a M.Sc. in Data Science (with distinction) at the University of Mannheim, and B.Sc. in Computer Science. 
-
-              </p>
-              <p class="i-subtitle">
-                UPDATED NOV 2023
-              </p>
+          <div class="nav-bar">
+            <div class="menu">
+              <a><b>Jannik Brinkmann</b></a>
             </div>
 
-            <!-- Portrait -->
-            <div class="i-portrait">
-              <div class="i-img">
-                <img class="i-img" src="assets/images/me.jpeg">
-              </div>
+            <div class="social">
+                <div class="icon">
+                  <a href="https://twitter.com/BrinkmannJannik" >
+                    <img src="assets/icons/twitter.svg">
+                  </a>
+                </div>
+                <div class="icon">
+                  <a href="https://github.com/jannik-brinkmann">
+                    <img src="assets/icons/github.svg">
+                  </a>
+                </div>
+                <div class="icon">
+                  <a href="https://www.linkedin.com/in/brinkmann-jannik/">
+                    <img src="assets/icons/linkedin.svg">
+                  </a>
+                </div>
             </div>
           </div>
+
         </div>
       </header>
 
-      <div class="main">
 
-        <!-- Selected Publications -->
-        <div class="publications">
-          <h1>Publications</h1>
-          <p>Here are some representative publications, listed in reverse chronological order based on when I worked on them. The complete list of publications can be found on <a class="link" href="https://scholar.google.com/citations?hl=en&user=YtdTeaMAAAAJ&view_op=list_works&authuser=4&sortby=title">Google Scholar</a>.<p>
-          <div class="p-card-container">
+      <!-- Personal Information -->
+      <div class="container" id="introduction" style="background-color: #eff0f1;">
+
+        <div>
+          <p>
+            I am a Ph.D. student in Computer Science at the University of Mannheim. 
+            I am excited about understanding the emergent internal mechanisms of neural networks on complex tasks, such as multi-step reasoning, and using these insights to develop better methods.
+            I completed a M.Sc. in Data Science (with distinction) at the University of Mannheim, and B.Sc. in Computer Science. 
+          </p>
+        </div>
+        
+      </div>
+
+        
+      <!-- Projects -->
+      <div class="container">
+        <div class="page-title">
+          <h1 class="title">Selected Projects</h1>
+        </div>
+        <p>Here are some representative projects which I have worked on. The complete list of publications can be found on <a class="link" href="https://scholar.google.com/citations?hl=en&user=YtdTeaMAAAAJ&view_op=list_works&authuser=4&sortby=title">Google Scholar</a>.<p>
+
+
+        <div class="project-page date">
+          <div class="project-block">
+
+            <div class="project-container">
+              <a href="">
+                  <div class="project-cover" style="background-color: rgba(16,37,64,0.1); background-image: url(./assets/images/causal_scrubbing.png)"></div>
+              </a>
+
+              <div class="project-info">
+                  <h2 class="project-title"><a href="">Backward Chaining Circuits</a></h2>
+              </h2>
+                  <p class="project-intro">A Mechanistic Analysis of a Transformer Trained on a Symbolic Multi-Step Reasoning Task</p>
+              </div>
+            </div> 
+
+            <div class="project-container">
+              <a href="">
+                  <div class="project-cover" style="background-color: rgba(226,163,163,0.2); background-image: url(./assets/images/iccv2023.png)"></div>
+              </a>
+
+              <div class="project-info">
+                  <h2 class="project-title"><a href="">Social Biases</a></h2>
+              </h2>
+                  <p class="project-intro">A Multidimensional Analysis of Social Biases in Vision Transformers</p>
+              </div>
+            </div> 
             
-            <!-- Publication: EMNLP 2023 Workshop -->
-            <div class="card-wrapper">
-
-              <!-- Text above Card -->
-              <div class="text-above-card">
-                <p>2023</p>
-              </div>
-
-              <!-- Card -->
-              <div class="p-card">
-                <div class="p-content">
-
-                  <!-- Pub. Image -->
-                  <div class="p-image" style="background-color: rgba(16,37,64,0.6);"></div>
-
-                  <!-- Pub. Title -->
-                  <div class="p-title">
-                    <h2>03</h2>
-                    <h2>Planning in Transformers: Evidence for Backtracking Circuits in Transformers trained on Tree Traversal</h2>
-                  </div>
-
-                  <!-- Pub. Venue -->
-                  <div class="p-details">
-                    <div class="p-icon-container">
-                      <img class="p-icon" src="assets/icons/book.svg">
-                      <div class="p-icon-desc">To appear at EMNLP 2023 BlackboxNLP Workshop</div>
-                    </div>
-                  </div>
-
-                  <!-- Pub. Authors -->
-                  <div class="p-description">A. Sheshadri*, J. Brinkmann*, V. Levoso*</div>
-                </div>
-              </div>
-            </div>
-            
-            <!-- Publication: ICCV 2023 -->
-            <div class="card-wrapper">
-
-              <!-- Text above Card -->
-              <div class="text-placeholder"></div>
-
-              <!-- Card -->
-              <div class="p-card">
-                <div class="p-content">
-
-                  <!-- Pub. Image -->
-                  <div class="p-image" style="background-color: rgba(226,163,163,0.2);">
-                    <img style="height: 75%;" src="assets/images/iccv2023.png"/>
-                  </div>
-
-                  <!-- Pub. Title -->
-                  <div class="p-title">
-                    <h2>02</h2>
-                    <h2>A Multidimensional Analysis of Social Biases in Vision Transformers</h2>
-                  </div>
-
-                  <!-- Pub. Venue -->
-                  <div class="p-details">
-                    <div class="p-icon-container">
-                      <img class="p-icon" src="assets/icons/book.svg">
-                      <div class="p-icon-desc">ICCV 2023</div>
-                    </div>
-                  </div>
-
-                  <!-- Pub. Authors -->
-                  <div class="p-description">J. Brinkmann, P. Swoboda, C. Bartelt</div>
-
-                  <!-- Pub. Links -->
-                  <div class="p-links">
-                    <a class="p-btn" href="https://arxiv.org/pdf/2308.01948.pdf">PAPER</a>
-                    <a class="p-btn" href="https://github.com/jannik-brinkmann/social-biases-in-vision-transformers">CODE</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <!-- Publication: HICSS 2024 -->
-            <div class="card-wrapper">
-
-              <!-- Text above Card -->
-              <div class="text-placeholder"></div>
-
-              <!-- Card -->
-              <div class="p-card">
-                <div class="p-content">
-
-                  <!-- Pub. Image -->
-                  <div class="p-image" style="background-color: rgba(145,152,159,0.2);">
-                    <img src="assets/images/hicss2024.png"/>
-                  </div>
-
-                  <!-- Pub. Title -->
-                  <div class="p-title">
-                    <h2>01</h2>
-                    <h2>Unsupervised Extraction of Test Scenarios from Time-Series Sensor Data using Trace Graphs</h2>
-                  </div>
-
-                  <!-- Pub. Venue -->
-                  <div class="p-details">
-                    <div class="p-icon-container">
-                      <img class="p-icon" src="assets/icons/book.svg">
-                      <div class="p-icon-desc">To appear at HICSS 2024</div>
-                    </div>
-                  </div>
-
-                  <!-- Pub. Authors -->
-                  <div class="p-description">J. Brinkmann, N. Metzger, C. Bartelt</div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
-      </div>       
-    </body>
+    </div>
+      
+
+    <!-- Publications -->
+    <div class="container" id="publications">
+      <div class="page-title">
+        <h1 class="title">Publications</h1>
+      </div>
+          
+    <div class="papers">
+          <hr class="hard">
+          <div class="paper-container">
+            <div class="paper-conference">
+                <p>Preprint</p>
+            </div>
+            <div class="paper-info">
+                <p>
+                    Backward Chaining Circuits in a Transformer Trained on a Symbolic Reasoning Task
+                    <a href="https://arxiv.org/abs/2402.11917"> <sup>[Paper]</sup></a>
+                </p>
+                <p>
+                    <u>Jannik Brinkmann</u><sup><b>*</b></sup>, Abhay Sheshadri<sup><b>*</b></sup>, Victor Levoso<sup><b>*</b></sup>, Paul Swoboda, Christian Bartelt
+                </p>
+            </div>
+          </div>
+          <hr class="soft">
+
+          <div class="paper-container">
+              <div class="paper-conference">
+                  <p>ICCV 2023</p>
+              </div>
+              <div class="paper-info">
+                  <p>
+                      A Multidimensional Analysis of Social Biases in Vision Transformers
+                      <a href="https://openaccess.thecvf.com/content/ICCV2023/html/Brinkmann_A_Multidimensional_Analysis_of_Social_Biases_in_Vision_Transformers_ICCV_2023_paper.html"> <sup>[Paper]</sup></a>
+                      <a href="https://github.com/jannik-brinkmann/social-biases-in-vision-transformers"> <sup>[Code]</sup> </a>
+                  </p>
+                  <p>
+                      <u>Jannik Brinkmann</u>, Paul Swoboda, Christian Bartelt
+                  </p>
+              </div>
+          </div>
+          <hr class="soft">
+
+          <div class="paper-container">
+            <div class="paper-conference">
+                <p>HICSS 2024</p>
+            </div>
+            <div class="paper-info">
+                <p>
+                    Unsupervised Extraction of Test Scenarios from Time-Series Sensor Data using Trace Graphs
+                    <a href="https://scholarspace.manoa.hawaii.edu/items/46dc1e3d-3cc5-4557-877a-3c2c46769add"> <sup>[Paper]</sup></a>
+                </p>
+                <p>
+                    <u>Jannik Brinkmann</u>, Noah Metzger, Christian Bartelt
+                </p>
+            </div>
+          </div>
+          <hr class="soft">
+        </div>
+      </div>
+    </div>       
+  </body>
 </html>
+

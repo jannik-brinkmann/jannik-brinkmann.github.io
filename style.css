@@ -1,315 +1,1068 @@
-/* Fonts */ 
+/* Fonts */
 @font-face {
-    font-family: 'Athletics';
-    src: url('fonts/Athletics-Regular.woff2') format('woff2');
-    font-weight: normal;
+    font-family: "Athletics";
+    src: url("https://jannik-brinkmann.github.io/fonts/Athletics-Bold.woff2") format("woff2");
+    font-weight: 700;
     font-style: normal;
+    font-display: swap;
 }
+
 @font-face {
-    font-family: 'Athletics-Medium';
-    src: url('fonts/Athletics-Medium.woff2') format('woff2');
-    font-weight: normal;
+    font-family: "Athletics";
+    src: url("https://jannik-brinkmann.github.io/fonts/Athletics-BoldItalic.woff2") format("woff2");
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Athletics";
+    src: url("https://jannik-brinkmann.github.io/fonts/Athletics-Medium.woff2") format("woff2");
+    font-weight: 600;
     font-style: normal;
+    font-display: swap;
 }
 
-h1 {
-    font-size: 42px;
-    font-weight: normal;
-    margin: 0 0 10px 0;
-    padding: 0;
+@font-face {
+    font-family: "Athletics";
+    src: url("https://jannik-brinkmann.github.io/fonts/Athletics-MediumItalic.woff2") format("woff2");
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
 }
-h2 {
-    font-size: 18px;
-    font-weight: normal;
+
+@font-face {
+    font-family: "Athletics";
+    src: url("https://jannik-brinkmann.github.io/fonts/Athletics-Italic.woff2") format("woff2");
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Athletics";
+    src: url("https://jannik-brinkmann.github.io/fonts/Athletics-Regular.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
 }
 
 
-/* Main Container */ 
+/* Main Container and Basics */
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, p, pre, q, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
 body {
-    background-color: white;
-    color: #3c4043;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6, p, a, code, pre, ol, u, ul, li {
+  color: #353535;
+  line-height: 1.6;
+  font-weight: 300;
+  font-size: 18px;
+  font-family: "Athletics", serif;
+}
+
+a {
+  text-underline-offset: 1px;
+  color: inherit;
+  font-family: inherit;
+}
+
+a:hover {
+  color: inherit;
+}
+
+b {
+  font-weight: 600;
+}
+
+em {
+  font-style: italic;
+}
+
+sub {
+  font-weight: inherit;
+  font-size: 0.65em;
+  position: relative;
+  top: 0.3em;
+}
+
+sup {
+  font-weight: inherit;
+  font-size: 0.65em;
+  position: relative;
+  top: -0.5em;
+}
+
+hr {
+  border: 0;
+  height: 0;
+  border-top: 1px solid rgb(0, 0, 0);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+hr.hard {
+  border-top: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+hr.soft {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+img {
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+}
+
+svg {
+  width: 100%;
+}
+
+.container {
+  padding-right: calc(6vw - (100vw - 100%));
+  padding-left: 6vw;
+  flex: 1;
+}
+
+::-moz-selection {
+  color: white;
+  background: #353535;
+}
+
+::selection {
+  color: white;
+  background: #353535;
+}
+
+@media screen and (max-width: 769px) {
+  a, p, td, th, tr, code, pre, ol, u, ul, li, div {
+    font-size: 15px;
+  }
+
+  h1 {
+    font-size: 24px;
+    line-height: 1.2;
+    padding: 1.5vh 0;
+    font-weight: 300;
+  }
+
+  h1.title {
+    font-weight: 300;
+    font-size: 30px;
+  }
+
+  h2 {
+    line-height: 1.2;
+    padding: 1.5vh 0;
+    font-weight: 300;
     font-size: 18px;
-    font-family: 'Athletics', sans-serif;
-    line-height: 1.4;
-    margin: 0;
-}
-.main {
-    margin: 0 auto;
-    max-width: 70vw;
-    padding: 6vh 20px 6vh 20px;
-    transition: margin 0.3s;
-    transition: padding 0.3s;
-}
+  }
 
-
-/* Header */ 
-header {
-    background-color: #eef0f1;    
-}
-.h-content {
-    margin: 0 auto;
-    max-width: 70vw;
-    padding: 0 20px 0 20px;
-    transition: margin 0.3s;
-    transition: padding 0.3s;
-}
-/* Header - Navigation Bar */ 
-nav {
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-    padding: 8vh 0 8vh 0;
-    height: 18px;
-    width: 100%;
-}
-.n-icons {
-    height: 18px;
-}
-.n-icon {
-    filter: invert(22%) sepia(8%) saturate(377%) hue-rotate(163deg) brightness(100%) contrast(92%);
-    height: 18px;
-    width: 18px;
-}
-.n-link {
-    display: inline-block;
-    height: 18px;
-    margin-left: min(80px, 6vw);
-    width: 18px;
-}
-/* Header - Personal Information */
-.info {
-    padding: 2vh 0 2vh 0;
-    display: flex; 
-} 
-.i-text {
-    flex: 7;
-}
-.i-introduction {
-    align-items: center;
-    display: flex;
-    padding: 1vh 0 1vh 0;
-}
-.i-portrait {
-    flex: 4;
-}
-.i-img {
-    text-align: right;
-}
-.i-img img {
-    width: 240px;
-    height: 240px;
-    border-radius: 2px;
-}
-.i-subtitle {
-    padding: 6vh 0 2vh 0;
-    display: flex;
-    align-items: center;
-    min-width: 25px;
+  h3 {
+    font-weight: 300;
+    line-height: 1.2;
+    padding: 1.5vh 0;
     font-size: 17px;
-    margin: 0;
+  }
 }
 
-/* Publication List */
-.p-card-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: flex-start;
-    margin: 1vh auto 4vh auto;
-}
-.p-card {
-    height: 470px;
-    vertical-align: top;
-    background-color: #f7f7f7;
-    border: 1px solid #dadce0;
-    border-radius: 10px;
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.p-content {
-    height: calc(100% - 45px);
-    width: calc(100% - 45px);
-    padding: 0px;
-    position: relative;
-}
-.p-image {
-    height: 176px;
-    width: 100%;
-    background-color: #e8eaed;
-    border-radius: 6px;
-    display: flex; 
-    align-items: center;
-    justify-content: center;
-}
-.p-image img {
-    height: 80%;
-    width: 100%;
-    display: block;
-    float: center;
-    object-fit: contain;
-    object-position: center;
-}
-.p-image::after {
-    content: "";
-    clear: both;
-    display: table;
-}
-.p-title {
-    font-size: 18px;
-    font-weight: normal;
-    margin-top: 15px;
-    margin-bottom: 12px;
-    display: flex;
-   align-items: center;
-}
-.p-title h2 {
-    font-size: 18px;
-    font-weight: normal;
-}
-.p-title h2:first-child {
-    white-space: nowrap;
-    align-self: flex-start;
-    color: #9aa0a6;
-    margin: 0 10px 0 0;
-}
-.p-title h2:last-child {
-    flex-grow: 1;
-    margin: 0 10px 0 0;
-}
-.p-details{
-    align-items: center;
-    display: flex;       
-    margin-top: 12px;
-    margin-bottom: 12px;
-}
-.p-icon-container {
-    display: flex;
-    align-items: center;
-    min-width: 25px;
-}
-.p-icon {
-    width: 20px;
-    height: 20px;
-    margin: 0 2px 0 2px;
-    display: flex; 
-    filter: invert(22%) sepia(8%) saturate(377%) hue-rotate(163deg) brightness(100%) contrast(92%);
-}
-.p-icon-desc {
-    padding-left: 6px;
-    display: flex;   
-    font-size: 16px;    
-    color: #333;
-}
-.p-description {
+@media screen and (min-width: 769px) {
+  .container {
+    padding-right: calc(8.5vw - (100vw - 100%));
+    padding-left: 8.5vw;
+  }
+
+  a, p, td, th, tr, code, pre, ol, u, ul, li, div {
     font-size: 16px;
-    font-weight: 100;
-    text-align: justify;
-    margin-left: 2px;
-}
-.p-links {
-    width: 350px; 
-    height: 36px;
-    display: inline-block;
-    display: flex;
-    border-radius: 6px;
-    align-items: center;
-    justify-content: left;
-    cursor: pointer;
-    text-decoration: none;
-    position: absolute;
-    bottom: 0px;
-    font-size: 14px;
-}
-.p-btn {
-    padding-top: 2px;
-    min-width: 72px;
-    height: 30px;
-    display: inline-block;
-    display: flex;
-    border: 1px solid #dadce0;
-    border-radius: 6px;
-    align-items: center; 
-    justify-content: center; 
-    cursor: pointer;
-    text-decoration: none;
-    font-size: 12px;
-    margin-right: 15px;
-    color: #393939;
-}
-.p-btn:hover {
-    background-color: #f8f9fa;
-}
+  }
 
+  h1 {
+    font-size: 24px;
+    line-height: 1.2;
+    padding: 2vh 0;
+    font-weight: 300;
+  }
 
+  h1.title {
+    padding: 0 0 1vh;
+    font-weight: 300;
+    font-size: 30px;
+  }
 
-.card-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; 
-    width: 320px;
-}
-
-.text-above-card p {
+  h2 {
+    line-height: 1.2;
+    padding: 2vh 0;
+    font-weight: 300;
     font-size: 18px;
-    font-style: bold;
-    font-family: 'Athletics-Medium', sans-serif;
-    color: #333;
-    margin-top: 0;
-    margin-bottom: 10px; 
-    width: 86%; 
-    text-align: left;
-    margin-left: 5px;
+  }
+
+  h3 {
+    font-weight: 300;
+    line-height: 1.2;
+    padding: 2vh 0;
+    font-size: 17px;
+  }
 }
 
-.text-placeholder {
-    height: 35px; 
-    visibility: hidden;
+@media screen and (min-width: 992px) {
+  .container {
+    padding-right: calc(12vw - (100vw - 100%));
+    padding-left: 12vw;
+  }
+
+  a, p, td, th, tr, code, pre, ol, u, ul, li, div {
+    font-size: 16px;
+  }
+
+  h1 {
+    font-size: 24px;
+    line-height: 1.2;
+    padding: 1vh 0;
+    font-weight: 300;
+  }
+
+  h1.title {
+    padding: 0 0 1vh;
+    font-weight: 300;
+    font-size: 30px;
+  }
+
+  h2 {
+    line-height: 1.2;
+    padding: 1vh 0;
+    font-weight: 300;
+    font-size: 18px;
+  }
+
+  h3 {
+    font-weight: 300;
+    line-height: 1.2;
+    padding: 1vh 0;
+    font-size: 17px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .container {
+    padding-right: calc(15vw - (100vw - 100%));
+    padding-left: 15vw;
+  }
+
+  a, p, td, th, tr, code, pre, ol, u, ul, li, div {
+    font-size: 17px;
+  }
+
+  h1 {
+    font-size: 36px;
+    line-height: 1.2;
+    padding: 1vh 0;
+    font-weight: 300;
+  }
+
+  h1.title {
+    padding: 0 0 1vh;
+    font-weight: 300;
+    font-size: 36px;
+  }
+
+  h2 {
+    line-height: 1.2;
+    padding: 1vh 0;
+    font-weight: 300;
+    font-size: 24px;
+  }
+
+  h3 {
+    font-weight: 300;
+    line-height: 1.2;
+    padding: 1vh 0;
+    font-size: 18px;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  .container {
+    padding-right: calc(18vw - (100vw - 100%));
+    padding-left: 18vw;
+  }
+
+  a, p, td, th, tr, code, pre, ol, u, ul, li, div {
+    font-size: 18px;
+  }
+
+  h1 {
+    font-size: 36px;
+    line-height: 1.2;
+    padding: 1.75vh 0;
+    font-weight: 300;
+  }
+
+  h1.title {
+    padding: 0 0 1vh;
+    font-weight: 300;
+    font-size: 42px;
+  }
+
+  h2 {
+    line-height: 1.2;
+    padding: 1.5vh 0;
+    font-weight: 300;
+    font-size: 24px;
+  }
+
+  h3 {
+    font-weight: 300;
+    line-height: 1.2;
+    padding: 1.5vh 0;
+    font-size: 18px;
+  }
+}
+
+@media screen and (min-width: 2400px) {
+  .container {
+    padding-right: calc(24vw - (100vw - 100%));
+    padding-left: 24vw;
+  }
+
+  a, p, td, th, tr, code, pre, ol, u, ul, li, div {
+    font-size: 20px;
+  }
+
+  h1 {
+    font-size: 36px;
+    line-height: 1.2;
+    padding: 1.75vh 0;
+    font-weight: 300;
+  }
+
+  h1.title {
+    padding: 0 0 1vh;
+    font-weight: 300;
+    font-size: 42px;
+  }
+
+  h2 {
+    line-height: 1.2;
+    padding: 1.5vh 0;
+    font-weight: 300;
+    font-size: 24px;
+  }
+
+  h3 {
+    font-weight: 300;
+    line-height: 1.2;
+    padding: 1.5vh 0;
+    font-size: 20px;
+  }
+}
+
+@media screen and (min-width: 3000px) {
+  .container {
+    padding-right: calc(28vw - (100vw - 100%));
+    padding-left: 28vw;
+  }
 }
 
 
-/* Responsiveness */ 
-@media screen and (min-width: 1460px) {
 
-    /* Main Container Width */ 
-    .main {
-        width: 1280px;
-    }
-    .h-content {
-        width: 1280px;
-    }
-    
+/* Navigation Bar */
+#nav-bar {
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 600;
+  height: 0.0em;
 }
-@media screen and (max-width: 1280px) {
 
-    /* Main Container Width */ 
-    .main {
-        max-width: 80vw;
-        padding: 6vh 10px 6vh 10px;
-    }
-    .h-content {
-        max-width: 80vw;
-        padding: 0 10px 0 10px;
-    }
-
-    /* Hide Portrait */ 
-    .i-portrait {
-        display: none;
-    }
+div.nav-bar {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  -moz-column-gap: 25vw;
+  column-gap: 25vw;
+  padding: 2vh 0px;
 }
-@media (max-width: 600px) {
-    
-    /* Card Width */
-    .card-wrapper {
-        width: 80vw;
-    } 
 
-    /* Hide Text Placeholder */
-    .text-placeholder {
-        display: none;
-    } 
+div.nav-bar .menu {
+  display: flex;
+  justify-content: space-between;
 }
-@media screen and (max-width: 420px) {
 
+div.nav-bar .menu a {
+  position: relative;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 500;
+  color: #353535;
+  font-size: 24px;
+  font-family: "Athletics", sans-serif;
+}
+
+div.nav-bar .menu a:hover {
+  text-decoration: underline;
+  color: inherit;
+}
+
+div.nav-bar .menu a.active {
+  text-decoration: underline;
+  color: inherit;
+}
+
+div.nav-bar .social {
+  display: flex;
+  justify-content: space-between;
+  color: inherit;
+}
+
+div.nav-bar .social .icon a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  text-align: center;
+}
+
+@media screen and (max-width: 769px) {
+  #introduction {
+    padding-top: calc(5vh + 27px);
+    padding-bottom: 2vh
+  }
+
+  div.nav-bar {
+    padding: 3vh 0px;
+  }
+
+  div.nav-bar .menu a {
+    font-size: 17px;
+  }
+
+  div.nav-bar .social .icon a {
+    font-size: 17px;
+  }
+
+  div.nav-bar .social .icon img {
+    filter: invert(22%) sepia(8%) saturate(377%) hue-rotate(163deg) brightness(100%) contrast(92%);
+    height: 17px;
+    width: 17px;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  #introduction {
+    padding-top: calc(7vh + 27px);
+    padding-bottom: 2vh;
+  }
+
+  div.nav-bar {
+    padding: 4vh 0px;
+  }
+
+  div.nav-bar .menu a {
+    font-size: 17px;
+  }
+
+  div.nav-bar .social .icon a {
+    font-size: 17px;
+  }
+
+  div.nav-bar .social .icon img {
+    filter: invert(22%) sepia(8%) saturate(377%) hue-rotate(163deg) brightness(100%) contrast(92%);
+    height: 17px;
+    width: 17px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  #introduction {
+    padding-top: calc(9vh + 27px);
+    padding-bottom: 2vh;
+  }
+
+  div.nav-bar {
+    padding: 5vh 0px;
+  }
+
+  div.nav-bar .menu a {
+    font-size: 17px;
+  }
+
+  div.nav-bar .social .icon a {
+    font-size: 17px;
+  }
+
+  div.nav-bar .social .icon img {
+    filter: invert(22%) sepia(8%) saturate(377%) hue-rotate(163deg) brightness(100%) contrast(92%);
+    height: 17px;
+    width: 17px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  #introduction {
+    padding-top: calc(11vh + 28px);
+    padding-bottom: 3vh;
+  }
+
+  div.nav-bar {
+    padding: 6vh 0px;
+  }
+
+  div.nav-bar .menu a {
+    font-size: 18px;
+  }
+
+  div.nav-bar .social .icon a {
+    font-size: 18px;
+  }
+
+  div.nav-bar .social .icon img {
+    filter: invert(22%) sepia(8%) saturate(377%) hue-rotate(163deg) brightness(100%) contrast(92%);
+    height: 18px;
+    width: 18px;
+  }
+}
+
+@media screen and (min-width: 2400px) {
+  #introduction {
+    padding-top: calc(11vh + 32px);
+    padding-bottom: 3vh;
+  }
+
+  div.nav-bar {
+    padding: 6vh 0px;
+  }
+
+  div.nav-bar .menu a {
+    font-size: 20px;
+  }
+
+  div.nav-bar .social .icon a {
+    font-size: 20px;
+  }
+
+  div.nav-bar .social .icon img {
+    height: 20px;
+    width: 20px;
+  }
+}
+
+
+
+/* Introduction */
+span.info {
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 85%;
+}
+
+
+
+/* Page Title */
+@media screen and (min-width: 769px) {
+  div.page-title h1 {
+    padding-top: 3vh;
+    padding-bottom: 1vh;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  div.page-title h1 {
+    padding-top: 3vh;
+    padding-bottom: 1vh;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  div.page-title h1 {
+    padding-top: 3vh;
+    padding-bottom: 1vh;
+  }
+}
+
+
+/* Projects */
+div.projects div.project-container .project-info {
+  padding: 10px 0px 10px;
+}
+
+div.projects div.project-container .project-info .project-title {
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+div.projects div.project-container .project-info .project-title a {
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: 700;
+  font-family: "Athletics", serif;
+}
+
+div.projects div.project-container .project-info .project-title a:hover {
+  text-decoration: underline;
+}
+
+div.projects div.project-container .project-info p {
+  line-height: 1.2;
+  font-size: 15px;
+  font-weight: 500;
+  font-family: "Athletics", sans-serif;
+}
+.project-intro {
+  margin: 0;
+}
+
+@media screen and (min-width: 769px) {
+  div.project-page h3 {
+      font-size: 17px;
+  }
+
+  div.projects {
+      grid-template-columns: 1fr 1fr;
+      -moz-column-gap: 5vw;
+      column-gap: 5vw;
+      row-gap: 2vh;
+      padding-bottom: 1vh;
+  }
+
+  div.projects div.project-container .project-info .project-title a {
+      font-size: 17px;
+  }
+
+  div.projects div.project-container .project-info p {
+      font-size: 15px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  div.project-page h3 {
+      font-size: 18px;
+  }
+
+  div.projects {
+      grid-template-columns: 1fr 1fr 1fr;
+      -moz-column-gap: 2.5vw;
+      column-gap: 2.5vw;
+      row-gap: 2vh;
+      padding-bottom: 1vh;
+  }
+
+  div.projects div.project-container .project-info .project-title a {
+      font-size: 18px;
+  }
+
+  div.projects div.project-container .project-info p {
+      font-size: 15px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  div.project-page h3 {
+      font-size: 18px;
+  }
+
+  div.projects {
+      grid-template-columns: 1fr 1fr 1fr;
+      -moz-column-gap: 2.5vw;
+      column-gap: 2.5vw;
+      row-gap: 1.5vh;
+      padding-bottom: 2vh;
+  }
+
+  div.projects div.project-container .project-info .project-title a {
+      font-size: 18px;
+  }
+
+  div.projects div.project-container .project-info p {
+      font-size: 15px;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  div.project-page h3 {
+      font-size: 24px;
+  }
+
+  div.projects {
+      grid-template-columns: 1fr 1fr 1fr;
+      -moz-column-gap: 3vw;
+      column-gap: 3vw;
+      row-gap: 1.5vh;
+      padding-bottom: 2vh;
+  }
+
+  div.projects div.project-container .project-info .project-title a {
+      font-size: 20px;
+  }
+
+  div.projects div.project-container .project-info p {
+      font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 1900px) {
+  div.projects {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      -moz-column-gap: 1.5vw;
+      column-gap: 1.5vw;
+      row-gap: 1.5vh;
+      padding-bottom: 2vh;
+  }
+
+  div.projects div.project-container .project-info .project-title a {
+      font-size: 24px;
+  }
+
+  div.projects div.project-container .project-info p {
+      font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 2400px) {
+  div.projects {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      -moz-column-gap: 1vw;
+      column-gap: 1vw;
+      row-gap: 1.5vh;
+      padding-bottom: 2vh;
+  }
+
+  div.projects div.project-container .project-info .project-title a {
+      font-size: 24px;
+  }
+
+  div.projects div.project-container .project-info p {
+      font-size: 18px;
+  }
+}
+
+div.project-page h3 {
+  padding-top: 0;
+  font-style: italic;
+  letter-spacing: 1px;
+  font-size: 17px;
+  font-weight: 700;
+  font-family: "Athletics", serif;
+}
+
+div.project-block {
+  padding: 1.5vh 0 0.5vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 1vh;
+}
+
+div.project-block div.project-container .project-cover {
+  background-size: 72% auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 6px;
+  padding-top: 68%;
+}
+
+div.project-block div.project-container .project-cover:hover {
+  box-shadow: 0px 0px 40px 10px rgba(0, 0, 0, 0.15);
+  transition: all 0.6s ease-in-out;
+  transform: scale(1.01, 1.01) rotate(0.0001deg);
+}
+
+div.project-block div.project-container .project-cover:hover::after {
+  opacity: 1;
+}
+
+div.project-block div.project-container .project-cover::after {
+  box-shadow: 0px 0px 40px 10px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  transition: all 0.6s cease-in-out;
+}
+
+div.project-block div.project-container .project-info {
+  padding: 10px 0px 25px;
+}
+
+div.project-block div.project-container .project-info .project-title {
+  padding: 0;
+}
+
+div.project-block div.project-container .project-info .project-title a {
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: 700;
+  font-family: "Athletics", serif;
+}
+
+div.project-block div.project-container .project-info .project-title a:hover {
+  text-decoration: underline;
+}
+
+div.project-block div.project-container .project-info p {
+  line-height: 1.2;
+  font-size: 15px;
+  font-weight: 500;
+  font-family: "Athletics", sans-serif;
+}
+
+@media screen and (min-width: 769px) {
+  div.project-page h3 {
+      font-size: 17px;
+  }
+
+  div.project-block {
+      grid-template-columns: 1fr 1fr;
+      -moz-column-gap: 5vw;
+      column-gap: 5vw;
+      row-gap: 2vh;
+      padding-bottom: 1vh;
+  }
+
+  div.project-block div.project-container .project-info .project-title a {
+      font-size: 17px;
+      font-weight: 700;
+  }
+
+  div.project-block div.project-container .project-info p {
+      font-size: 15px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  div.project-page h3 {
+      font-size: 18px;
+  }
+
+  div.project-block {
+      grid-template-columns: 1fr 1fr 1fr;
+      -moz-column-gap: 2.5vw;
+      column-gap: 2.5vw;
+      row-gap: 2vh;
+      padding-bottom: 1vh;
+  }
+
+  div.project-block div.project-container .project-info .project-title a {
+      font-size: 18px;
+      font-weight: 700;
+  }
+
+  div.project-block div.project-container .project-info p {
+      font-size: 15px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  div.project-page h3 {
+      font-size: 18px;
+  }
+
+  div.project-block {
+      grid-template-columns: 1fr 1fr 1fr;
+      -moz-column-gap: 2.5vw;
+      column-gap: 2.5vw;
+      row-gap: 1.5vh;
+      padding-bottom: 2vh;
+  }
+
+  div.project-block div.project-container .project-info .project-title a {
+      font-size: 18px;
+      font-weight: 700;
+  }
+
+  div.project-block div.project-container .project-info p {
+      font-size: 15px;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  div.project-page h3 {
+      font-size: 24px;
+  }
+
+  div.project-block {
+      grid-template-columns: 1fr 1fr 1fr;
+      -moz-column-gap: 3vw;
+      column-gap: 3vw;
+      row-gap: 1.5vh;
+      padding-bottom: 2vh;
+  }
+
+  div.project-block div.project-container .project-info .project-title a {
+      font-size: 20px;
+      font-weight: 700;
+  }
+
+  div.project-block div.project-container .project-info p {
+      font-size: 17px;
+  }
+}
+
+@media screen and (min-width: 1900px) {
+  div.project-block {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      -moz-column-gap: 1.5vw;
+      column-gap: 1.5vw;
+      row-gap: 1.5vh;
+      padding-bottom: 2vh;
+  }
+
+  div.project-block div.project-container .project-info .project-title a {
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  div.project-block div.project-container .project-info p {
+      font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 2400px) {
+  div.project-block {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      -moz-column-gap: 1vw;
+      column-gap: 1vw;
+      row-gap: 1.5vh;
+      padding-bottom: 2vh;
+  }
+
+  div.project-block div.project-container .project-info .project-title a {
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  div.project-block div.project-container .project-info p {
+      font-size: 18px;
+  }
+}
+
+
+
+/* Publications */ 
+div.papers {
+  padding-bottom: 2vh;
+}
+div.papers .paper-container {
+  padding: 0.5vh 0px;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+}
+div.papers .paper-container .paper-conference p {
+  font-family: Athletics;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #353535;
+  line-height: 1.4;
+}
+div.papers .paper-container .paper-info p {
+  font-size: 15px;
+  line-height: 1.4;
+  margin: 0;
+}
+div.papers .paper-container .paper-info p b {
+  font-weight: 700;
+}
+div.papers .paper-container .paper-info a {
+  text-decoration: none;
+}
+div.papers .paper-container .paper-info a:hover {
+  opacity: 0.8;
+}
+div.papers .paper-container .paper-info a:active {
+  opacity: 0.5;
+}
+@media screen and (min-width: 769px) {
+  div.papers {
+    padding-bottom: 4vh;
+  }
+  div.papers .paper-container {
+    padding: 0.5vh 0px;
+    grid-template-columns: 1fr;
+  }
+  div.papers .paper-container .paper-conference p {
+    line-height: 1.6;
+    font-size: 15px;
+    letter-spacing: 1px;
+  }
+  div.papers .paper-container .paper-info p {
+    font-size: 16px;
+  }
+}
+@media screen and (min-width: 992px) {
+  div.papers {
+    padding-bottom: 4vh;
+  }
+  div.papers .paper-container {
+    padding: 0.5vh 0px;
+    grid-template-columns: 1fr;
+  }
+  div.papers .paper-container .paper-conference p {
+    line-height: 1.6;
+    font-size: 15px;
+    letter-spacing: 1px;
+  }
+  div.papers .paper-container .paper-info p {
+    font-size: 16px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  div.papers {
+    padding-bottom: 4vh;
+  }
+  div.papers .paper-container {
+    padding: 0.5vh 0px;
+    grid-template-columns: 1fr 4fr;
+  }
+  div.papers .paper-container .paper-conference p {
+    font-size: 15px;
+    letter-spacing: 1px;
+  }
+  div.papers .paper-container .paper-info p {
+    font-size: 17px;
+  }
+}
+@media screen and (min-width: 1600px) {
+  div.papers {
+    padding-bottom: 4vh;
+  }
+  div.papers .paper-container {
+    padding: 0.5vh 0px;
+    grid-template-columns: 1fr 4fr;
+  }
+  div.papers .paper-container .paper-conference p {
+    font-size: 17px;
+    letter-spacing: 1px;
+  }
+  div.papers .paper-container .paper-info p {
+    font-size: 17px;
+  }
+}
+@media screen and (min-width: 2400px) {
+  div.papers {
+    padding-bottom: 4vh;
+  }
+  div.papers .paper-container {
+    padding: 0.5vh 0px;
+    grid-template-columns: 1fr 4fr;
+  }
+  div.papers .paper-container .paper-conference p {
+    font-size: 18px;
+    letter-spacing: 1px;
+  }
+  div.papers .paper-container .paper-info p {
+    font-size: 20px;
+  }
 }
