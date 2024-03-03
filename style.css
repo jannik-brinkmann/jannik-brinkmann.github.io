@@ -445,7 +445,7 @@ div.nav-bar .social .icon img {
 @media screen and (max-width: 769px) {
   #introduction {
     padding-top: calc(5vh + 27px);
-    padding-bottom: 2vh
+    padding-bottom: 3vh
   }
 
   div.nav-bar {
@@ -576,9 +576,14 @@ span.info {
   font-size: 85%;
 }
 
-
-
 /* Page Title */
+@media screen and (max-width: 769px) {
+  div.page-title h1 {
+    padding-top: 3vh;
+    padding-bottom: 1vh;
+  }
+}
+
 @media screen and (min-width: 769px) {
   div.page-title h1 {
     padding-top: 3vh;
