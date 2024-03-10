@@ -9,7 +9,7 @@
 
 @font-face {
     font-family: "Athletics";
-    src: url("https://jannik-brinkmann.github.io/fonts/Athletics-BoldItalic.woff2") format("woff2");
+    src: url("https://jannik-brinkmann.github.io/fonts/Athletics-Italic.woff2") format("woff2");
     font-weight: 700;
     font-style: italic;
     font-display: swap;
@@ -813,7 +813,7 @@ div.project-block div.project-container .project-info .project-title {
 div.project-block div.project-container .project-info .project-title a {
   text-decoration: none;
   font-size: 17px;
-  font-weight: 700;
+  font-weight: 600;
   font-family: "Athletics", serif;
 }
 
@@ -843,7 +843,7 @@ div.project-block div.project-container .project-info p {
 
   div.project-block div.project-container .project-info .project-title a {
       font-size: 17px;
-      font-weight: 700;
+      font-weight: 600;
   }
 
   div.project-block div.project-container .project-info p {
@@ -866,7 +866,7 @@ div.project-block div.project-container .project-info p {
 
   div.project-block div.project-container .project-info .project-title a {
       font-size: 18px;
-      font-weight: 700;
+      font-weight: 600;
   }
 
   div.project-block div.project-container .project-info p {
@@ -889,7 +889,7 @@ div.project-block div.project-container .project-info p {
 
   div.project-block div.project-container .project-info .project-title a {
       font-size: 18px;
-      font-weight: 700;
+      font-weight: 600;
   }
 
   div.project-block div.project-container .project-info p {
@@ -912,7 +912,7 @@ div.project-block div.project-container .project-info p {
 
   div.project-block div.project-container .project-info .project-title a {
       font-size: 20px;
-      font-weight: 700;
+      font-weight: 600;
   }
 
   div.project-block div.project-container .project-info p {
@@ -931,7 +931,7 @@ div.project-block div.project-container .project-info p {
 
   div.project-block div.project-container .project-info .project-title a {
     font-size: 20px;
-    font-weight: 700;
+    font-weight: 600;
   }
 
   div.project-block div.project-container .project-info p {
@@ -950,7 +950,7 @@ div.project-block div.project-container .project-info p {
 
   div.project-block div.project-container .project-info .project-title a {
     font-size: 20px;
-    font-weight: 700;
+    font-weight: 600;
   }
 
   div.project-block div.project-container .project-info p {
@@ -972,8 +972,8 @@ div.papers .paper-container {
 }
 div.papers .paper-container .paper-conference p {
   font-family: Athletics;
-  font-size: 14px;
-  font-weight: 800;
+  font-size: 15px;
+  font-weight: 600;
   letter-spacing: 1px;
   color: #353535;
   line-height: 1.4;
@@ -1005,7 +1005,7 @@ div.papers .paper-container .paper-info a:active {
   }
   div.papers .paper-container .paper-conference p {
     line-height: 1.6;
-    font-size: 15px;
+    font-size: 16px;
     letter-spacing: 1px;
   }
   div.papers .paper-container .paper-info p {
@@ -1022,7 +1022,7 @@ div.papers .paper-container .paper-info a:active {
   }
   div.papers .paper-container .paper-conference p {
     line-height: 1.6;
-    font-size: 15px;
+    font-size: 16px;
     letter-spacing: 1px;
   }
   div.papers .paper-container .paper-info p {
@@ -1035,10 +1035,10 @@ div.papers .paper-container .paper-info a:active {
   }
   div.papers .paper-container {
     padding: 0.5vh 0px;
-    grid-template-columns: 1fr 4fr;
+    grid-template-columns: 1fr;
   }
   div.papers .paper-container .paper-conference p {
-    font-size: 15px;
+    font-size: 17px;
     letter-spacing: 1px;
   }
   div.papers .paper-container .paper-info p {
@@ -1051,7 +1051,7 @@ div.papers .paper-container .paper-info a:active {
   }
   div.papers .paper-container {
     padding: 0.5vh 0px;
-    grid-template-columns: 1fr 4fr;
+    grid-template-columns: 1fr;
   }
   div.papers .paper-container .paper-conference p {
     font-size: 17px;
@@ -1067,13 +1067,88 @@ div.papers .paper-container .paper-info a:active {
   }
   div.papers .paper-container {
     padding: 0.5vh 0px;
-    grid-template-columns: 1fr 4fr;
+    grid-template-columns: 1fr;
   }
   div.papers .paper-container .paper-conference p {
-    font-size: 18px;
+    font-size: 20px;
     letter-spacing: 1px;
   }
   div.papers .paper-container .paper-info p {
     font-size: 20px;
+  }
+}
+
+div.section-title {
+  padding: 1vh 0px;
+}
+
+div.section-title h2, div.section-title a {
+  padding: 0;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  font-family: "Athletics", serif !important;
+  font-weight: bold !important;
+  font-size: 15px !important;
+}
+
+div.section-title a {
+  cursor: pointer;
+}
+
+div.section-title a.active {
+  text-decoration: underline;
+}
+
+div.section-title a.notactive {
+  text-decoration: none;
+}
+
+@media screen and (min-width: 769px) {
+  div.section-title {
+      padding: 1vh 0px;
+  }
+
+  div.section-title h2, div.section-title a {
+      font-size: 16px !important;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  div.section-title {
+      padding: 1vh 0px;
+  }
+
+  div.section-title h2, div.section-title a {
+      font-size: 16px !important;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  div.section-title {
+      padding: 1vh 0px;
+  }
+
+  div.section-title h2, div.section-title a {
+      font-size: 17px !important;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  div.section-title {
+      padding: 1vh 0px;
+  }
+
+  div.section-title h2, div.section-title a {
+      font-size: 18px !important;
+  }
+}
+
+@media screen and (min-width: 2400px) {
+  div.section-title {
+      padding: 1vh 0px;
+  }
+
+  div.section-title h2, div.section-title a {
+      font-size: 20px !important;
   }
 }
