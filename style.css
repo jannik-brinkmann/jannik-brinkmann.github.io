@@ -47,7 +47,6 @@
     font-display: swap;
 }
 
-
 /* Main Container and Basics */
 a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, p, pre, q, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
   margin: 0;
@@ -72,15 +71,16 @@ body {
 h1, h2, h3, h4, h5, h6, p, a, code, pre, ol, u, ul, li {
   color: #353535;
   line-height: 1.6;
-  font-weight: 300;
+  font-weight: 500;
   font-size: 18px;
-  font-family: "Athletics", serif;
+  font-family: "Nunito", serif;
 }
 
 a {
   text-underline-offset: 1px;
   color: inherit;
   font-family: inherit;
+  text-decoration: none;
 }
 
 a:hover {
@@ -137,7 +137,6 @@ svg {
 .container {
   padding-right: calc(6vw - (100vw - 100%));
   padding-left: 6vw;
-  flex: 1;
 }
 
 ::-moz-selection {
@@ -152,7 +151,7 @@ svg {
 
 @media screen and (max-width: 769px) {
   a, p, td, th, tr, code, pre, ol, u, ul, li, div {
-    font-size: 15px;
+    font-size: 16px;
   }
 
   h1 {
@@ -201,7 +200,7 @@ svg {
 
   h1.title {
     padding: 0 0 1vh;
-    font-weight: 300;
+    font-weight: 400;
     font-size: 30px;
   }
 
@@ -239,7 +238,7 @@ svg {
 
   h1.title {
     padding: 0 0 1vh;
-    font-weight: 300;
+    font-weight: 400;
     font-size: 30px;
   }
 
@@ -265,7 +264,7 @@ svg {
   }
 
   a, p, td, th, tr, code, pre, ol, u, ul, li, div {
-    font-size: 17px;
+    font-size: 16px;
   }
 
   h1 {
@@ -277,7 +276,7 @@ svg {
 
   h1.title {
     padding: 0 0 1vh;
-    font-weight: 300;
+    font-weight: 400;
     font-size: 36px;
   }
 
@@ -315,8 +314,8 @@ svg {
 
   h1.title {
     padding: 0 0 1vh;
-    font-weight: 300;
-    font-size: 42px;
+    font-weight: 400;
+    font-size: 38px;
   }
 
   h2 {
@@ -353,8 +352,8 @@ svg {
 
   h1.title {
     padding: 0 0 1vh;
-    font-weight: 300;
-    font-size: 42px;
+    font-weight: 400;
+    font-size: 38px;
   }
 
   h2 {
@@ -410,17 +409,7 @@ div.nav-bar .menu a {
   font-weight: 500;
   color: #353535;
   font-size: 24px;
-  font-family: "Athletics", sans-serif;
-}
-
-div.nav-bar .menu a:hover {
-  text-decoration: underline;
-  color: inherit;
-}
-
-div.nav-bar .menu a.active {
-  text-decoration: underline;
-  color: inherit;
+  font-family: "Nunito", sans-serif;
 }
 
 div.nav-bar .social {
@@ -445,7 +434,7 @@ div.nav-bar .social .icon img {
 @media screen and (max-width: 769px) {
   #introduction {
     padding-top: calc(5vh + 27px);
-    padding-bottom: 3vh
+    padding-bottom: 3vh;
   }
 
   div.nav-bar {
@@ -567,7 +556,6 @@ div.nav-bar .social .icon img {
 }
 
 
-
 /* Introduction */
 span.info {
   letter-spacing: 1px;
@@ -607,8 +595,14 @@ span.info {
 
 
 /* Projects */
+div.project-container {
+  padding: 20px;
+  border: 1px solid #dadce0;
+  border-radius: 10px;
+}
+
 div.projects div.project-container .project-info {
-  padding: 10px 0px 10px;
+  padding: 10px 0px 10px 0px;
 }
 
 div.projects div.project-container .project-info .project-title {
@@ -621,7 +615,7 @@ div.projects div.project-container .project-info .project-title a {
   text-decoration: none;
   font-size: 17px;
   font-weight: 700;
-  font-family: "Athletics", serif;
+  font-family: "Nunito", serif;
 }
 
 div.projects div.project-container .project-info .project-title a:hover {
@@ -630,12 +624,51 @@ div.projects div.project-container .project-info .project-title a:hover {
 
 div.projects div.project-container .project-info p {
   line-height: 1.2;
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 500;
-  font-family: "Athletics", sans-serif;
+  font-family: "Nunito", sans-serif;
 }
+
 .project-intro {
-  margin: 0;
+  margin: 0; 
+}
+
+.project-intro a:hover {
+  text-decoration: underline;
+  color: inherit;
+}
+
+.project-tag-container {
+  margin: 12px 0px 12px 0px;
+}
+
+.project-tag {
+  padding: 2px 6px 2px 6px;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: "Nunito", sans-serif;
+  border-radius: 3px;
+  display: inline-block;
+}
+
+.publication-date {
+  background-color: rgba(16,37,64,0.1);
+}
+
+.paper {
+  background-color: rgba(66, 133, 244, 0.4);
+}
+
+.post {
+  background-color: rgba(52, 168, 83,0.4);
+}
+
+.conference {
+  background-color: rgba(251, 188, 5, 0.4);
+}
+
+.link {
+  text-decoration: underline;
 }
 
 @media screen and (min-width: 769px) {
@@ -666,7 +699,7 @@ div.projects div.project-container .project-info p {
   }
 
   div.projects {
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
       -moz-column-gap: 2.5vw;
       column-gap: 2.5vw;
       row-gap: 2vh;
@@ -674,7 +707,7 @@ div.projects div.project-container .project-info p {
   }
 
   div.projects div.project-container .project-info .project-title a {
-      font-size: 18px;
+      font-size: 15px;
   }
 
   div.projects div.project-container .project-info p {
@@ -696,7 +729,7 @@ div.projects div.project-container .project-info p {
   }
 
   div.projects div.project-container .project-info .project-title a {
-      font-size: 18px;
+      font-size: 15px;
   }
 
   div.projects div.project-container .project-info p {
@@ -718,7 +751,7 @@ div.projects div.project-container .project-info p {
   }
 
   div.projects div.project-container .project-info .project-title a {
-      font-size: 20px;
+      font-size: 16px;
   }
 
   div.projects div.project-container .project-info p {
@@ -736,7 +769,7 @@ div.projects div.project-container .project-info p {
   }
 
   div.projects div.project-container .project-info .project-title a {
-      font-size: 24px;
+      font-size: 16px;
   }
 
   div.projects div.project-container .project-info p {
@@ -754,7 +787,7 @@ div.projects div.project-container .project-info p {
   }
 
   div.projects div.project-container .project-info .project-title a {
-      font-size: 24px;
+      font-size: 18px;
   }
 
   div.projects div.project-container .project-info p {
@@ -768,7 +801,7 @@ div.project-page h3 {
   letter-spacing: 1px;
   font-size: 17px;
   font-weight: 700;
-  font-family: "Athletics", serif;
+  font-family: "Nunito", serif;
 }
 
 div.project-block {
@@ -779,21 +812,11 @@ div.project-block {
 }
 
 div.project-block div.project-container .project-cover {
-  background-size: 72% auto;
+  background-size: 78% auto;
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 6px;
   padding-top: 68%;
-}
-
-div.project-block div.project-container .project-cover:hover {
-  box-shadow: 0px 0px 40px 10px rgba(0, 0, 0, 0.15);
-  transition: all 0.6s ease-in-out;
-  transform: scale(1.01, 1.01) rotate(0.0001deg);
-}
-
-div.project-block div.project-container .project-cover:hover::after {
-  opacity: 1;
 }
 
 div.project-block div.project-container .project-cover::after {
@@ -803,7 +826,7 @@ div.project-block div.project-container .project-cover::after {
 }
 
 div.project-block div.project-container .project-info {
-  padding: 10px 0px 25px;
+  padding: 0px 0px 0px;
 }
 
 div.project-block div.project-container .project-info .project-title {
@@ -814,7 +837,7 @@ div.project-block div.project-container .project-info .project-title a {
   text-decoration: none;
   font-size: 17px;
   font-weight: 600;
-  font-family: "Athletics", serif;
+  font-family: "Nunito", serif;
 }
 
 div.project-block div.project-container .project-info .project-title a:hover {
@@ -825,7 +848,7 @@ div.project-block div.project-container .project-info p {
   line-height: 1.2;
   font-size: 15px;
   font-weight: 500;
-  font-family: "Athletics", sans-serif;
+  font-family: "Nunito", sans-serif;
 }
 
 @media screen and (min-width: 769px) {
@@ -834,7 +857,7 @@ div.project-block div.project-container .project-info p {
   }
 
   div.project-block {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
       -moz-column-gap: 5vw;
       column-gap: 5vw;
       row-gap: 2vh;
@@ -922,7 +945,7 @@ div.project-block div.project-container .project-info p {
 
 @media screen and (min-width: 1900px) {
   div.project-block {
-      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
       -moz-column-gap: 1.5vw;
       column-gap: 1.5vw;
       row-gap: 1.5vh;
@@ -971,7 +994,7 @@ div.papers .paper-container {
   align-items: center;
 }
 div.papers .paper-container .paper-conference p {
-  font-family: Athletics;
+  font-family: "Nunito";
   font-size: 15px;
   font-weight: 600;
   letter-spacing: 1px;
@@ -1086,7 +1109,7 @@ div.section-title h2, div.section-title a {
   padding: 0;
   text-transform: uppercase !important;
   letter-spacing: 2px !important;
-  font-family: "Athletics", serif !important;
+  font-family: "Nunito", serif !important;
   font-weight: bold !important;
   font-size: 15px !important;
 }
