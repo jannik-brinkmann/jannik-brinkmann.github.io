@@ -161,17 +161,13 @@ h1 {
 /* Media query for screens smaller than 896px */
 @media (max-width: 600px) {
   body {
-    margin: 28px;
+    margin: 0 28px;
   }
 
   .publication-cards {
     grid-template-columns: repeat(1, 1fr);
   }
 
-  .container {
-    flex-direction: column;
-    padding: 24px 0; /* Slightly less padding on smaller screens */
-  }
 
   .h-image {
     order: -1;
@@ -179,9 +175,6 @@ h1 {
     margin-bottom: 30px; /* Add space between image and text on mobile */
   }
 
-  .outer-box {
-    padding-top: 75%; /* Adjust aspect ratio for mobile */
-  }
 
   .inner-image {
     width: 70%;
@@ -193,6 +186,21 @@ h1 {
     padding: 0 20px;
   }
 }
+
+/* @media (max-width: 600px) {
+  .publication-item {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .publication-date {
+    margin-bottom: 8px;
+  }
+
+  .container {
+    padding: 0;
+  }
+} */
 
 .social-buttons {
   display: flex;
@@ -332,20 +340,7 @@ a {
   display: contents;
 }
 
-@media (max-width: 600px) {
-  .publication-item {
-    grid-template-columns: 1fr;
-    gap: 8px;
-  }
 
-  .publication-date {
-    margin-bottom: 8px;
-  }
-
-  .container {
-    padding: 0;
-  }
-}
 
 .paper-box {
   width: 100%;
