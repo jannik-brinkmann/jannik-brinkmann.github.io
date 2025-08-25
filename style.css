@@ -200,6 +200,14 @@ b {
   .container {
     margin-top: 20px !important; /* Reduce from 32px to 20px */
   }
+
+  .social-links {
+    gap: 18px;
+  }
+
+  .social-links a:not(:last-child)::after {
+    right: -11px;
+  }
 }
 
 /* Media query for screens smaller than 600px */
@@ -229,6 +237,14 @@ b {
 
   .publications {
     padding: 0 20px;
+  }
+
+  .social-links {
+    gap: 12px;
+  }
+
+  .social-links a:not(:last-child)::after {
+    right: -8px;
   }
 }
 
