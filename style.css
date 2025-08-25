@@ -202,11 +202,11 @@ b {
   }
 
   .social-links {
-    gap: 18px;
+    gap: 14px; /* Reduced from 18px */
   }
 
   .social-links a:not(:last-child)::after {
-    right: -11px;
+    right: -9px; /* Reduced from -11px */
   }
 }
 
@@ -240,11 +240,11 @@ b {
   }
 
   .social-links {
-    gap: 12px;
+    gap: 10px; /* Reduced from 12px */
   }
 
   .social-links a:not(:last-child)::after {
-    right: -8px;
+    right: -6px; /* Reduced from -8px */
   }
 }
 
@@ -400,7 +400,7 @@ a:hover {
 
 .social-links {
   display: flex;
-  gap: 24px;
+  gap: 18px; /* Reduced from 24px */
   align-items: center;
   margin-bottom: 0px;
   text-decoration: underline;
@@ -424,7 +424,7 @@ a:hover {
 .social-links a:not(:last-child)::after {
   content: "·";
   position: absolute;
-  right: -15px;
+  right: -11px; /* Reduced from -15px */
   color: black;
   font-weight: 400;
   text-decoration: none;
