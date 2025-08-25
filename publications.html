@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Fira+Code:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Source+Code+Pro:ital,wght@0,300..600;1,300..600&display=swap" rel="stylesheet">
+    <title>Publications - Jannik Brinkmann</title>
+    
+    <link rel="stylesheet" type="text/css" href="style.css">
+    
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div class="container">
+        <h1>Publications</h1>
+        
+        <div class="publications-description">
+            For a complete list of publications, see
+            <a class="link" href="https://scholar.google.com/citations?hl=en&user=YtdTeaMAAAAJ&view_op=list_works">Google Scholar</a> or 
+            <a class="link" href="https://www.semanticscholar.org/author/Jannik-Brinkmann/2228224955">Semantic Scholar</a>.
+        </div>
+        
+        <div id="publications-container">
+            <!-- Publications will be loaded here -->
+        </div>
+    </div>
+
+    <script>
+        function createPublicationItem(pub) {
+            const li = document.createElement('li');
+            li.className = 'publication-item';
+            
+            // Create authors string with year - write out ALL authors, no "et al"
+            const authorsHtml = pub.authors.map(author => {
+                let authorName = author.name;
+                if (author.note) {
+                    authorName += `<sup>${author.note}</sup>`;
+                }
+                if (author.highlight) {
+                    return `<span class="author-highlight">${authorName}</span>`;
+                }
+                return authorName;
+            }).join(', ');
+            
+            // Add year after authors
+            const authorsWithYear = `${authorsHtml} (${pub.year})`;
+            
+            // Create venue string (without highlights)
+            let venueHtml = `${pub.venue}`;
+            
+            // Find arXiv link for the title
+            const arxivLink = pub.links.find(link => 
+                link.url.includes('arxiv.org') || link.type.toLowerCase() === 'paper' || link.type.toLowerCase() === 'arxiv'
+            );
+            
+            // Create title with link (but no separate link buttons)
+            const titleHtml = arxivLink 
+                ? `<a href="${arxivLink.url}" class="publication-title-link">"${pub.title}"</a>`
+                : `"${pub.title}"`;
+            
+            // Create venue highlight on separate line if exists
+            const venueHighlightHtml = pub.venueHighlight 
+                ? `<div class="publication-highlight"><span class="paper-highlight">${pub.venueHighlight}</span></div>`
+                : '';
+            
+            li.innerHTML = `
+                <div class="publication-content">
+                    <span class="publication-authors">${authorsWithYear}.</span><span class="publication-title">${titleHtml}.</span><span class="publication-venue">${venueHtml}.</span>
+                    ${venueHighlightHtml}
+                </div>
+            `;
+            
+            return li;
+        }
+
+        async function loadPublications() {
+            try {
+                const response = await fetch('data/publications.json');
+                const data = await response.json();
+                
+                const container = document.getElementById('publications-container');
+                
+                // Add preprints section
+                if (data.preprints && data.preprints.length > 0) {
+                    const preprintsHeader = document.createElement('div');
+                    preprintsHeader.textContent = 'Preprints';
+                    preprintsHeader.style.fontWeight = '600';
+                    preprintsHeader.style.fontSize = '14px';
+                    preprintsHeader.style.marginTop = '16px';
+                    preprintsHeader.style.marginBottom = '6px';
+                    container.appendChild(preprintsHeader);
+                    
+                    const preprintsList = document.createElement('ul');
+                    preprintsList.className = 'publications-list';
+                    
+                    data.preprints.forEach(pub => {
+                        preprintsList.appendChild(createPublicationItem(pub));
+                    });
+                    
+                    container.appendChild(preprintsList);
+                }
+                
+                // Add conference publications section with year-based subsections
+                if (data.conference_publications && data.conference_publications.length > 0) {
+                    const conferenceHeader = document.createElement('div');
+                    conferenceHeader.textContent = 'Conference Publications';
+                    conferenceHeader.style.fontWeight = '600';
+                    conferenceHeader.style.fontSize = '14px';
+                    conferenceHeader.style.marginTop = '16px';
+                    conferenceHeader.style.marginBottom = '6px';
+                    container.appendChild(conferenceHeader);
+                    
+                    // Group publications by year
+                    const publicationsByYear = {};
+                    data.conference_publications.forEach(pub => {
+                        const year = pub.year;
+                        if (!publicationsByYear[year]) {
+                            publicationsByYear[year] = [];
+                        }
+                        publicationsByYear[year].push(pub);
+                    });
+                    
+                    // Sort years in descending order (most recent first)
+                    const sortedYears = Object.keys(publicationsByYear).sort((a, b) => b - a);
+                    
+                    // Create subsections for each year
+                    sortedYears.forEach(year => {
+                        const yearHeader = document.createElement('div');
+                        yearHeader.textContent = year;
+                        yearHeader.style.fontWeight = '600';
+                        yearHeader.style.fontSize = '13px';
+                        yearHeader.style.marginTop = '12px';
+                        yearHeader.style.marginBottom = '4px';
+                        yearHeader.style.color = '#666';
+                        container.appendChild(yearHeader);
+                        
+                        const yearList = document.createElement('ul');
+                        yearList.className = 'publications-list';
+                        yearList.style.marginBottom = '8px';
+                        
+                        publicationsByYear[year].forEach(pub => {
+                            yearList.appendChild(createPublicationItem(pub));
+                        });
+                        
+                        container.appendChild(yearList);
+                    });
+                }
+                
+            } catch (error) {
+                console.error('Error loading publications:', error);
+                document.getElementById('publications-container').innerHTML = 
+                    '<li>Error loading publications. Please try again later.</li>';
+            }
+        }
+        
+        // Load publications when the page loads
+        document.addEventListener('DOMContentLoaded', loadPublications);
+    </script>
+</body>
+</html>
