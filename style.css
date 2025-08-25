@@ -1,5 +1,11 @@
+:root {
+  --link-color: rgb(63, 63, 109);
+  --background-color: #faf9f5;
+}
+
+
 body {
-    font-family: Nunito Sans, sans-serif;
+    font-family: "EB Garamond", Palatino, "Book Antiqua", Georgia, serif;
     font-weight: 400;
     padding: 32px 0;
     display: flex;
@@ -7,16 +13,22 @@ body {
     align-items: center;
     min-height: 100vh;
     margin: 24px 72px;
-    line-height: 1.4;
-    
+    line-height: 1.6;
+    font-size: 16px;
+    background-color: var(--background-color);
+}
+
+sup {
+  font-size: 0.75em; /* Changed from xx-small to a more readable size */
+  vertical-align: super;
 }
 
 .container {
   display: flex;
   flex-direction: column;
-  max-width: 960px;
+  max-width: 640px;
   width: 100%;
-  font-size: 16px;
+  margin: 0 auto;
 }
 
 .header-container {
@@ -36,18 +48,28 @@ body {
 
 h1 {
   font-size: 1.2em;
-  font-weight: 600;
-  font-size: 20px;
-  margin-top: 18px;
-  margin-bottom: 18px;
+  font-weight: 400;
+  font-size: 24px;
+  margin-top: 24px;
+  margin-bottom: 8px;
 }
 
 h2 {
   font-size: 1.2em;
-  font-weight: 600;
   font-size: 20px;
   margin-top: 18px;
   margin-bottom: 6px;
+}
+
+h3 {
+  font-size: 16px;
+  font-weight: 400;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+b {
+  font-weight: 600;
 }
 
 /* Header */ 
@@ -64,7 +86,6 @@ h2 {
 
 .h-introduction {
   flex: 1;
-  padding-bottom: 18px;
 }
 
 .h-introduction h1 {
@@ -72,10 +93,7 @@ h2 {
   margin-bottom: 20px;
 }
 
-.h-introduction p {
-  margin-bottom: 6px;
-  line-height: 1.6;
-}
+
 
 .button {
     display: inline-flex;
@@ -90,8 +108,6 @@ h2 {
     content: "→";
     margin-left: 10px;
 }
-
-sup { vertical-align: top; }
 
 
 
@@ -111,7 +127,7 @@ sup { vertical-align: top; }
   text-decoration: none;
   color: inherit;
   display: block;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease;
   border-width: 1px;
   border-style: solid;
   border-color: rgba(32,33,36,0.15);
@@ -137,7 +153,7 @@ sup { vertical-align: top; }
 }
 
 .publication-card-content {
-  padding: 20px;
+  padding: 10px;
   height: calc(100% - 180px);
   display: flex;
   flex-direction: column;
@@ -146,15 +162,12 @@ sup { vertical-align: top; }
 }
 
 .pub-title {
-  font-size: 18px;
   font-weight: 400;
-  line-height: 1.4;
   margin: 0 0 0 0; /* Add some bottom margin */
 }
 
 .pub-venue {
   margin: 0;
-  font-size: 14px;
   font-weight: 400;
   margin-bottom: 14px;
   margin-top: auto; /* This pushes the venue to the bottom */
@@ -183,9 +196,13 @@ sup { vertical-align: top; }
   .publication-cards {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .container {
+    margin-top: 20px !important; /* Reduce from 32px to 20px */
+  }
 }
 
-/* Media query for screens smaller than 896px */
+/* Media query for screens smaller than 600px */
 @media (max-width: 600px) {
   body {
     margin: 0 28px;
@@ -195,6 +212,9 @@ sup { vertical-align: top; }
     grid-template-columns: repeat(1, 1fr);
   }
 
+  .container {
+    margin-top: 12px !important; /* Further reduce to 12px on very small screens */
+  }
 
   .h-image {
     order: -1;
@@ -202,12 +222,10 @@ sup { vertical-align: top; }
     margin-bottom: 30px; /* Add space between image and text on mobile */
   }
 
-
   .inner-image {
     width: 70%;
     height: 70%;
   }
-
 
   .publications {
     padding: 0 20px;
@@ -251,7 +269,6 @@ sup { vertical-align: top; }
 }
 
 .research-label {
-  font-size: 14px;
   color: #2563eb;
   font-weight: 500;
   margin-bottom: 12px;
@@ -272,7 +289,6 @@ sup { vertical-align: top; }
 
 .publication-count {
   color: #666;
-  font-size: 14px;
 }
 
 .publications-list {
@@ -282,10 +298,10 @@ sup { vertical-align: top; }
 }
 
 .publication-item {
-  display: list-item; /* This ensures the item behaves like a list item */
-  padding: 12px 0;
+  display: list-item;
+  padding: 4px 0;
   position: relative;
-  gap: 20px;
+  line-height: 1.5;
 }
 
 .publications-description {
@@ -293,7 +309,6 @@ sup { vertical-align: top; }
 }
 
 .publication-date {
-  font-size: 16px;
   color: rgb(95, 99, 104);;
 }
 
@@ -301,57 +316,114 @@ sup { vertical-align: top; }
   position: relative;
 }
 
-.publication-title {
+.publication-authors {
   font-size: 16px;
-  font-weight: 600;
-  transition: color 0.2s;
+  display: inline;
+}
+
+.publication-title {
+  font-weight: 400;
+  display: inline;
+  margin-left: 4px;
+  font-size: 16px;
+}
+
+.publication-title-link {
+  color: var(--link-color);
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.publication-title-link:hover {
+  text-decoration: underline;
+}
+
+.publication-venue {
+  font-size: 16px;
+  display: inline;
+  margin-left: 4px;
+}
+
+.publication-links {
+  display: block;
+  margin-top: 4px;
+  margin-left: 0;
+}
+
+.publication-links a {
+  display: inline;
+  margin-right: 12px;
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+.publication-links a:last-child {
+  margin-right: 0;
 }
 
 .publication-list {
   margin: 0;
 }
 
-
-
 .highlighted-text {
-  color: #4c6ee6;
+  color: #0a2dac;
   font-weight: 600;
 }
 
-
 a {
-  font-size: 16px;
-  color: #c8112e;
-  text-decoration: none;
+  color: var(--link-color);
+  font-weight: 400;
+  text-decoration: underline;
   text-underline-offset: 2px;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 .social-links {
   display: flex;
-  gap: 24px; /* Space between links */
+  gap: 24px;
   align-items: center;
-  margin-bottom: 8px;
+  margin-bottom: 0px;
+  text-decoration: underline;
+  margin-top: 12px;
 }
 
 .social-links a {
-  color: black;
-  font-weight: 500;
+  color: var(--link-color);
+  font-weight: 300;
   text-decoration: none;
 }
 
 .social-links a:hover {
-  color: #c8112e;
+  text-decoration: underline;
+}
+
+.social-links a:not(:last-child) {
+  position: relative;
+}
+
+.social-links a:not(:last-child)::after {
+  content: "·";
+  position: absolute;
+  right: -15px;
+  color: black;
+  font-weight: 400;
+  text-decoration: none;
+  pointer-events: none;
 }
 
 .publications-links {
   display: flex;
-  gap: 24px; /* Space between links */
+  gap: 24px;
   align-items: center;
   margin-bottom: 8px;
 }
 
 .publications-links a {
-  color: #c8112e;
+  color: var(--link-color);
   font-weight: 500;
   text-decoration: none;
 }
@@ -364,16 +436,7 @@ a {
 .paper-links a {
   text-decoration: none;
   margin-bottom: 10px;
-  
 } 
-
-.publication-authors {
-  font-size: 16px;
-}
-
-.publication-venue {
-  font-size: 16px;
-}
 
 .publication-link {
   text-decoration: none;
@@ -381,86 +444,115 @@ a {
   display: contents;
 }
 
-
-
-.publication-links a {
-  display: inline-block;
-  margin-right: 12px;
-  font-size: 14x;
-  color: #c8112e;
-  text-decoration: none;
-}
-
-.publication-links a:last-child {
-  margin-right: 0;
-}
-
 .author-highlight {
+  font-weight: 500;
   text-decoration: underline;
-  text-underline-offset: 2px;
+}
+
+.publication-highlight {
+  margin-top: 6px;
 }
 
 .paper-highlight {
-  color: #2d4cb9;
-  font-weight: 600;
+  background-color: #e3f2fd;
+  color: #1565c0;
+  font-weight: 500;
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 12px;
+  border: 1px solid #bbdefb;
+  margin-right: 8px;
 }
 
 .card-container {
   display: flex;
   flex-direction: column;
-  gap: 60px;
+  gap: 40px;
+  margin-top: 10px;
 }
 
 .card {
   display: flex;
   align-items: flex-start;
-  gap: 100px;
+  gap: 60px;
 }
 
 .image-wrapper {
-  flex: 4;
+  flex: 0 0 300px;
   min-width: 0;
 }
 
 .card-image {
   width: 100%;
-  aspect-ratio: 12/6;
+  aspect-ratio: 16/9;
   object-fit: cover;
-  border-radius: 12px;
-  transition: transform 0.2s ease-in-out;
-}
-
-.card-image:hover {
-  transform: scale(1.03);
+  border-radius: 8px;
 }
 
 .card-content {
-  flex: 6;
+  flex: 1;
   min-width: 0;
 }
 
-.card-title {
-  font-size: 18px;
-  font-weight: 400;
-  margin: 0 0 8px;
-  color: #333;
+.card-main-title {
+  font-weight: 600;
+  margin: 0 0 12px 0;
+  line-height: 1.3;
+}
+
+.card-subtitle {
+  font-size: 16px;
+  margin: 0 0 12px 0;
+  color: #666;
+  line-height: 1.4;
 }
 
 .card-description {
-  font-size: 14px;
+  font-size: 16px;
   color: #666;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.publication-authors {
+  font-size: 16px;
+  margin-bottom: 8px;
   line-height: 1.5;
 }
 
-.card-link {
-  margin-top: 10px;
-  font-size: 14px;
-  color: #e06666;
-  text-decoration: none;
+.publication-venue {
+  font-size: 16px;
+  margin-bottom: 12px;
 }
 
-.card-link:hover {
-  text-decoration: underline;
+.main-page-venue {
+  font-size: 16px;
+  margin-bottom: 12px;
+  margin-left: 0;
+}
+
+.publication-links {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.publication-button {
+  background-color: #e3f2fd;
+  color: #1565c0;
+  font-weight: 500;
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 12px;
+  border: 1px solid #bbdefb;
+  margin-right: 8px;
+}
+
+.publication-button:hover {
+  background-color: #e5e7eb;
+  color: #374151;
+  border-color: #9ca3af;
+  text-decoration: none;
 }
 
 
@@ -524,7 +616,6 @@ a {
 
 .paper-title {
   margin-bottom: 10px;
-  line-height: 1.3;
 }
 
 .paper-authors {
@@ -540,7 +631,7 @@ a {
 .link-item {
   display: flex;
   align-items: center;
-  color: #4a6ee0;
+  color: var(--link-color);
   text-decoration: none;
 }
 
@@ -560,7 +651,7 @@ a {
 .read-more {
   display: inline-flex;
   align-items: center;
-  color: #4a6ee0;
+  color: var(--link-color);
   text-decoration: none;
 }
 
@@ -568,7 +659,7 @@ a {
   margin: 4px 0;
 }
 
-/* Media query for narrow screens */
+/* Media query for narrow screens - make cards vertical */
 @media (max-width: 768px) {
   .section {
     flex-direction: column;
@@ -585,4 +676,306 @@ a {
   .section-content {
     width: 100%;
   }
+
+  .card-container {
+    gap: 32px;
+  }
+
+  .card {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .image-wrapper {
+    flex: none;
+    width: 100%;
+    order: -1;
+  }
+
+  .card-content {
+    flex: none;
+    width: 100%;
+  }
+
+  .card-main-title {
+    font-size: 16px;
+  }
+
+  .card-subtitle {
+    font-size: 16px;
+  }
+}
+
+.paper-cluster {
+  background-color: #f3f4f6;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-top: 2rem;
+}
+
+.paper-cluster h2 {
+  margin-top: 0;
+  font-weight: 600;
+}
+
+.paper-cluster p {
+  color: #333;
+}
+
+.cluster-paper-list {
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 0.5rem;
+}
+
+.cluster-paper-list li {
+  margin-bottom: 0.5rem;
+}
+
+.cluster-paper-list a {
+  color: var(--link-color);
+  text-decoration: underline;
+}
+
+
+.resident-card {
+  background: transparent;
+  border-radius: 0;
+  overflow: visible;
+}
+
+.resident-image-hoverable {
+  border-radius: 0.38 rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.resident-image-hoverable:hover {
+  transform: translateY(-4px);
+}
+
+.resident-image-placeholder {
+  width: 186px;
+  height: 186px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.38rem;
+  /* Background color will be set dynamically via JavaScript */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.resident-image-placeholder img {
+  /* width and height will now be set inline per card */
+  object-fit: contain; /* Changed from 'cover' to 'contain' to ensure full image is visible */
+  border-radius: 0.38rem;
+  image-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* When there's an image, it will cover the background */
+  max-width: 100%;  /* Ensure image doesn't exceed container width */
+  max-height: 100%; /* Ensure image doesn't exceed container height */
+}
+
+/* For cards without images, ensure the background color is visible */
+.resident-image-placeholder:not(:has(img)) {
+  /* This selector targets placeholders that don't contain images */
+  min-height: 186px;
+}
+
+/* Remove all the gradient background styles */
+/* Delete these sections:
+.resident-card:nth-child(1) .resident-image-placeholder {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.resident-card:nth-child(2) .resident-image-placeholder {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.resident-card:nth-child(3) .resident-image-placeholder {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.resident-card:nth-child(4) .resident-image-placeholder {
+  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+}
+*/
+
+/* Remove the overlay entirely */
+/* Delete this section:
+.resident-image-placeholder::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(1px);
+}
+*/
+
+.resident-card-content {
+  padding: 10px 0 0 0;
+  text-align: left;
+}
+
+.resident-card-title {
+  margin: 0 0 12px 0;
+  color: #111827;
+  display: flex;
+  align-items: flex-start;
+  font-family: Open Sans, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.resident-card-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.resident-card-subtitle {
+  font-size: 16px;
+  color: #6b7280;
+  margin: 0;
+  font-weight: 500;
+}
+
+.resident-card-date {
+  font-size: 16px;
+  color: #9ca3af;
+  margin: 0;
+}
+
+
+/* ONE ROW, FREE-SCROLLING, FIXED-WIDTH CARDS (no grid, no snap) */
+.resident-research-container {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+
+  /* scrolling */
+  overflow-x: auto;
+  overflow-y: visible;        /* let hover shadow/offset show */
+  padding: 12px 0px 16px;    /* air so hover translateY isn't clipped */
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+  touch-action: pan-x;
+
+  /* optional: hide scrollbar */
+  scrollbar-width: none;                  /* Firefox */
+}
+.resident-research-container::-webkit-scrollbar { display: none; }  /* WebKit */
+
+/* Update the fixed card width to match new image size */
+.resident-card {
+  flex: 0 0 186px;    /* fixed width; no grow, no shrink */
+  min-width: 186px;   /* belt-and-suspenders */
+}
+
+/* Keep your existing hover styling, plus z-index so it floats */
+.resident-image-hoverable {
+  border-radius: 0.38rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  will-change: transform;
+}
+.resident-image-hoverable:hover {
+  transform: translateY(-4px);
+  position: relative;
+  z-index: 2;
+}
+
+/* Make the visual box fill and stay square */
+.resident-image-placeholder {
+  aspect-ratio: 1 / 1;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.38rem;
+}
+
+/* Research List Styles */
+.research-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3px; /* Reduced from 12px */
+  padding: 0;
+  margin: 0;
+}
+
+.research-item {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 12px;
+  align-items: center;
+  padding: 3px 0;
+  border-bottom: none; /* Remove borders for cleaner look */
+}
+
+.research-item:last-child {
+  border-bottom: none;
+}
+
+.research-date {
+  font-size: 12px;
+  color: #666;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.research-title {
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.research-title a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+.research-title a:hover {
+  color: var(--link-color);
+}
+
+.site-header {
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.site-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.site-name {
+  font-family: "EB Garamond", Palatino, "Book Antiqua", Georgia, serif;
+  font-weight: 400;
+  font-size: 24px;
+}
+
+.site-link {
+  font-family: "EB Garamond", Palatino, "Book Antiqua", Georgia, serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+.site-link:hover {
+  color: var(--link-color);
+}
+
+.h-introduction p {
+  margin-top: 12px;
+  margin-bottom: 12px;
 }

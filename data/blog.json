@@ -1,0 +1,18 @@
+{
+  "posts": [
+    {
+      "title": "Interpreting Preference Models with Sparse Autoencoders",
+      "authors": [
+        {"name": "Logan Riggs", "highlight": false},
+        {"name": "Jannik Brinkmann", "highlight": true}
+      ],
+      "venue": "LessWrong",
+      "date": "2024-07-01",
+      "year": "2024",
+      "month": "Jul",
+      "description": "We use sparse autoencoders (SAEs) to interpret preference models, finding that they learn superficial features like URLs and specific phrases that influence reward scores. Our method enables cheap identification of reward-relevant features and successful manipulation of model preferences through targeted prompt modifications.",
+      "url": "https://www.lesswrong.com/posts/5XmxmszdjzBQzqpmz/interpreting-preference-models-w-sparse-autoencoders",
+      "featured": true
+    }
+  ]
+} 
