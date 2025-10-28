@@ -3,9 +3,9 @@
     {
       "title": "Jailbreak Strength and Model Similarity Predict Transferability",
       "authors": [
-        {"name": "Rico Angell", "highlight": false},
+        {"name": "Rico Angell"},
         {"name": "Jannik Brinkmann", "highlight": true},
-        {"name": "He He", "highlight": false}
+        {"name": "He He"}
       ],
       "venue": "arXiv preprint",
       "year": "2025",
@@ -15,57 +15,80 @@
         {"type": "arXiv", "url": "https://arxiv.org/abs/2506.12913"}
       ],
       "featured": false
-    },
-    {
-      "title": "The Quest for the Right Mediator: A History, Survey, and Theoretical Grounding of Causal Interpretability",
-      "authors": [
-        {"name": "Aaron Mueller", "highlight": false},
-        {"name": "Jannik Brinkmann", "highlight": true},
-        {"name": "Maia Li", "highlight": false},
-        {"name": "Samuel Marks", "highlight": false},
-        {"name": "Koyena Pal", "highlight": false},
-        {"name": "Nikhil Prakash", "highlight": false},
-        {"name": "Can Rager", "highlight": false},
-        {"name": "Arjun Sankaranarayanan", "highlight": false},
-        {"name": "Arnab Sen Sharma", "highlight": false},
-        {"name": "Jing Sun", "highlight": false},
-        {"name": "Eric Todd", "highlight": false},
-        {"name": "David Bau", "highlight": false},
-        {"name": "Yonatan Belinkov", "highlight": false}
-      ],
-      "venue": "arXiv preprint",
-      "year": "2024",
-      "month": "Aug",
-      "venueAbbrev": "arXiv",
-      "links": [
-        {"type": "arXiv", "url": "https://arxiv.org/abs/2408.01416"}
-      ],
-      "featured": true
     }
   ],
   "conference_publications": [
     {
+      "title": "Tales from a Graph: a Pipeline for Mathematical Problem Generation",
+      "authors": [
+        {"name": "Bastien Le Chenadec"},
+        {"name": "Eleonora Kreacic"},
+        {"name": "Mathieu Sibue"},
+        {"name": "Gabriel Mercier"},
+        {"name": "Jannik Brinkmann", "highlight": true},
+        {"name": "Nelson Vadori"},
+        {"name": "Manuela Veloso"}
+      ],
+      "venue": "The 5th Workshop on Mathematical Reasoning and AI at NeurIPS 2025",
+      "year": "2025",
+      "month": "Dec",
+      "venueAbbrev": "NeurIPS Workshop",
+      "links": [
+        {"type": "OpenReview", "url": "https://openreview.net/forum?id=fqtdnjcHTp"}
+      ],
+      "featured": false
+    },
+    {
       "title": "Steering Language Models in Multi-Token Generation: A Case Study on Tense and Aspect",
       "authors": [
-        {"name": "Alina Klerings", "highlight": false},
+        {"name": "Alina Klerings"},
         {"name": "Jannik Brinkmann", "highlight": true},
-        {"name": "Daniel Ruffinelli", "highlight": false},
-        {"name": "Simone Paolo Ponzetto", "highlight": false}
+        {"name": "Daniel Ruffinelli"},
+        {"name": "Simone Paolo Ponzetto"}
       ],
       "venue": "Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing (EMNLP)",
       "year": "2025",
       "month": "Nov",
       "venueAbbrev": "EMNLP",
-      "links": [],
+      "links": [
+        {"type": "arXiv", "url": "https://arxiv.org/abs/2509.12065"}
+      ],
       "featured": false
     },
+    {
+      "title": "The Quest for the Right Mediator: Surveying Mechanistic Interpretability for NLP Through the Lens of Causal Mediation Analysis",
+      "authors": [
+        {"name": "Aaron Mueller"},
+        {"name": "Jannik Brinkmann", "highlight": true},
+        {"name": "Millicent Li"},
+        {"name": "Samuel Marks"},
+        {"name": "Koyena Pal"},
+        {"name": "Nikhil Prakash"},
+        {"name": "Can Rager"},
+        {"name": "Aruna Sankaranarayanan"},
+        {"name": "Arnab Sen Sharma"},
+        {"name": "Jiuding Sun"},
+        {"name": "Eric Todd"},
+        {"name": "David Bau"},
+        {"name": "Yonatan Belinkov"}
+      ],
+      "venue": "Computational Linguistics",
+      "year": "2025",
+      "month": "Jan",
+      "venueAbbrev": "CL",
+      "links": [
+        {"type": "arXiv", "url": "https://arxiv.org/abs/2408.01416"}
+      ],
+      "featured": true
+    },
+
     {
       "title": "Large Language Models Share Representations of Latent Grammatical Concepts across Typologically Diverse Languages",
       "authors": [
         {"name": "Jannik Brinkmann", "highlight": true},
-        {"name": "Chris Wendler", "highlight": false},
-        {"name": "Christian Bartelt", "highlight": false},
-        {"name": "Aaron Mueller", "highlight": false}
+        {"name": "Chris Wendler"},
+        {"name": "Christian Bartelt"},
+        {"name": "Aaron Mueller"}
       ],
       "venue": "Proceedings of the 2025 Conference of the Nations of the Americas Chapter of the Association for Computational Linguistics (NAACL)",
       "year": "2025",
@@ -80,26 +103,26 @@
     {
       "title": "NNsight and NDIF: Democratizing Access to Open-Weight Foundation Model Internals",
       "authors": [
-        {"name": "Jaden Fiotto-Kaufman", "highlight": false},
-        {"name": "Alexander R Loftus", "highlight": false},
-        {"name": "Eric Todd", "highlight": false},
+        {"name": "Jaden Fiotto-Kaufman"},
+        {"name": "Alexander R Loftus"},
+        {"name": "Eric Todd"},
         {"name": "Jannik Brinkmann", "highlight": true},
-        {"name": "Koyena Pal", "highlight": false},
-        {"name": "David Troitskii", "highlight": false},
-        {"name": "Michael Ripa", "highlight": false},
-        {"name": "Adam Belfki", "highlight": false},
-        {"name": "Can Rager", "highlight": false},
-        {"name": "Caden Juang", "highlight": false},
-        {"name": "Aaron Mueller", "highlight": false},
-        {"name": "Samuel Marks", "highlight": false},
-        {"name": "Arnab Sen Sharma", "highlight": false},
-        {"name": "Francesca Lucchetti", "highlight": false},
-        {"name": "Nikhil Prakash", "highlight": false},
-        {"name": "Carla Brodley", "highlight": false},
-        {"name": "Arjun Guha", "highlight": false},
-        {"name": "Jonathan Bell", "highlight": false},
-        {"name": "Byron Wallace", "highlight": false},
-        {"name": "David Bau", "highlight": false}
+        {"name": "Koyena Pal"},
+        {"name": "David Troitskii"},
+        {"name": "Michael Ripa"},
+        {"name": "Adam Belfki"},
+        {"name": "Can Rager"},
+        {"name": "Caden Juang"},
+        {"name": "Aaron Mueller"},
+        {"name": "Samuel Marks"},
+        {"name": "Arnab Sen Sharma"},
+        {"name": "Francesca Lucchetti"},
+        {"name": "Nikhil Prakash"},
+        {"name": "Carla Brodley"},
+        {"name": "Arjun Guha"},
+        {"name": "Jonathan Bell"},
+        {"name": "Byron Wallace"},
+        {"name": "David Bau"}
       ],
       "venue": "Proceedings of the 13st International Conference on Learning Representations (ICLR 2025)",
       "year": "2024",
@@ -113,15 +136,15 @@
     {
       "title": "Measuring Progress in Dictionary Learning for Language Model Interpretability using Board Game Models",
       "authors": [
-        {"name": "Adam Karvonen", "highlight": false},
-        {"name": "Benjamin Wright", "highlight": false},
-        {"name": "Can Rager", "highlight": false},
-        {"name": "Rico Angell", "highlight": false},
+        {"name": "Adam Karvonen"},
+        {"name": "Benjamin Wright"},
+        {"name": "Can Rager"},
+        {"name": "Rico Angell"},
         {"name": "Jannik Brinkmann", "highlight": true},
-        {"name": "Logan Riggs", "highlight": false},
-        {"name": "Claudio Verdun", "highlight": false},
-        {"name": "David Bau", "highlight": false},
-        {"name": "Samuel Marks", "highlight": false}
+        {"name": "Logan Riggs"},
+        {"name": "Claudio Verdun"},
+        {"name": "David Bau"},
+        {"name": "Samuel Marks"}
       ],
       "venue": "Advances in Neural Information Processing Systems 37 (NeurIPS 2024)",
       "year": "2024",
@@ -136,15 +159,15 @@
       "title": "A Mechanistic Analysis of a Transformer Trained on a Symbolic Multi-Step Reasoning Task",
       "authors": [
         {"name": "Jannik Brinkmann", "highlight": true},
-        {"name": "Abhay Sheshadri", "highlight": false},
-        {"name": "Victor Levoso", "highlight": false},
-        {"name": "Paul Swoboda", "highlight": false},
-        {"name": "Christian Bartelt", "highlight": false}
+        {"name": "Abhay Sheshadri"},
+        {"name": "Victor Levoso"},
+        {"name": "Paul Swoboda"},
+        {"name": "Christian Bartelt"}
       ],
       "venue": "Findings of the Association for Computational Linguistics: ACL 2024",
       "year": "2024",
       "month": "Feb",
-      "venueAbbrev": "ACL Findings",
+      "venueAbbrev": "ACL",
       "links": [
         {"type": "arXiv", "url": "https://arxiv.org/abs/2402.11917"}
       ],
@@ -154,8 +177,8 @@
       "title": "A Multidimensional Analysis of Social Biases in Vision Transformers",
       "authors": [
         {"name": "Jannik Brinkmann", "highlight": true},
-        {"name": "Paul Swoboda", "highlight": false},
-        {"name": "Christian Bartelt", "highlight": false}
+        {"name": "Paul Swoboda"},
+        {"name": "Christian Bartelt"}
       ],
       "venue": "2023 IEEE/CVF International Conference on Computer Vision (ICCV)",
       "year": "2023",
