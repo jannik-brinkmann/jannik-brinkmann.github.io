@@ -902,7 +902,7 @@ a:hover {
 
 .research-item {
   display: grid;
-  grid-template-columns: 100px 1fr;
+  grid-template-columns: 120px 1fr;
   column-gap: 12px; /* Horizontal gap between date and title */
   row-gap: 8px; /* No vertical gap */
   align-items: center;
@@ -1078,7 +1078,7 @@ input[type=submit].project.inline, input[type=reset].project.inline, input[type=
 
 .research-item {
   display: grid;
-  grid-template-columns: 100px 1fr;
+  grid-template-columns: 120px 1fr;
   column-gap: 12px;
   row-gap: 0;
   align-items: center;
@@ -1113,5 +1113,23 @@ input[type=submit].project.inline, input[type=reset].project.inline, input[type=
   .research-item {
     grid-template-columns: 1fr; /* Single column layout */
     row-gap: 0px;
+  }
+}
+@media (min-width: 1024px) {
+  :root {
+    --font-size: 15px;
+  }
+
+  .research-item {
+    grid-template-columns: 140px 1fr;
+  }
+}
+@media (min-width: 1440px) {
+  :root {
+    --font-size: 16px;
+  }
+
+  .research-item {
+    grid-template-columns: 160px 1fr;
   }
 }
