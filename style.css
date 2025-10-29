@@ -1066,6 +1066,18 @@ input[type=submit].project.inline, input[type=reset].project.inline, input[type=
   padding: 0.55em 0.4em 0.4em 0.4em;
 }
 
+.button:hover,
+.button.project:hover {
+  text-decoration: none;
+}
+
+input[type=submit]:hover, input[type=reset]:hover, input[type=button]:hover, button:hover, .button:hover {
+  background-color: #ececec;
+  opacity: 0.8;
+  color: #353535;
+  text-decoration: none; /* Add this line */
+}
+
 @media screen and (max-width: 992px) {
   input[type=submit], input[type=reset], input[type=button], button, .button {
       font-size: 0.6em;
@@ -1122,14 +1134,5 @@ input[type=submit].project.inline, input[type=reset].project.inline, input[type=
 
   .research-item {
     grid-template-columns: 140px 1fr;
-  }
-}
-@media (min-width: 1440px) {
-  :root {
-    --font-size: 16px;
-  }
-
-  .research-item {
-    grid-template-columns: 160px 1fr;
   }
 }
