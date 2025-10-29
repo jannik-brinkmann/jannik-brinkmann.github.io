@@ -2,6 +2,7 @@
   --link-color: black;
   --background-color: white;
   --font-size: 14px;
+  --button-font-size: 14px;
   --measure: 80ch;
   --page-pad: clamp(16px, 4vw, 32px);
 }
@@ -411,6 +412,7 @@ a:hover {
 
 .social-links {
   display: flex;
+  flex-wrap: wrap; /* Allow wrapping to next row */
   gap: 18px; /* Reduced from 24px */
   align-items: center;
   margin-bottom: 0px;
@@ -1017,7 +1019,7 @@ input[type=submit], input[type=reset], input[type=button], button, .button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.7em;
+  font-size: var(--button-font-size);
   font-weight: 500;
   letter-spacing: 0.075em;
   text-decoration: none;
@@ -1040,7 +1042,7 @@ input[type=submit]:active, input[type=reset]:active, input[type=button]:active, 
 }
 
 input[type=submit].icon i, input[type=reset].icon i, input[type=button].icon i, button.icon i, .button.icon i {
-  font-size: 1.2em;
+  font-size: var(--button-font-size);
   padding-left: 0.5em;
   padding-bottom: 1px;
 }
@@ -1051,7 +1053,7 @@ input[type=submit].project, input[type=reset].project, input[type=button].projec
   font-weight: 500;
   height: 0.6em;
   padding: 0.75em;
-  font-size: 1em;
+  font-size: var(--button-font-size);
   color: #353535;
   flex-shrink: 0;
 }
@@ -1122,6 +1124,10 @@ input[type=submit]:hover, input[type=reset]:hover, input[type=button]:hover, but
 
 /* Add this media query for small screens */
 @media (max-width: 600px) {
+
+  body {
+    margin: 0 20px;
+  }
   .research-item {
     grid-template-columns: 1fr; /* Single column layout */
     row-gap: 0px;
