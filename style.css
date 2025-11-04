@@ -1,10 +1,19 @@
+* {
+  box-sizing: border-box;
+}
+
 :root {
   --link-color: black;
   --background-color: white;
-  --font-size: 14px;
+  --font-size: 13px;
   --button-font-size: 14px;
   --measure: 80ch;
+  --wide-page: 80ch;
   --page-pad: clamp(16px, 4vw, 32px);
+}
+
+html, body {
+  overflow-x: hidden;
 }
 
 
@@ -19,6 +28,7 @@ body {
     margin: 0 72px;
     line-height: 1.6;
     font-size: var(--font-size);
+    max-width: calc(100% - 144px);
     background-color: var(--background-color);
 }
 /* Add this general paragraph rule */
@@ -52,17 +62,16 @@ sup {
   padding-inline: 0;
 }
 
-.prose {
-  max-width: var(--measure);
+.container.publications {
+  width: var(--wide-page);
+  max-width: 100%;
+  box-sizing: border-box;
+  padding-inline: 0;
 }
 
+
+
 /* If you want your main text column inside the header to stay readable */
-.text-content,
-.card-content,
-.publication-content,
-.publications-list {
-  max-width: var(--measure);
-}
 
 .header-container {
   display: flex;
@@ -91,16 +100,25 @@ h2 {
   font-size: 18px;
   font-weight: 400;
   margin: 0;
-  padding: 8px 0 4px 0;
+  padding: 36px 0 4px 0;
   text-transform: uppercase;
   letter-spacing: 2px;
 }
 
 h3 {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 400;
-  margin-top: 0;
-  margin-bottom: 0;
+  margin: 0;
+  padding: 8px 0 4px 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+h4 {
+  font-size: var(--font-size);
+  font-weight: 500;
+  margin: 0;
+  padding: 4px 0 4px 0;
 }
 
 b {
@@ -210,6 +228,7 @@ b {
 @media (max-width: 896px) {
   body {
     margin: 0 40px;
+    max-width: calc(100% - 80px);
   }
 
   .publication-cards {
@@ -218,6 +237,11 @@ b {
 
   .container {
     margin-top: 20px !important; /* Reduce from 32px to 20px */
+  }
+
+  .container.publications {
+    width: 100%;
+    max-width: 100%;
   }
 
   .social-links {
@@ -232,7 +256,8 @@ b {
 /* Media query for screens smaller than 600px */
 @media (max-width: 600px) {
   body {
-    margin: 0 28px;
+    margin: 0 20px;
+    max-width: calc(100% - 40px);
   }
 
   .publication-cards {
@@ -241,6 +266,11 @@ b {
 
   .container {
     margin-top: 12px !important; /* Further reduce to 12px on very small screens */
+  }
+
+  .container.publications {
+    width: 100%;
+    max-width: 100%;
   }
 
   .h-image {
@@ -264,6 +294,19 @@ b {
 
   .social-links a:not(:last-child)::after {
     right: -6px; /* Reduced from -8px */
+  }
+}
+
+/* Media query for very small screens */
+@media (max-width: 480px) {
+  body {
+    margin: 0 12px;
+    max-width: calc(100% - 24px);
+  }
+
+  .container.publications {
+    width: 100%;
+    max-width: 100%;
   }
 }
 
@@ -329,6 +372,9 @@ b {
   padding-inline-start: 25px;
   margin: 0;
   list-style-type: disc;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .publication-item {
@@ -336,6 +382,9 @@ b {
   padding: 6px 0;
   position: relative;
   line-height: 1.5;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  max-width: 100%;
 }
 
 .publications-description {
@@ -348,21 +397,34 @@ b {
 
 .publication-content {
   position: relative;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  max-width: 100%;
 }
 
 .publication-authors {
   display: inline;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  max-width: 100%;
 }
 
 .publication-title {
   font-weight: 400;
   display: inline;
   margin-left: 4px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  max-width: 100%;
 }
 
 .publication-title-link {
   text-decoration: underline;
   font-weight: 400;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  max-width: 100%;
 }
 
 .publication-title-link:hover {
@@ -372,6 +434,9 @@ b {
 .publication-venue {
   display: inline;
   margin-left: 4px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  max-width: 100%;
 }
 
 .publication-links {
@@ -402,7 +467,7 @@ b {
 a {
   font-weight: 400;
   text-decoration: underline;
-  text-underline-offset: 2px;
+  text-underline-offset: 1px;
   color: var(--link-color);
 }
 
@@ -449,7 +514,7 @@ a:hover {
 }
 
 .author-highlight {
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .publication-highlight {
@@ -986,7 +1051,7 @@ p.text {
 
 /* Publications year lists */
 .publications-year-list {
-    margin-bottom: 8px;
+    padding-bottom: 4px;
 }
 
 hr {
@@ -1124,9 +1189,9 @@ input[type=submit]:hover, input[type=reset]:hover, input[type=button]:hover, but
 
 /* Add this media query for small screens */
 @media (max-width: 600px) {
-
   body {
     margin: 0 20px;
+    max-width: calc(100% - 40px);
   }
   .research-item {
     grid-template-columns: 1fr; /* Single column layout */
@@ -1135,10 +1200,92 @@ input[type=submit]:hover, input[type=reset]:hover, input[type=button]:hover, but
 }
 @media (min-width: 1024px) {
   :root {
-    --font-size: 15px;
+    --font-size: 14px;
+  }
+
+  h2 {
+    font-size: 16px;
   }
 
   .research-item {
     grid-template-columns: 140px 1fr;
   }
+}
+
+.sort-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  align-items: center;
+  margin: 0;
+}
+
+.sort-button {
+  padding: 8px 16px;
+  font-family: inherit;
+  font-size: var(--font-size);
+  font-weight: 500;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+
+input[type=submit], input[type=reset], input[type=button], button, .button {
+  background-color: #ececec;
+  border-radius: 10px;
+  padding: 0.75em 1em;
+  color: #353535;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--button-font-size);
+  font-weight: 500;
+  letter-spacing: 0.075em;
+  text-decoration: none;
+  text-transform: uppercase;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  box-sizing: content-box; /* Restore original button box-sizing */
+}
+
+/* Fix for sort-controls - remove any shadow-like border */
+.sort-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  align-items: center;
+  margin: 0;
+  padding-bottom: 0;
+  border-bottom: none; /* Remove any border that might look like shadow */
+}
+
+/* Highlight the active sort button */
+.button.project.active {
+  background-color: #0f2440;
+  color: #ffffff;
+  border: none; /* Remove default button border to avoid shadow appearance */
+}
+
+/* Remove default borders from buttons to avoid shadow effect */
+input[type=submit], input[type=reset], input[type=button], button, .button {
+  background-color: #ececec;
+  border-radius: 10px;
+  padding: 0.75em 1em;
+  color: #353535;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--button-font-size);
+  font-weight: 500;
+  letter-spacing: 0.075em;
+  text-decoration: none;
+  text-transform: uppercase;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  box-sizing: content-box; /* Restore original button box-sizing */
+  border: none; /* Remove default button border to prevent shadow appearance */
 }

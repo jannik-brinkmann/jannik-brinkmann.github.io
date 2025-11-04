@@ -15,14 +15,20 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <div class="container">
+    <div class="container publications">
         <h1>Publications</h1>
         
-        <p class="text">
+        <!-- <p class="text">
             For a complete list of publications, see
             <a class="link" href="https://scholar.google.com/citations?hl=en&user=YtdTeaMAAAAJ&view_op=list_works">Google Scholar</a> or 
             <a class="link" href="https://www.semanticscholar.org/author/Jannik-Brinkmann/2228224955">Semantic Scholar</a>.
-        </p>
+        </p> -->
+
+        <!-- Sort controls -->
+        <div class="sort-controls">
+            <button id="sort-by-year" class="button project active">Sort by Year</button>
+            <button id="sort-by-venue" class="button project">Sort by Venue Type</button>
+        </div>
         
         <!-- Separate container for preprints -->
         <div id="preprints-container">
@@ -36,6 +42,9 @@
     </div>
 
     <script>
+        let currentSortMode = 'year'; // 'year' or 'venue'
+        let allPublicationsData = null; // Store the loaded data
+        
         function createPublicationItem(pub) {
             const li = document.createElement('li');
             li.className = 'publication-item';
@@ -69,81 +78,298 @@
                 : `"${pub.title}"`;
             
             // Create venue highlight on separate line if exists
-            const venueHighlightHtml = pub.venueHighlight 
-                ? `<div class="publication-highlight"><span class="paper-highlight">${pub.venueHighlight}</span></div>`
-                : '';
             
             li.innerHTML = `
                 <div class="publication-content">
                     <span class="publication-authors">${authorsWithYear}.</span><span class="publication-title">${titleHtml}.</span><span class="publication-venue"><em>${venueHtml}.</em></span>
-                    ${venueHighlightHtml}
                 </div>
             `;
             
             return li;
         }
-
+    
+        // Helper function to categorize publication type
+        function categorizePublication(pub) {
+            const venue = pub.venue.toLowerCase();
+            const venueAbbrev = (pub.venueAbbrev || '').toLowerCase();
+            
+            // Check for workshops
+            if (venue.includes('workshop')) {
+                return 'workshop';
+            }
+            
+            // Check for journals (typically don't have "Proceedings" or "Conference")
+            // Also check venue abbreviations for known journals
+            if (!venue.includes('proceedings') && 
+                !venue.includes('conference') && 
+                !venueAbbrev.includes('acl') &&
+                !venueAbbrev.includes('emnlp') &&
+                !venueAbbrev.includes('naacl') &&
+                !venueAbbrev.includes('iclr') &&
+                !venueAbbrev.includes('neurips') &&
+                !venueAbbrev.includes('iccv')) {
+                return 'journal';
+            }
+            
+            // Default to conference
+            return 'conference';
+        }
+    
+        function renderByYear(data) {
+            // Clear existing containers
+            clearContainers();
+            
+            const preprintsContainer = document.getElementById('preprints-container');
+            const publicationsContainer = document.getElementById('publications-container');
+            
+            // Collect all publications including preprints with their categories
+            const allPublications = [];
+            
+            // Add preprints with category 'preprint'
+            if (data.preprints) {
+                data.preprints.forEach(pub => {
+                    allPublications.push({ ...pub, category: 'preprint' });
+                });
+            }
+            
+            // Add conference publications with their categories
+            if (data.conference_publications) {
+                data.conference_publications.forEach(pub => {
+                    const category = categorizePublication(pub);
+                    allPublications.push({ ...pub, category });
+                });
+            }
+            
+            // Group ALL publications by year first (regardless of venue type)
+            const publicationsByYear = {};
+            allPublications.forEach(pub => {
+                const year = pub.year;
+                if (!publicationsByYear[year]) {
+                    publicationsByYear[year] = [];
+                }
+                publicationsByYear[year].push(pub);
+            });
+            
+            // Sort years in descending order (most recent first)
+            const sortedYears = Object.keys(publicationsByYear).sort((a, b) => b - a);
+            
+            // For each year, render publications grouped by venue type
+            sortedYears.forEach(year => {
+                const yearHeader = document.createElement('h2');
+                yearHeader.textContent = year;
+                yearHeader.className = 'publications-section-header';
+                publicationsContainer.appendChild(yearHeader);
+                
+                // Separate by venue type within this year
+                const preprints = [];
+                const journals = [];
+                const conferences = [];
+                const workshops = [];
+                
+                publicationsByYear[year].forEach(pub => {
+                    if (pub.category === 'preprint') {
+                        preprints.push(pub);
+                    } else if (pub.category === 'journal') {
+                        journals.push(pub);
+                    } else if (pub.category === 'workshop') {
+                        workshops.push(pub);
+                    } else {
+                        conferences.push(pub);
+                    }
+                });
+                
+                // Render each venue type as a subsection within the year
+                if (journals.length > 0) {
+                    const venueHeader = document.createElement('h4');
+                    venueHeader.textContent = 'Journal Publications';
+                    publicationsContainer.appendChild(venueHeader);
+                    
+                    const venueList = document.createElement('ul');
+                    venueList.className = 'publications-list publications-year-list';
+                    journals.forEach(pub => {
+                        venueList.appendChild(createPublicationItem(pub));
+                    });
+                    publicationsContainer.appendChild(venueList);
+                }
+                
+                if (conferences.length > 0) {
+                    const venueHeader = document.createElement('h4');
+                    venueHeader.textContent = 'Conference Publications';
+                    publicationsContainer.appendChild(venueHeader);
+                    
+                    const venueList = document.createElement('ul');
+                    venueList.className = 'publications-list publications-year-list';
+                    conferences.forEach(pub => {
+                        venueList.appendChild(createPublicationItem(pub));
+                    });
+                    publicationsContainer.appendChild(venueList);
+                }
+                
+                if (workshops.length > 0) {
+                    const venueHeader = document.createElement('h4');
+                    venueHeader.textContent = 'Workshop Publications';
+                    publicationsContainer.appendChild(venueHeader);
+                    
+                    const venueList = document.createElement('ul');
+                    venueList.className = 'publications-list publications-year-list';
+                    workshops.forEach(pub => {
+                        venueList.appendChild(createPublicationItem(pub));
+                    });
+                    publicationsContainer.appendChild(venueList);
+                }
+                
+                if (preprints.length > 0) {
+                    const venueHeader = document.createElement('h4');
+                    venueHeader.textContent = 'Preprints';
+                    publicationsContainer.appendChild(venueHeader);
+                    
+                    const venueList = document.createElement('ul');
+                    venueList.className = 'publications-list publications-year-list';
+                    preprints.forEach(pub => {
+                        venueList.appendChild(createPublicationItem(pub));
+                    });
+                    publicationsContainer.appendChild(venueList);
+                }
+            });
+        }
+    
+        function renderByVenue(data) {
+            // Clear existing containers
+            clearContainers();
+            
+            const preprintsContainer = document.getElementById('preprints-container');
+            const publicationsContainer = document.getElementById('publications-container');
+            
+            // Group preprints by year
+            const preprints = [];
+            if (data.preprints) {
+                data.preprints.forEach(pub => {
+                    preprints.push(pub);
+                });
+            }
+            
+            // Group all conference_publications by venue type, then by year
+            const journals = [];
+            const conferences = [];
+            const workshops = [];
+            
+            if (data.conference_publications) {
+                data.conference_publications.forEach(pub => {
+                    const category = categorizePublication(pub);
+                    if (category === 'journal') {
+                        journals.push(pub);
+                    } else if (category === 'workshop') {
+                        workshops.push(pub);
+                    } else {
+                        conferences.push(pub);
+                    }
+                });
+            }
+            
+            // Helper function to render publications grouped by venue type, then year
+            function renderPublicationsByVenue(container, publications, sectionTitle) {
+                if (publications.length === 0) return;
+                
+                const header = document.createElement('h2');
+                header.textContent = sectionTitle;
+                header.className = 'publications-section-header';
+                container.appendChild(header);
+                
+                // Group by year first
+                const publicationsByYear = {};
+                publications.forEach(pub => {
+                    const year = pub.year;
+                    if (!publicationsByYear[year]) {
+                        publicationsByYear[year] = [];
+                    }
+                    publicationsByYear[year].push(pub);
+                });
+                
+                // Sort years in descending order
+                const sortedYears = Object.keys(publicationsByYear).sort((a, b) => b - a);
+                
+                // Create subsections for each year
+                sortedYears.forEach(year => {
+                    const yearHeader = document.createElement('h4');
+                    yearHeader.textContent = year;
+                    container.appendChild(yearHeader);
+                    
+                    const yearList = document.createElement('ul');
+                    yearList.className = 'publications-list publications-year-list';
+                    
+                    publicationsByYear[year].forEach(pub => {
+                        yearList.appendChild(createPublicationItem(pub));
+                    });
+                    
+                    container.appendChild(yearList);
+                });
+            }
+            
+            // Render each venue type section
+            renderPublicationsByVenue(publicationsContainer, journals, 'Journal Publications');
+            
+            const conferencesContainer = document.createElement('div');
+            conferencesContainer.id = 'conferences-container';
+            publicationsContainer.parentNode.insertBefore(conferencesContainer, publicationsContainer.nextSibling);
+            
+            const workshopsContainer = document.createElement('div');
+            workshopsContainer.id = 'workshops-container';
+            conferencesContainer.parentNode.insertBefore(workshopsContainer, conferencesContainer.nextSibling);
+            
+            renderPublicationsByVenue(conferencesContainer, conferences, 'Conference Publications');
+            renderPublicationsByVenue(workshopsContainer, workshops, 'Workshop Publications');
+            
+            // Render preprints last (after workshops)
+            const preprintsContainerDiv = document.createElement('div');
+            preprintsContainerDiv.id = 'preprints-container-div';
+            workshopsContainer.parentNode.insertBefore(preprintsContainerDiv, workshopsContainer.nextSibling);
+            renderPublicationsByVenue(preprintsContainerDiv, preprints, 'Preprints');
+        }
+    
+        function clearContainers() {
+            const preprintsContainer = document.getElementById('preprints-container');
+            const publicationsContainer = document.getElementById('publications-container');
+            
+            preprintsContainer.innerHTML = '';
+            publicationsContainer.innerHTML = '';
+            
+            // Remove dynamically created containers
+            const preprintsContainerDiv = document.getElementById('preprints-container-div');
+            const conferencesContainer = document.getElementById('conferences-container');
+            const workshopsContainer = document.getElementById('workshops-container');
+            if (preprintsContainerDiv) preprintsContainerDiv.remove();
+            if (conferencesContainer) conferencesContainer.remove();
+            if (workshopsContainer) workshopsContainer.remove();
+        }
+    
+        function updateSortButtons() {
+            const yearButton = document.getElementById('sort-by-year');
+            const venueButton = document.getElementById('sort-by-venue');
+            
+            if (currentSortMode === 'year') {
+                yearButton.classList.add('active');
+                venueButton.classList.remove('active');
+            } else {
+                venueButton.classList.add('active');
+                yearButton.classList.remove('active');
+            }
+        }
+    
         async function loadPublications() {
             try {
                 const response = await fetch('data/publications.json');
                 const data = await response.json();
+                allPublicationsData = data;
                 
-                // Load preprints into separate container
-                const preprintsContainer = document.getElementById('preprints-container');
-                if (data.preprints && data.preprints.length > 0) {
-                    const preprintsHeader = document.createElement('h2');
-                    preprintsHeader.textContent = 'Preprints';
-                    preprintsHeader.className = 'publications-section-header';
-                    preprintsContainer.appendChild(preprintsHeader);
-                    
-                    const preprintsList = document.createElement('ul');
-                    preprintsList.className = 'publications-list';
-                    
-                    data.preprints.forEach(pub => {
-                        preprintsList.appendChild(createPublicationItem(pub));
-                    });
-                    
-                    preprintsContainer.appendChild(preprintsList);
+                // Render based on current sort mode
+                if (currentSortMode === 'year') {
+                    renderByYear(data);
+                } else {
+                    renderByVenue(data);
                 }
                 
-                // Load conference publications into separate container
-                const publicationsContainer = document.getElementById('publications-container');
-                if (data.conference_publications && data.conference_publications.length > 0) {
-                    const conferenceHeader = document.createElement('h2');
-                    conferenceHeader.textContent = 'Conference and Journal Publications';
-                    conferenceHeader.className = 'publications-section-header';
-                    publicationsContainer.appendChild(conferenceHeader);
-                    
-                    // Group publications by year
-                    const publicationsByYear = {};
-                    data.conference_publications.forEach(pub => {
-                        const year = pub.year;
-                        if (!publicationsByYear[year]) {
-                            publicationsByYear[year] = [];
-                        }
-                        publicationsByYear[year].push(pub);
-                    });
-                    
-                    // Sort years in descending order (most recent first)
-                    const sortedYears = Object.keys(publicationsByYear).sort((a, b) => b - a);
-                    
-                    // Create subsections for each year
-                    sortedYears.forEach(year => {
-                        const yearHeader = document.createElement('div');
-                        yearHeader.textContent = year;
-                        yearHeader.className = 'publications-year-header';
-                        publicationsContainer.appendChild(yearHeader);
-                        
-                        const yearList = document.createElement('ul');
-                        yearList.className = 'publications-list publications-year-list';
-                        
-                        publicationsByYear[year].forEach(pub => {
-                            yearList.appendChild(createPublicationItem(pub));
-                        });
-                        
-                        publicationsContainer.appendChild(yearList);
-                    });
-                }
+                // Update button states after loading
+                updateSortButtons();
                 
             } catch (error) {
                 console.error('Error loading publications:', error);
@@ -153,9 +379,52 @@
                     '<li>Error loading publications. Please try again later.</li>';
             }
         }
-        
-        // Load publications when the page loads
-        document.addEventListener('DOMContentLoaded', loadPublications);
+    
+        // Set up event listeners when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            loadPublications();
+            
+            // Set up sort button listeners
+            const yearButton = document.getElementById('sort-by-year');
+            const venueButton = document.getElementById('sort-by-venue');
+            
+            if (!yearButton || !venueButton) {
+                console.error('Sort buttons not found in DOM');
+                return;
+            }
+            
+            yearButton.addEventListener('click', () => {
+                console.log('Year button clicked');
+                if (!allPublicationsData) {
+                    console.warn('Publications data not loaded yet');
+                    return;
+                }
+                if (currentSortMode !== 'year') {
+                    console.log('Switching to year sort');
+                    currentSortMode = 'year';
+                    updateSortButtons();
+                    renderByYear(allPublicationsData);
+                } else {
+                    console.log('Already in year sort mode');
+                }
+            });
+            
+            venueButton.addEventListener('click', () => {
+                console.log('Venue button clicked');
+                if (!allPublicationsData) {
+                    console.warn('Publications data not loaded yet');
+                    return;
+                }
+                if (currentSortMode !== 'venue') {
+                    console.log('Switching to venue sort');
+                    currentSortMode = 'venue';
+                    updateSortButtons();
+                    renderByVenue(allPublicationsData);
+                } else {
+                    console.log('Already in venue sort mode');
+                }
+            });
+        });
     </script>
 </body>
 </html>
