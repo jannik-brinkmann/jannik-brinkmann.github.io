@@ -34,7 +34,7 @@
       "month": "Dec",
       "venueAbbrev": "NeurIPS Workshop",
       "links": [
-        {"type": "OpenReview", "url": "https://openreview.net/forum?id=fqtdnjcHTp"}
+        {"type": "OpenReview", "url": "https://openreview.net/forum?id=fqtdnjcHTp&referrer=%5BAuthor%20Console%5D(%2Fgroup%3Fid%3DNeurIPS.cc%2F2025%2FWorkshop%2FMATH-AI%2FAuthors%23your-submissions)"}
       ],
       "featured": false
     },
@@ -125,7 +125,7 @@
         {"name": "David Bau"}
       ],
       "venue": "Proceedings of the 13st International Conference on Learning Representations (ICLR 2025)",
-      "year": "2024",
+      "year": "2025",
       "month": "Jul",
       "venueAbbrev": "ICLR",
       "links": [
