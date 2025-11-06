@@ -1,7 +1,7 @@
 {
   "preprints": [
     {
-      "title": "Jailbreak Strength and Model Similarity Predict Transferability",
+      "title": "Jailbreak Transferability Emerges From Shared Representations",
       "authors": [
         {"name": "Rico Angell"},
         {"name": "Jannik Brinkmann", "highlight": true},
