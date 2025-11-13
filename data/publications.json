@@ -1,5 +1,24 @@
 {
   "preprints": [
+    {"title": "In-Context Learning Without Copying",
+      "authors": [
+        {"name": "Kerem Sahin"},
+        {"name": "Sheridan Feucht"},
+        {"name": "Adam Belfki"},
+        {"name": "Jannik Brinkmann", "highlight": true},
+        {"name": "Aaron Mueller"},
+        {"name": "David Bau"},
+        {"name": "Chris Wendler"}
+      ],
+      "venue": "arXiv preprint",
+      "year": "2025",
+      "month": "Nov",
+      "venueAbbrev": "arXiv",
+      "links": [
+        {"type": "arXiv", "url": "https://arxiv.org/abs/2511.05743"}
+      ],
+      "featured": false
+    },
     {
       "title": "Jailbreak Transferability Emerges From Shared Representations",
       "authors": [
@@ -35,6 +54,7 @@
       "venueAbbrev": "NeurIPS Workshop",
       "links": [
         {"type": "OpenReview", "url": "https://openreview.net/forum?id=fqtdnjcHTp&referrer=%5BAuthor%20Console%5D(%2Fgroup%3Fid%3DNeurIPS.cc%2F2025%2FWorkshop%2FMATH-AI%2FAuthors%23your-submissions)"}
+        
       ],
       "featured": false
     },
