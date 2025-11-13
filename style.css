@@ -4,6 +4,7 @@
 
 :root {
   --link-color: black;
+  --publication-link-color: #337ab7;
   --background-color: white;
   --font-size: 13px;
   --button-font-size: 14px;
@@ -422,6 +423,7 @@ b {
 .publication-title-link {
   text-decoration: underline;
   font-weight: 400;
+  color: var(--publication-link-color);
   overflow-wrap: break-word;
   word-wrap: break-word;
   max-width: 100%;
@@ -514,7 +516,7 @@ a:hover {
 }
 
 .author-highlight {
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .publication-highlight {
