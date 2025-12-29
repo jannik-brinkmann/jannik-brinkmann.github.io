@@ -37,6 +37,7 @@
 
       <h1>Jannik Brinkmann</h1>
 
+      
 
       <div class="h-introduction">
         <p class="text">
@@ -58,6 +59,18 @@
           <a class="link" href="https://www.jpmorganchase.com/about/technology/research/ai">J.P. Morgan Research</a> 
           in the summer of 2025.
         </p>
+
+        <!-- <div class="header-icons">
+          <a href="https://scholar.google.com/citations?user=YtdTeaMAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="icon-link">
+            <img src="assets/icons/scholar.svg" alt="Google Scholar" class="header-icon">
+          </a>
+          <a href="https://x.com/jannikbrinkmann" target="_blank" rel="noopener noreferrer" class="icon-link">
+            <img src="assets/icons/twitter.svg" alt="Twitter" class="header-icon">
+          </a>
+          <a href="https://github.com/jannik-brinkmann" target="_blank" rel="noopener noreferrer" class="icon-link">
+            <img src="assets/icons/github.svg" alt="GitHub" class="header-icon">
+          </a>
+        </div> -->
 
         <div class="social-links">
           <a href="https://scholar.google.com/citations?user=YtdTeaMAAAAJ&hl=en" class="button project" style="background-color: #0f2440; color: #ffffff">Google Scholar</a>
@@ -88,10 +101,18 @@
         ? paper.links.find(link => link.type === 'arXiv')?.url || paper.links[0].url
         : '#';
       
+      // Create links string for all links
+      let linksHtml = '';
+      if (paper.links && paper.links.length > 0) {
+        linksHtml = ' ' + paper.links.map(link => 
+          `<a href="${link.url}" target="_blank" rel="noopener noreferrer" class="research-link">[${link.type}]</a>`
+        ).join(' ');
+      }
+      
       div.innerHTML = `
         <div class="research-date">${paper.venueAbbrev} ${paper.year}</div>
         <div class="research-title">
-          <a href="${url}" target="_blank" rel="noopener noreferrer">${paper.title}</a>
+          <a href="${url}" target="_blank" rel="noopener noreferrer">${paper.title}</a>${linksHtml}
         </div>
         <hr class="soft">
       `;
