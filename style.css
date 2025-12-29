@@ -4,10 +4,10 @@
 
 :root {
   --link-color: black;
-  --publication-link-color: #337ab7;
+  --publication-link-color: #3164aa;
   --background-color: white;
   --font-size: 13px;
-  --button-font-size: 14px;
+  --button-font-size: 13px;
   --measure: 80ch;
   --wide-page: 80ch;
   --page-pad: clamp(16px, 4vw, 32px);
@@ -93,8 +93,35 @@ h1 {
   font-size: 1.2em;
   font-weight: 400;
   font-size: 30px;
+  line-height: 0.9;
   padding: 36px 0 36px 0;
   margin: 0;
+}
+
+.header-icons {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  margin: 0 0 24px 0;
+  padding: 0;
+}
+
+.header-icon {
+  width: 20px;
+  height: 20px;
+  opacity: 0.7;
+  filter: invert(34%) sepia(89%) saturate(548%) hue-rotate(178deg) brightness(86%) contrast(88%);
+}
+
+.icon-link {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-link:hover .header-icon {
+  opacity: 1;
 }
 
 h2 {
@@ -421,7 +448,7 @@ b {
 }
 
 .publication-title-link {
-  text-decoration: underline;
+  text-decoration: none;
   font-weight: 400;
   color: var(--publication-link-color);
   overflow-wrap: break-word;
@@ -516,6 +543,7 @@ a:hover {
 }
 
 .author-highlight {
+  text-decoration: none;
   font-weight: 600;
 }
 
@@ -1002,6 +1030,12 @@ a:hover {
   color: var(--link-color);
 }
 
+.research-title .research-link {
+  font-size: 0.75em;
+  vertical-align: super;
+  text-decoration: none;
+}
+
 .site-header {
   width: 100%;
   margin-bottom: 12px;
@@ -1049,11 +1083,6 @@ p.text {
     margin-top: 4px;
     margin-bottom: 4px;
     color: #666;
-}
-
-/* Publications year lists */
-.publications-year-list {
-    padding-bottom: 4px;
 }
 
 hr {
@@ -1219,6 +1248,7 @@ input[type=submit]:hover, input[type=reset]:hover, input[type=button]:hover, but
   flex-wrap: wrap;
   gap: 18px;
   align-items: center;
+  font-size: 10px;
   margin: 0;
 }
 
