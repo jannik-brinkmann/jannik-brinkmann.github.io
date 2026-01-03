@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Multilingual Features in LLMs</title>
+
+    <!-- Clarity Template Styles -->
+    <link rel="stylesheet" href="assets/stylesheets/main_free.css">
+    <link rel="stylesheet" href="assets/stylesheets/clarity.css">
+    <link rel="stylesheet" href="assets/stylesheets/custom.css">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- Highlight.js for code blocks -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/foundation.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+</head>
+<body>
+    <!-- Hero Section -->
+    <div class="container blog" id="first-content">
+        <div class="blog-title no-cover">
+            <div class="blog-intro">
+                <h1 class="title">Language Models Share Representations of Latent Grammatical Concepts Across Typologically Diverse Languages</h1>
+
+
+                <div id="author-affiliation">
+                    <p class="author">
+                        Jannik Brinkmann<sup>1,2</sup>,
+                        Chris Wendler<sup>1,3</sup>,
+                        Christian Bartelt<sup>2</sup>,
+                        Aaron Mueller<sup>1,4</sup>
+                    </p>
+
+                    <p class="author affiliation">
+                        <sup>1</sup>Northeastern University,
+                        <sup>2</sup>TU Clausthal,
+                        <sup>3</sup>EPFL,
+                        <sup>4</sup>Technion - IIT
+                    </p>
+                </div>
+
+                <div class="info">
+                    <p>NAACL 2025 (Oral)</p>
+                </div>
+
+                <p class="abstract">
+                    Human bilinguals use similar brain regions to process multiple languages, depending on when they learned their second language and their proficiency. In large language models, how are multiple languages learned and encoded? In this work, we explore the extent to which these models share representations of morphosyntactic concepts such as grammatical number, gender, and tense, across languages. Using sparse autoencoders trained on Llama-3-8B and Aya-23-8B, we demonstrate that abstract grammatical concepts are encoded in shared feature directions, enabling cross-lingual generalisation. We use causal intervention techniques to validate the multilingual nature of these representations, showing that ablating shared features leads to consistent decrease in classifier performance across languages. We also use these features to modify model behavior, demonstrating their causal role in the network. Our findings suggest that even models trained predominantly on English data can develop robust, cross-lingual abstractions of morphosyntactic concepts.
+                </p>
+
+                <div class="link">
+                    <a href="https://aclanthology.org/2025.naacl-long.312/" target="_blank">
+                        <p class="button icon">Paper<i class="fa-solid fa-book-open"></i></p>
+                    </a>
+                    <a href="https://github.com/jannik-brinkmann/multilingual-features" target="_blank">
+                        <p class="button icon">Code & Data<i class="fa-solid fa-code"></i></p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container blog main with-title">
+        <h1>Introduction</h1>
+        <p class="text">
+            In the brains of human bilinguals, syntax processing may occur in similar regions for their first and second language, depending on factors such as the age at which the second language was learned, language proficiency, among many other factors. In multilingual language models (LMs), how apt is the analogy of shared processing to human bilinguals? 
+        </p>
+        <p class="text">
+            Past work has emphasized language-balanced pretraining corpora, such that a language model could be said to have many primary languages. However, many of the best-performing multilingual language models are now primarily English models, trained on over 90 percent English text. Why do these models perform so well in non-English languages? We hypothesize that these models learn generalizable abstractions that enable more efficient learning of new languages. In other words, being able to deeply characterize a smaller distribution could allow models to acquire more robust abstractions that may generalize more effectively to a wider distribution after the fact. 
+        </p>
+        <p class="text">
+            In this work, we train a set of sparse autoencoders on the intermediate activations of LLaMA-3-8B and Aya-3-8B and identify massively multilingual features for various morphosyntactic concepts. We design experiments to quantify the degree to which these concepts are shared across languages and to validate their role in model generations. Our results reveal that language models share morphosyntactic concept representations across typologically diverse languages, and that the internal lingua franca of large language models may not be English words per se, but rather abstract concepts. We note, however, that these concepts are likely biased toward English-like representations.
+        </p>
+    </div>
+
+    <!-- Ablation Demo Section -->
+    <div class="container blog main with-title">
+        <h1>Results</h1>
+
+        <p class="text">
+            <b>Abstract grammatical concepts are shared across typologically diverse languages.</b> Using Sparse Autoencoders (SAEs) on Llama-3 and Aya-23, we find that morphosyntactic features like grammatical number, gender, and tense are often encoded in "multilingual" feature directions. Remarkably, even models trained on over 90% English data develop these robust, cross-lingual abstractions rather than language-specific rules. Qualitative analysis confirms these features are highly monosemantic and human-interpretable, acting as a conceptual "lingua franca" within the model's latent space.
+        </p>
+
+        <p class="text">
+            Here is a selection of features that we found to be shared across languages:
+        </p>
+    </div>
+
+    <!-- Feature Activation Demo Section -->
+    <div class="container blog extra-large gray">
+        <div id="activation-demo">
+            <!-- Populated by JS with all features -->
+        </div>
+
+        <p class="caption inline center">
+            <b>Figure 1:</b> Feature activations across languages. Highlighted subwords indicate where the feature activates.
+        </p>
+    </div>
+
+    <div class="container blog main">
+
+        <p class="text">
+            <b>Causal interventions verify the functional role of shared features.</b> When we ablate only the identified multilingual features, the model’s ability to correctly predict grammatical properties (e.g., subject-verb agreement) drops to near-chance levels across all tested languages. Conversely, by manually activating a specific feature, such as the "plurality" feature, we can make the model predict plural verb forms across different languages simultaneously. This demonstrates that these shared representations are not just passive correlations but are causally responsible for the model’s grammatical behavior.
+        </p>
+        <p class="text">
+            <b>Cross-lingual features enable precise control in downstream tasks, albeit with technical caveats.</b> We demonstrate this through a machine translation experiment where we intervene on universal grammatical features to modify outputs, such as changing the tense of a translated sentence. However, this downstream application required significant manual tuning of feature activations, and over-steering occasionally led to unexpected or degenerate outputs where the model produced nonsensical text. Despite these challenges, the results suggest that grammatical reasoning happens in a language-agnostic space, offering a path toward more efficient, multi-lingual model editing.
+        </p>
+
+    </div>
+
+    <!-- Steering Demo Section -->
+    <div class="container blog extra-large gray">
+
+        <div class="steering-demo-container">
+            <!-- Example Navigation -->
+            <div class="steering-nav" id="steering-nav">
+                <!-- Populated by JS -->
+            </div>
+
+            <!-- Source Text -->
+            <div class="steering-section">
+                <div class="steering-label" id="steering-source-label">Source</div>
+                <div class="steering-box" id="steering-source">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+
+            <!-- Side-by-side outputs -->
+            <div class="columns-2" id="steering-outputs">
+                <div class="steering-section">
+                    <div class="steering-label">Unsteered Translation</div>
+                    <div class="steering-box" id="steering-baseline">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+                <div class="steering-section">
+                    <div class="steering-label" id="steering-steered-label">Steered</div>
+                    <div class="steering-box steered" id="steering-steered">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <p class="caption inline center">
+            <b>Figure 2:</b> Causal steering of grammatical features in machine translation. Activating a feature (e.g., past tense, feminine) modifies the corresponding grammatical property in the output.
+        </p>
+    </div>
+
+    <div class="container blog main with-title">
+        <h1>Conclusion</h1>
+        <p class="text">
+            Our findings suggest that LLMs naturally gravitate toward language-agnostic internal representations for grammar, even when trained on highly imbalanced corpora. While these features are functionally multilingual, it is still reasonable to assume that these concepts are biased toward how English handles them in models pre-trained on imbalanced corpora.
+        </p>
+        <p class="text">
+            This also adds a new perspective to the debate over pretraining data. While prior work emphasized the necessity of balanced corpora to avoid overfitting to a single language, our results support more recent studies suggesting that the size of the pretraining corpus may be a stronger driver of cross-lingual generalization than balance alone.
+        </p>
+    </div>
+
+    <!-- Citation Section -->
+    <div class="container blog main with-title">
+        <h1>Citation</h1>
+        <div class="citation-container">
+            <pre><code class="language-bibtex" id="citation-text">@inproceedings{brinkmann2025multilingual,
+    title = "Large Language Models Share Representations of Latent Grammatical Concepts Across Typologically Diverse Languages",
+    author = "Brinkmann, Jannik and Wendler, Chris and Bartelt, Christian and Mueller, Aaron",
+    booktitle = "Proceedings of the 2025 Conference of the Nations of the Americas Chapter of the Association for Computational Linguistics",
+    month = apr,
+    year = "2025",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2025.naacl-long.312/"
+}</code></pre>
+            <button class="copy-button" id="copy-citation"><i class="fa-regular fa-copy"></i></button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container blog main">
+            <p style="text-align: center;">
+                This website was built with <a href="https://github.com/lorenmt/clarity-template">Clarity</a>, designed by <a href="https://shikun.io">Shikun Liu</a>.
+            </p>
+        </div>
+    </footer>
+
+    <script src="assets/scripts/demo.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+</html>

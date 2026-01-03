@@ -1,0 +1,60 @@
+# Preprints (none have extra metadata beyond BibTeX)
+
+# Conference publications
+chenadec2025tales:
+  type: workshop
+
+klerings2025steering:
+  links:
+    - type: arXiv
+      url: https://arxiv.org/abs/2509.12065
+
+mueller2025quest:
+  featured: true
+  type: journal
+  venueAbbrev: CL
+  links:
+    - type: arXiv
+      url: https://arxiv.org/abs/2408.01416
+
+brinkmann2025multilingual:
+  featured: true
+  venueAbbrev: NAACL
+  venueHighlight: Oral presentation
+  links:
+    - type: arXiv
+      url: https://arxiv.org/abs/2501.06346
+    - type: Code
+      url: https://github.com/jannik-brinkmann/multilingual-features
+    - type: Website
+      url: https://multilingual-features.jannikbrinkmann.com
+
+fiotto-kaufman2025nnsight:
+  featured: true
+  venueAbbrev: ICLR
+  links:
+    - type: arXiv
+      url: https://arxiv.org/abs/2407.14561
+    - type: Code
+      url: https://github.com/ndif-team/nnsight
+    - type: Website
+      url: https://nnsight.net
+
+karvonen2024progress:
+  featured: true
+  venueAbbrev: NeurIPS
+  links:
+    - type: arXiv
+      url: https://arxiv.org/abs/2408.00113
+
+brinkmann2024mechanistic:
+  featured: true
+  venueAbbrev: ACL
+  links:
+    - type: arXiv
+      url: https://arxiv.org/abs/2402.11917
+
+brinkmann2023multidimensional:
+  links:
+    - type: arXiv
+      url: https://arxiv.org/abs/2308.01948

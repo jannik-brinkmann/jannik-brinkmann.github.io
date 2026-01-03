@@ -3,16 +3,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Fira+Code:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Source+Code+Pro:ital,wght@0,300..600;1,300..600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Fira+Code:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
     <title>Publications - Jannik Brinkmann</title>
-    
     <link rel="stylesheet" type="text/css" href="style.css">
-    
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" type="text/css">
 </head>
 <body>
     <div class="container publications">
@@ -40,137 +35,40 @@
         </div>
     </div>
 
-    <script>
-        let currentSortMode = 'date'; // 'date' or 'venue'
-        let allPublicationsData = null; // Store the loaded data
-        const MONTH_ORDER = {
-            jan: 1,
-            feb: 2,
-            mar: 3,
-            apr: 4,
-            may: 5,
-            jun: 6,
-            jul: 7,
-            aug: 8,
-            sep: 9,
-            oct: 10,
-            nov: 11,
-            dec: 12
-        };
-        
-        function createPublicationItem(pub) {
+    <script type="module">
+        import { loadPublications, sortByDate, HIGHLIGHT_AUTHOR } from './js/publications.js';
+
+        let currentSortMode = 'date';
+        let data = null;
+        const containers = {};
+
+        function createItem(pub) {
             const li = document.createElement('li');
             li.className = 'publication-item';
-            
-            // Create authors string with year - write out ALL authors, no "et al"
-            const authorsHtml = pub.authors.map(author => {
-                let authorName = author.name;
-                if (author.note) {
-                    authorName += `<sup>${author.note}</sup>`;
-                }
-                if (author.highlight === true) {
-                    return `<span class="author-highlight">${authorName}</span>`;
-                }
-                return authorName;
+
+            const authors = pub.authors.map(a => {
+                const name = a.note ? `${a.name}<sup>${a.note}</sup>` : a.name;
+                return a.name === HIGHLIGHT_AUTHOR ? `<span class="author-highlight">${name}</span>` : name;
             }).join(', ');
-            
-            // Add year after authors
-            const authorsWithYear = `${authorsHtml}`;
-            
-            // Create venue string (without highlights)
-            let venueHtml = `${pub.venue}`;
-            
-            // Find arXiv or fallback link for the title
-            let primaryLink = null;
-            if (Array.isArray(pub.links)) {
-                primaryLink = pub.links.find(link => 
-                    (link.url && link.url.includes('arxiv.org')) || 
-                    (link.type && ['paper', 'arxiv'].includes(link.type.toLowerCase()))
-                );
-                if (!primaryLink) {
-                    primaryLink = pub.links.find(link => link.url);
-                }
-            }
-            
-            // Create title with link (but no separate link buttons)
-            const titleHtml = primaryLink && primaryLink.url
-                ? `<a href="${primaryLink.url}" class="publication-title-link">${pub.title}</a>`
-                : `"${pub.title}"`;
-            
-            // Create venue highlight on separate line if exists
-            
-            li.innerHTML = `
-                <div class="publication-content">
-                    <span class="publication-authors">${authorsWithYear}.</span><span class="publication-title">${titleHtml}.</span><span class="publication-venue"><em>${venueHtml}.</em></span>
-                </div>
-            `;
-            
+
+            const link = pub.links?.find(l => l.url?.includes('arxiv.org') || ['paper','arxiv'].includes(l.type?.toLowerCase())) || pub.links?.[0];
+            const title = link?.url ? `<a href="${link.url}" class="publication-title-link">${pub.title}</a>` : `"${pub.title}"`;
+
+            // Extract arXiv ID and format venue based on publication type
+            const arxivId = link?.url?.match(/arxiv\.org\/abs\/(\d+\.\d+)/)?.[1];
+            const isPreprint = pub.venue === "arXiv preprint";
+            const venueHtml = isPreprint && arxivId
+                ? `<em>arXiv preprint arXiv:${arxivId}</em>, ${pub.year}.`
+                : `In <em>${pub.venue}</em>, ${pub.year}.`;
+
+            li.innerHTML = `<div class="publication-content">
+                <span class="publication-authors">${authors}.</span><span class="publication-title">${title}.</span><span class="publication-venue">${venueHtml}</span>
+            </div>`;
             return li;
         }
-    
-        // Helper function to categorize publication type
-        function categorizePublication(pub) {
-            const venue = pub.venue.toLowerCase();
-            const venueAbbrev = (pub.venueAbbrev || '').toLowerCase();
-            
-            // Check for workshops
-            if (venue.includes('workshop')) {
-                return 'workshop';
-            }
-            
-            // Check for journals (typically don't have "Proceedings" or "Conference")
-            // Also check venue abbreviations for known journals
-            if (!venue.includes('proceedings') && 
-                !venue.includes('conference') && 
-                !venueAbbrev.includes('acl') &&
-                !venueAbbrev.includes('emnlp') &&
-                !venueAbbrev.includes('naacl') &&
-                !venueAbbrev.includes('iclr') &&
-                !venueAbbrev.includes('neurips') &&
-                !venueAbbrev.includes('iccv')) {
-                return 'journal';
-            }
-            
-            // Default to conference
-            return 'conference';
-        }
-    
-        function getMonthValue(month) {
-            if (!month) return 0;
-            const normalized = month.toString().slice(0, 3).toLowerCase();
-            return MONTH_ORDER[normalized] || 0;
-        }
 
-        function sortPublicationsByDate(publications) {
-            return [...publications].sort((a, b) => {
-                const yearDiff = Number(b.year) - Number(a.year);
-                if (yearDiff !== 0) return yearDiff;
-                const monthDiff = getMonthValue(b.month) - getMonthValue(a.month);
-                if (monthDiff !== 0) return monthDiff;
-                return a.title.localeCompare(b.title);
-            });
-        }
-
-        function renderPreprints(container, preprints = []) {
-            container.innerHTML = '';
-            if (!preprints || preprints.length === 0) return;
-
-            const header = document.createElement('h2');
-            header.textContent = 'Preprints';
-            header.className = 'publications-section-header';
-            container.appendChild(header);
-
-            const list = document.createElement('ul');
-            list.className = 'publications-list publications-year-list';
-            sortPublicationsByDate(preprints).forEach(pub => {
-                list.appendChild(createPublicationItem(pub));
-            });
-            container.appendChild(list);
-        }
-
-        function renderVenueSection(container, title, publications) {
-            if (!publications || publications.length === 0) return;
-
+        function renderSection(container, title, pubs) {
+            if (!pubs?.length) return;
             const header = document.createElement('h2');
             header.textContent = title;
             header.className = 'publications-section-header';
@@ -178,187 +76,57 @@
 
             const list = document.createElement('ul');
             list.className = 'publications-list publications-year-list';
-            sortPublicationsByDate(publications).forEach(pub => {
-                list.appendChild(createPublicationItem(pub));
-            });
+            sortByDate(pubs).forEach(pub => list.appendChild(createItem(pub)));
             container.appendChild(list);
         }
 
-        function renderByDate(data) {
-            // Clear existing containers
-            clearContainers();
-            
-            const preprintsContainer = document.getElementById('preprints-container');
-            const publicationsContainer = document.getElementById('publications-container');
+        function renderByDate() {
+            containers.preprints.innerHTML = '';
+            containers.publications.innerHTML = '';
+            containers.preprints.parentNode.insertBefore(containers.preprints, containers.publications);
 
-            if (preprintsContainer && publicationsContainer && preprintsContainer.parentNode) {
-                preprintsContainer.parentNode.insertBefore(preprintsContainer, publicationsContainer);
-            }
-            
-            renderPreprints(preprintsContainer, data.preprints);
+            renderSection(containers.preprints, 'Preprints', data.preprints);
 
-            const publications = data.conference_publications ? [...data.conference_publications] : [];
-            if (publications.length === 0) {
-                return;
-            }
-
-            // Group publications by year
-            const publicationsByYear = {};
-            publications.forEach(pub => {
-                const year = pub.year;
-                if (!publicationsByYear[year]) {
-                    publicationsByYear[year] = [];
-                }
-                publicationsByYear[year].push(pub);
-            });
-            
-            // Sort years in descending order (most recent first)
-            const sortedYears = Object.keys(publicationsByYear).sort((a, b) => Number(b) - Number(a));
-            
-            // For each year, render publications ordered by date
-            sortedYears.forEach(year => {
-                const yearHeader = document.createElement('h2');
-                yearHeader.textContent = year;
-                yearHeader.className = 'publications-section-header';
-                publicationsContainer.appendChild(yearHeader);
-                
-                const yearList = document.createElement('ul');
-                yearList.className = 'publications-list publications-year-list';
-                sortPublicationsByDate(publicationsByYear[year]).forEach(pub => {
-                    yearList.appendChild(createPublicationItem(pub));
-                });
-                publicationsContainer.appendChild(yearList);
+            const byYear = Object.groupBy(data.conference_publications || [], p => p.year);
+            Object.keys(byYear).sort((a, b) => b - a).forEach(year => {
+                renderSection(containers.publications, year, byYear[year]);
             });
         }
-    
-        function renderByVenueType(data) {
-            // Clear existing containers
-            clearContainers();
-            
-            const preprintsContainer = document.getElementById('preprints-container');
-            const publicationsContainer = document.getElementById('publications-container');
 
-            if (preprintsContainer && publicationsContainer && publicationsContainer.parentNode) {
-                publicationsContainer.parentNode.appendChild(preprintsContainer);
-            }
+        function renderByVenue() {
+            containers.preprints.innerHTML = '';
+            containers.publications.innerHTML = '';
+            containers.publications.parentNode.appendChild(containers.preprints);
 
-            // Group all conference_publications by venue type
-            const journals = [];
-            const conferences = [];
-            const workshops = [];
-            
-            if (data.conference_publications) {
-                data.conference_publications.forEach(pub => {
-                    const category = categorizePublication(pub);
-                    if (category === 'journal') {
-                        journals.push(pub);
-                    } else if (category === 'workshop') {
-                        workshops.push(pub);
-                    } else {
-                        conferences.push(pub);
-                    }
-                });
-            }
-            
-            renderVenueSection(publicationsContainer, 'Journal Publications', journals);
-            renderVenueSection(publicationsContainer, 'Conference Publications', conferences);
-            renderVenueSection(publicationsContainer, 'Workshop Publications', workshops);
-            
-            // Render preprints at the bottom
-            renderPreprints(preprintsContainer, data.preprints);
+            const byType = Object.groupBy(data.conference_publications || [], p => p.type || 'conference');
+            renderSection(containers.publications, 'Journal Publications', byType.journal);
+            renderSection(containers.publications, 'Conference Publications', byType.conference);
+            renderSection(containers.publications, 'Workshop Publications', byType.workshop);
+            renderSection(containers.preprints, 'Preprints', data.preprints);
         }
-    
-        function clearContainers() {
-            const preprintsContainer = document.getElementById('preprints-container');
-            const publicationsContainer = document.getElementById('publications-container');
-            
-            preprintsContainer.innerHTML = '';
-            publicationsContainer.innerHTML = '';
+
+        function render() {
+            currentSortMode === 'date' ? renderByDate() : renderByVenue();
+            document.getElementById('sort-by-date').classList.toggle('active', currentSortMode === 'date');
+            document.getElementById('sort-by-venue').classList.toggle('active', currentSortMode === 'venue');
         }
-    
-        function updateSortButtons() {
-            const dateButton = document.getElementById('sort-by-date');
-            const venueButton = document.getElementById('sort-by-venue');
-            
-            if (currentSortMode === 'date') {
-                dateButton.classList.add('active');
-                venueButton.classList.remove('active');
-            } else {
-                venueButton.classList.add('active');
-                dateButton.classList.remove('active');
-            }
+
+        containers.preprints = document.getElementById('preprints-container');
+        containers.publications = document.getElementById('publications-container');
+
+        try {
+            data = await loadPublications();
+            render();
+        } catch (e) {
+            containers.preprints.innerHTML = '<li>Error loading publications.</li>';
         }
-    
-        async function loadPublications() {
-            try {
-                const response = await fetch('data/publications.json');
-                const data = await response.json();
-                allPublicationsData = data;
-                
-                // Render based on current sort mode
-                if (currentSortMode === 'date') {
-                    renderByDate(data);
-                } else {
-                    renderByVenueType(data);
-                }
-                
-                // Update button states after loading
-                updateSortButtons();
-                
-            } catch (error) {
-                console.error('Error loading publications:', error);
-                document.getElementById('preprints-container').innerHTML = 
-                    '<li>Error loading preprints. Please try again later.</li>';
-                document.getElementById('publications-container').innerHTML = 
-                    '<li>Error loading publications. Please try again later.</li>';
-            }
-        }
-    
-        // Set up event listeners when DOM is loaded
-        document.addEventListener('DOMContentLoaded', () => {
-            loadPublications();
-            
-            // Set up sort button listeners
-            const dateButton = document.getElementById('sort-by-date');
-            const venueButton = document.getElementById('sort-by-venue');
-            
-            if (!dateButton || !venueButton) {
-                console.error('Sort buttons not found in DOM');
-                return;
-            }
-            
-            dateButton.addEventListener('click', () => {
-                console.log('Date button clicked');
-                if (!allPublicationsData) {
-                    console.warn('Publications data not loaded yet');
-                    return;
-                }
-                if (currentSortMode !== 'date') {
-                    console.log('Switching to date sort');
-                    currentSortMode = 'date';
-                    updateSortButtons();
-                    renderByDate(allPublicationsData);
-                } else {
-                    console.log('Already in date sort mode');
-                }
-            });
-            
-            venueButton.addEventListener('click', () => {
-                console.log('Venue button clicked');
-                if (!allPublicationsData) {
-                    console.warn('Publications data not loaded yet');
-                    return;
-                }
-                if (currentSortMode !== 'venue') {
-                    console.log('Switching to venue sort');
-                    currentSortMode = 'venue';
-                    updateSortButtons();
-                    renderByVenueType(allPublicationsData);
-                } else {
-                    console.log('Already in venue sort mode');
-                }
-            });
-        });
+
+        document.getElementById('sort-by-date').onclick = () => {
+            if (currentSortMode !== 'date') { currentSortMode = 'date'; render(); }
+        };
+        document.getElementById('sort-by-venue').onclick = () => {
+            if (currentSortMode !== 'venue') { currentSortMode = 'venue'; render(); }
+        };
     </script>
 </body>
 </html>

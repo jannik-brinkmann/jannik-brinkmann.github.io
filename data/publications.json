@@ -1,6 +1,7 @@
 {
   "preprints": [
-    {"title": "In-Context Algebra",
+    {
+      "title": "In-Context Algebra",
       "authors": [
         {"name": "Eric Todd"},
         {"name": "Jannik Brinkmann"},
@@ -10,18 +11,16 @@
       "venue": "arXiv preprint",
       "year": "2025",
       "month": "Dec",
-      "venueAbbrev": "arXiv",
-      "links": [
-        {"type": "arXiv", "url": "https://arxiv.org/abs/2512.16902"}
-      ],
+      "links": [{"type": "arXiv", "url": "https://arxiv.org/abs/2512.16902"}],
       "featured": false
     },
-    {"title": "In-Context Learning Without Copying",
+    {
+      "title": "In-Context Learning Without Copying",
       "authors": [
         {"name": "Kerem Sahin"},
         {"name": "Sheridan Feucht"},
         {"name": "Adam Belfki"},
-        {"name": "Jannik Brinkmann", "highlight": true},
+        {"name": "Jannik Brinkmann"},
         {"name": "Aaron Mueller"},
         {"name": "David Bau"},
         {"name": "Chris Wendler"}
@@ -29,26 +28,20 @@
       "venue": "arXiv preprint",
       "year": "2025",
       "month": "Nov",
-      "venueAbbrev": "arXiv",
-      "links": [
-        {"type": "arXiv", "url": "https://arxiv.org/abs/2511.05743"}
-      ],
+      "links": [{"type": "arXiv", "url": "https://arxiv.org/abs/2511.05743"}],
       "featured": false
     },
     {
       "title": "Jailbreak Transferability Emerges From Shared Representations",
       "authors": [
         {"name": "Rico Angell"},
-        {"name": "Jannik Brinkmann", "highlight": true},
+        {"name": "Jannik Brinkmann"},
         {"name": "He He"}
       ],
       "venue": "arXiv preprint",
       "year": "2025",
       "month": "Jun",
-      "venueAbbrev": "arXiv",
-      "links": [
-        {"type": "arXiv", "url": "https://arxiv.org/abs/2506.12913"}
-      ],
+      "links": [{"type": "arXiv", "url": "https://arxiv.org/abs/2506.12913"}],
       "featured": false
     }
   ],
@@ -60,42 +53,37 @@
         {"name": "Eleonora Kreacic"},
         {"name": "Mathieu Sibue"},
         {"name": "Gabriel Mercier"},
-        {"name": "Jannik Brinkmann", "highlight": true},
+        {"name": "Jannik Brinkmann"},
         {"name": "Nelson Vadori"},
         {"name": "Manuela Veloso"}
       ],
       "venue": "The 5th Workshop on Mathematical Reasoning and AI at NeurIPS 2025",
       "year": "2025",
       "month": "Dec",
-      "venueAbbrev": "NeurIPS Workshop",
-      "links": [
-        {"type": "OpenReview", "url": "https://openreview.net/forum?id=fqtdnjcHTp&referrer=%5BAuthor%20Console%5D(%2Fgroup%3Fid%3DNeurIPS.cc%2F2025%2FWorkshop%2FMATH-AI%2FAuthors%23your-submissions)"}
-        
-      ],
+      "type": "workshop",
+      "links": [{"type": "OpenReview", "url": "https://openreview.net/forum?id=fqtdnjcHTp&referrer=%5BAuthor%20Console%5D(%2Fgroup%3Fid%3DNeurIPS.cc%2F2025%2FWorkshop%2FMATH-AI%2FAuthors%23your-submissions)"}],
       "featured": false
     },
     {
       "title": "Steering Language Models in Multi-Token Generation: A Case Study on Tense and Aspect",
       "authors": [
         {"name": "Alina Klerings"},
-        {"name": "Jannik Brinkmann", "highlight": true},
+        {"name": "Jannik Brinkmann"},
         {"name": "Daniel Ruffinelli"},
         {"name": "Simone Paolo Ponzetto"}
       ],
       "venue": "Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing (EMNLP)",
       "year": "2025",
       "month": "Nov",
-      "venueAbbrev": "EMNLP",
-      "links": [
-        {"type": "arXiv", "url": "https://arxiv.org/abs/2509.12065"}
-      ],
+      "type": "conference",
+      "links": [{"type": "arXiv", "url": "https://arxiv.org/abs/2509.12065"}],
       "featured": false
     },
     {
       "title": "The Quest for the Right Mediator: Surveying Mechanistic Interpretability for NLP Through the Lens of Causal Mediation Analysis",
       "authors": [
         {"name": "Aaron Mueller"},
-        {"name": "Jannik Brinkmann", "highlight": true},
+        {"name": "Jannik Brinkmann"},
         {"name": "Millicent Li"},
         {"name": "Samuel Marks"},
         {"name": "Koyena Pal"},
@@ -111,17 +99,14 @@
       "venue": "Computational Linguistics",
       "year": "2025",
       "month": "Jan",
-      "venueAbbrev": "CL",
-      "links": [
-        {"type": "arXiv", "url": "https://arxiv.org/abs/2408.01416"}
-      ],
+      "type": "journal",
+      "links": [{"type": "arXiv", "url": "https://arxiv.org/abs/2408.01416"}],
       "featured": true
     },
-
     {
       "title": "Large Language Models Share Representations of Latent Grammatical Concepts across Typologically Diverse Languages",
       "authors": [
-        {"name": "Jannik Brinkmann", "highlight": true},
+        {"name": "Jannik Brinkmann"},
         {"name": "Chris Wendler"},
         {"name": "Christian Bartelt"},
         {"name": "Aaron Mueller"}
@@ -129,11 +114,12 @@
       "venue": "Proceedings of the 2025 Conference of the Nations of the Americas Chapter of the Association for Computational Linguistics (NAACL)",
       "year": "2025",
       "month": "Jan",
-      "venueAbbrev": "NAACL",
+      "type": "conference",
       "venueHighlight": "Oral presentation",
       "links": [
         {"type": "arXiv", "url": "https://arxiv.org/abs/2501.06346"},
-        {"type": "Code", "url": "https://github.com/jannik-brinkmann/multilingual-features"}
+        {"type": "Code", "url": "https://github.com/jannik-brinkmann/multilingual-features"},
+        {"type": "Website", "url": "https://multilingual-features.jannikbrinkmann.com"}
       ],
       "featured": true
     },
@@ -143,7 +129,7 @@
         {"name": "Jaden Fiotto-Kaufman"},
         {"name": "Alexander R Loftus"},
         {"name": "Eric Todd"},
-        {"name": "Jannik Brinkmann", "highlight": true},
+        {"name": "Jannik Brinkmann"},
         {"name": "Koyena Pal"},
         {"name": "David Troitskii"},
         {"name": "Michael Ripa"},
@@ -164,7 +150,7 @@
       "venue": "Proceedings of the 13st International Conference on Learning Representations (ICLR 2025)",
       "year": "2025",
       "month": "Jul",
-      "venueAbbrev": "ICLR",
+      "type": "conference",
       "links": [
         {"type": "arXiv", "url": "https://arxiv.org/abs/2407.14561"},
         {"type": "Code", "url": "https://github.com/ndif-team/nnsight"},
@@ -179,7 +165,7 @@
         {"name": "Benjamin Wright"},
         {"name": "Can Rager"},
         {"name": "Rico Angell"},
-        {"name": "Jannik Brinkmann", "highlight": true},
+        {"name": "Jannik Brinkmann"},
         {"name": "Logan Riggs"},
         {"name": "Claudio Verdun"},
         {"name": "David Bau"},
@@ -188,16 +174,14 @@
       "venue": "Advances in Neural Information Processing Systems 37 (NeurIPS 2024)",
       "year": "2024",
       "month": "Jul",
-      "venueAbbrev": "NeurIPS",
-      "links": [
-        {"type": "arXiv", "url": "https://arxiv.org/abs/2408.00113"}
-      ],
+      "type": "conference",
+      "links": [{"type": "arXiv", "url": "https://arxiv.org/abs/2408.00113"}],
       "featured": true
     },
     {
       "title": "A Mechanistic Analysis of a Transformer Trained on a Symbolic Multi-Step Reasoning Task",
       "authors": [
-        {"name": "Jannik Brinkmann", "highlight": true},
+        {"name": "Jannik Brinkmann"},
         {"name": "Abhay Sheshadri"},
         {"name": "Victor Levoso"},
         {"name": "Paul Swoboda"},
@@ -206,27 +190,23 @@
       "venue": "Findings of the Association for Computational Linguistics: ACL 2024",
       "year": "2024",
       "month": "Feb",
-      "venueAbbrev": "ACL",
-      "links": [
-        {"type": "arXiv", "url": "https://arxiv.org/abs/2402.11917"}
-      ],
+      "type": "conference",
+      "links": [{"type": "arXiv", "url": "https://arxiv.org/abs/2402.11917"}],
       "featured": true
     },
     {
       "title": "A Multidimensional Analysis of Social Biases in Vision Transformers",
       "authors": [
-        {"name": "Jannik Brinkmann", "highlight": true},
+        {"name": "Jannik Brinkmann"},
         {"name": "Paul Swoboda"},
         {"name": "Christian Bartelt"}
       ],
       "venue": "2023 IEEE/CVF International Conference on Computer Vision (ICCV)",
       "year": "2023",
       "month": "Oct",
-      "venueAbbrev": "ICCV",
-      "links": [
-        {"type": "arXiv", "url": "https://arxiv.org/abs/2308.01948"}
-      ],
+      "type": "conference",
+      "links": [{"type": "arXiv", "url": "https://arxiv.org/abs/2308.01948"}],
       "featured": false
     }
   ]
-} 
+}

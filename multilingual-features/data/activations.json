@@ -1,0 +1,56 @@
+{
+  "features": [
+    {
+      "id": "plural",
+      "name": "Plural Nouns (#31536)",
+      "examples": [
+        {
+          "language": "English",
+          "text": "The teacher helped the students",
+          "highlights": [{"text": "students", "activation": 0.9}]
+        },
+        {
+          "language": "Finnish",
+          "text": "Taiteilijat ovat kokoontuneet",
+          "highlights": [{"text": "at", "activation": 0.9}]
+        },
+        {
+          "language": "Indonesian",
+          "text": "Lelaki-lelaki itu juga diekspor ke luar negeri",
+          "highlights": [{"text": "aki", "activation": 0.9}]
+        },
+        {
+          "language": "Hebrew",
+          "text": "הכלבים מטיילים בפארק",
+          "highlights": [{"text": "ים", "activation": 0.9}]
+        }
+      ]
+    },
+    {
+      "id": "past_tense",
+      "name": "Past Tense (#10710)",
+      "examples": [
+        {
+          "language": "English",
+          "text": "When Mary was in the bed, she ...",
+          "highlights": [{"text": "was", "activation": 0.9}]
+        },
+        {
+          "language": "German",
+          "text": "Als Sam im Park war, ...",
+          "highlights": [{"text": "war", "activation": 0.9}]
+        },
+        {
+          "language": "Finnish",
+          "text": "Kun John oli koulussa, hän ...",
+          "highlights": [{"text": "oli", "activation": 0.9}, {"text": "ussa", "activation": 0.4}]
+        },
+        {
+          "language": "Dutch",
+          "text": "Toen James op het strand was, hij ...",
+          "highlights": [{"text": "was", "activation": 0.9}]
+        }
+      ]
+    }
+  ]
+}
