@@ -46,13 +46,17 @@ function parseYaml(yaml) {
                 arrayItem = {};
                 const content = trimmed.slice(2);
                 if (content.includes(':')) {
-                    const [k, v] = content.split(':').map(s => s.trim());
+                    const colonIdx = content.indexOf(':');
+                    const k = content.slice(0, colonIdx).trim();
+                    const v = content.slice(colonIdx + 1).trim();
                     arrayItem[k] = parseValue(v);
                 }
             }
             // Array item continuation
             else if (inArray && indent >= 6 && trimmed.includes(':')) {
-                const [k, v] = trimmed.split(':').map(s => s.trim());
+                const colonIdx = trimmed.indexOf(':');
+                const k = trimmed.slice(0, colonIdx).trim();
+                const v = trimmed.slice(colonIdx + 1).trim();
                 if (arrayItem) arrayItem[k] = parseValue(v);
             }
             // Property
