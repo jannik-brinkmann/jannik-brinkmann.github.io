@@ -1,0 +1,67 @@
+{
+  "examples": [
+    {
+      "id": "turkish-past",
+      "name": "Turkish → English",
+      "concept": "Tense",
+      "feature": "Past Tense",
+      "direction": "↑",
+      "source": {
+        "language": "Turkish",
+        "text": "Televizyon haberleri santralden yükselen beyaz dumanı gösteriyor."
+      },
+      "baseline": {
+        "language": "English",
+        "text": "The TV news is showing the white smoke rising from the chimney of the plant.",
+        "highlights": ["is showing"]
+      },
+      "steered": {
+        "language": "English",
+        "text": "A television news program showed a cloud of white smoke from the reactor.",
+        "highlights": ["showed"]
+      }
+    },
+    {
+      "id": "english-feminine",
+      "name": "English → German",
+      "concept": "Gender",
+      "feature": "Feminine",
+      "direction": "↑",
+      "source": {
+        "language": "English",
+        "text": "He was greeted by Singapore's Deputy Prime Minister Wong Kan Seng and discussed trade and terrorism issues with the Singapore Prime Minister Lee Hsien Loong."
+      },
+      "baseline": {
+        "language": "German",
+        "text": "Er wurde von Wong Kan Seng, dem stellvertretenden Premierminister Singapurs, begrüßt und sprach mit Lee Hsien Loong, dem Premierminister Singapurs, über Handels- und Terrorismusangelegenheiten.",
+        "highlights": ["Er", "dem stellvertretenden Premierminister", "dem Premierminister"]
+      },
+      "steered": {
+        "language": "German",
+        "text": "Sie wurde von der stellvertretenden Premierministerin Wong Kan Seng in Empfang genommen und unterhielt sich mit der singapurischen Premierministerin Lee Hsien Loong über Handels- und Terrorismus-Themen.",
+        "highlights": ["Sie", "der stellvertretenden Premierministerin", "der singapurischen Premierministerin"]
+      }
+    },
+    {
+      "id": "french-singular",
+      "name": "French → Spanish",
+      "concept": "Number",
+      "feature": "Singular",
+      "direction": "↑",
+      "source": {
+        "language": "French",
+        "text": "Peu de gens les considèrent comme des dinosaures étant donné qu'ils ont des ailes et peuvent voler."
+      },
+      "baseline": {
+        "language": "Spanish",
+        "text": "Pocos los consideran dinosaurios porque tienen alas y pueden volar.",
+        "highlights": ["los", "dinosaurios", "tienen", "pueden"]
+      },
+      "steered": {
+        "language": "Spanish",
+        "text": "Pocos lo consideran como un dinosaurio, ya que tiene alas y puede volar.",
+        "highlights": ["lo", "un dinosaurio", "tiene", "puede"]
+      }
+    }
+  ]
+}
