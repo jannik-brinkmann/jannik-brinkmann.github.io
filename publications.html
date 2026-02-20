@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Fira+Code:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <title>Publications - Jannik Brinkmann</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 <body>
     <div class="container publications">
@@ -20,8 +20,8 @@
 
         <!-- Sort controls -->
         <div class="sort-controls">
-            <button id="sort-by-date" class="button project active">Sort by Date</button>
-            <button id="sort-by-venue" class="button project">Group by Venue Type</button>
+            <button id="sort-by-date" class="button pill active">Sort by Date</button>
+            <button id="sort-by-venue" class="button pill">Group by Venue Type</button>
         </div>
         
         <!-- Separate container for preprints -->
@@ -36,7 +36,7 @@
     </div>
 
     <script type="module">
-        import { loadPublications, sortByDate, HIGHLIGHT_AUTHOR } from './js/publications.js';
+        import { loadPublications, sortByDate, HIGHLIGHT_AUTHOR } from './assets/js/publications.js';
 
         let currentSortMode = 'date';
         let data = null;
@@ -69,7 +69,7 @@
 
         function renderSection(container, title, pubs) {
             if (!pubs?.length) return;
-            const header = document.createElement('h2');
+            const header = document.createElement('h3');
             header.textContent = title;
             header.className = 'publications-section-header';
             container.appendChild(header);

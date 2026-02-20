@@ -1,97 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Fira+Code:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <title>Jannik Brinkmann</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-  </head>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
-  <body> 
+<body>
 
-    <div class="container" style="margin-top: 32px">
-
+  <header class="hero">
+    <div class="container">
       <h1>Jannik Brinkmann</h1>
-
-      <div class="h-introduction">
-        <p class="text">
-          I am interested in the structure and interpretation of natural and artificial systems.
+      <div class="abstract">
+        <p>
+          I am a Ph.D. student advised by <a>Christian Bartelt</a>.
+          I am also affiliated with the <a href="https://baulab.info">interpretable neural networks group</a> at Northeastern University led by <a href="https://scholar.google.com/citations?user=CYI6cKgAAAAJ&hl=en">David Bau</a>. 
+          I spent the winter semester 2024/2025 as a visiting researcher in the <a href="https://wp.nyu.edu/ml2/">ML<sup>2</sup></a> research group at NYU advised by <a href="https://cds.nyu.edu/team/he-he/">He He</a>.
+          In the summer of 2025 I interned at J.P. Morgan Research working on post-training of language models for mathematical reasoning.
         </p>
-        <p class="text">
-          I am a Ph.D. student in Computer Science.
-          I spent time in the 
-          <a class="link" href="https://wp.nyu.edu/ml2/">ML<sup>2</sup></a> 
-          research group at 
-          <a class="link" href="https://cds.nyu.edu">NYU</a> 
-          advised by 
-          <a class="link" href="https://cds.nyu.edu/team/he-he/">He He</a>, 
-          and in the interpretable neural networks group at
-          <a class="link" href="https://www.northeastern.edu">Northeastern University</a>
-          advised by 
-          <a class="link" href="https://davidbau.com">David Bau</a>. 
-          I also interned at 
-          <a class="link" href="https://www.jpmorganchase.com/about/technology/research/ai">J.P. Morgan Research</a> 
-          in the summer of 2025.
-        </p>
-
-        <div class="social-links">
-          <a href="https://scholar.google.com/citations?user=YtdTeaMAAAAJ&hl=en" class="button project" style="background-color: #0f2440; color: #ffffff">Google Scholar</a>
-          <a href="https://x.com/jannikbrinkmann" class="button project" style="background-color: #d9e2f1">Twitter</a>
-          <a href="https://github.com/jannik-brinkmann" class="button project">GitHub</a>
-          <a href="publications.html" class="button project" style="background-color: #dccfcd">Publication List</a>
+        <div class="profile-links">
+          <a href="https://scholar.google.com/citations?user=YtdTeaMAAAAJ&hl=en" class="button pill">Google Scholar</a>
+          <a href="https://github.com/jannik-brinkmann" class="button pill">GitHub</a>
+          <a href="publications.html" class="button pill">Publication List</a>
         </div>
-    </div>
-
-    
-
-    <h3>Selected Publications</h3>
-    <hr class="hard">
-    
-    <div>
-      <div class="research-list" id="research-list">
       </div>
     </div>
-  </div>
+  </header>
 
-  <script type="module">
-    import { loadPublications, sortByDate } from './js/publications.js';
+  <main class="container" style="padding-top: 32px">
 
-    function createResearchItem(paper) {
-      const div = document.createElement('div');
-      div.className = 'research-item';
+    <h2>Research</h2>
 
-      const url = paper.links?.[0]?.url || '#';
-      const linksHtml = paper.links?.length
-        ? ' ' + paper.links
-            .filter(l => l.type?.toLowerCase() !== 'arxiv')
-            .map(l => `<sup><a href="${l.url}" target="_blank" rel="noopener noreferrer" class="research-link">[${l.type}]</a></sup>`).join(' ')
-        : '';
+    I am interested in the structure and interpretation of natural and artificial systems. In the past, I studied mechanisms of multi-step reasoning in transformers, cross-lingual feature sharing in language models, and sparse autoencoders as a tool for interpreting language model representations. Beyond understanding models themselves, I am excited about the prospect of discovering useful knowledge in them and teaching it to humans.
 
-      div.innerHTML = `
-        <div class="research-date">${paper.venueAbbrev || ''} ${paper.year}</div>
-        <div class="research-title">
-          <a href="${url}" target="_blank" rel="noopener noreferrer">${paper.title}</a>${linksHtml}
-        </div>
-        <hr class="soft">
-      `;
-      return div;
-    }
-
-    try {
-      const data = await loadPublications();
-      const allPapers = [...(data.preprints || []), ...(data.conference_publications || [])];
-      const featured = sortByDate(allPapers.filter(p => p.featured));
-
-      const container = document.getElementById('research-list');
-      featured.forEach(paper => container.appendChild(createResearchItem(paper)));
-    } catch (e) {
-      document.getElementById('research-list').innerHTML =
-        '<div class="research-item"><div class="research-title">Error loading publications.</div></div>';
-    }
-  </script>
-
-  </body>
+    <h3>Selected Publications</h3>
+    <ol>
+      <li>
+        <p class="text"><a href="https://arxiv.org/abs/2602.06020">Mechanisms of Protein Folding in ESMFold.</a></p>
+      </li>
+      <li>
+        <p class="text"><a href="https://aclanthology.org/2025.naacl-long.312/">Large Language Models Share Representations of Latent Grammatical Concepts across Typologically Diverse Languages</a>. Nations of the Americas Chapter of the Association for Computational Linguistics (NAACL), 2025. <b>(Oral)</b></p>
+      </li>
+      <li>
+        <p class="text"><a href="https://aclanthology.org/2024.findings-acl.242/">A Mechanistic Analysis of a Transformer Trained on a Symbolic Multi-Step Reasoning Task</a>. Association for Computational Linguistics (ACL), 2024.</p>
+      </li>
+    </ol>
+  </main>
+</body>
 </html>

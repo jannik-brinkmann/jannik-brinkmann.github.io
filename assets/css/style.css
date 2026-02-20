@@ -1,0 +1,396 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --link-color: black;
+  --publication-link-color: #3164aa;
+  --background-color: white;
+  --font-size: 13px;
+  --measure: 74ch;
+  --wide-page: 74ch;
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
+body {
+  font-family: "Poppins", Palatino, "Book Antiqua", Georgia, serif;
+  font-weight: 400;
+  min-height: 100vh;
+  margin: 0;
+  padding-bottom: 32px;
+  line-height: 1.6;
+  font-size: var(--font-size);
+  background-color: var(--background-color);
+}
+
+p {
+  margin-top: 0;
+}
+
+sup {
+  font-size: 0.75em;
+  vertical-align: super;
+}
+
+/* Side margins are now on the container, not the body */
+.container {
+  display: flex;
+  flex-direction: column;
+  width: var(--measure);
+  max-width: calc(100% - 144px); /* 72px breathing room on each side */
+  margin: 0 auto;
+  padding-inline: 0;
+}
+
+.container.publications {
+  width: var(--wide-page);
+  max-width: calc(100% - 144px);
+  box-sizing: border-box;
+  padding-inline: 0;
+  margin-top: 32px;
+}
+
+h1 {
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 0.9;
+  padding: 36px 0 36px 0;
+  margin: 0;
+}
+
+h2 {
+  font-size: 26px;
+  font-weight: 500;
+  margin: 0;
+  padding: 36px 0 12px 0;
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0;
+  padding: 16px 0 4px 0;
+}
+
+h4 {
+  font-size: var(--font-size);
+  font-weight: 500;
+  margin: 0;
+  padding: 4px 0 4px 0;
+}
+
+b {
+  font-weight: 600;
+}
+
+a {
+  font-weight: 400;
+  text-decoration: underline;
+  text-underline-offset: 1px;
+  color: var(--link-color);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+hr {
+  border: 0;
+  height: 0;
+  border-top: 1px solid rgb(0, 0, 0);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  grid-column: 1 / -1;
+  width: 100%;
+  margin: 8px 0;
+}
+
+hr.hard {
+  border-top: 1px solid rgba(0, 0, 0, 0.5);
+  margin-bottom: 12px;
+}
+
+hr.soft {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* ─── Hero section ───────────────────────── */
+
+.hero {
+  background-color: #AFB6BD;
+  padding: min(16vh, 120px) 0 min(7.7vh, 60px);
+  width: 100%;
+}
+
+.hero h1 {
+  text-align: center;
+  padding-top: 0; /* hero's own padding handles top space */
+}
+
+/* ─── Abstract / bio section (inside hero) ── */
+
+.abstract {
+  flex: 1;
+}
+
+.abstract p {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  margin: 0;
+}
+
+.profile-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 18px;
+  align-items: center;
+  margin: 32px 0 0 0; /* hero padding-bottom handles space below */
+}
+
+/* ─── Selected publications list (index page) ─ */
+
+main ol {
+  padding-left: 1.5em;
+  list-style-position: outside;
+}
+
+main ol li {
+  margin-bottom: 4px;
+}
+
+/* ─── Publications list (publications page) ─ */
+
+.publications-list {
+  padding-inline-start: 25px;
+  margin: 0;
+  list-style-type: disc;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+.publication-item {
+  display: list-item;
+  padding: 6px 0;
+  position: relative;
+  line-height: 1.5;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  max-width: 100%;
+}
+
+.publication-content {
+  position: relative;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  max-width: 100%;
+}
+
+.publication-authors {
+  display: inline;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  max-width: 100%;
+}
+
+.publication-title {
+  font-weight: 400;
+  display: inline;
+  margin-left: 4px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  max-width: 100%;
+}
+
+.publication-title-link {
+  text-decoration: none;
+  font-weight: 400;
+  color: var(--publication-link-color);
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  max-width: 100%;
+}
+
+.publication-title-link:hover {
+  text-decoration: underline;
+}
+
+.publication-venue {
+  display: inline;
+  margin-left: 4px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  max-width: 100%;
+}
+
+.author-highlight {
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* ─── Featured publications list (index page) */
+
+.pub-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 0;
+  margin: 0;
+}
+
+.pub-item {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  column-gap: 12px;
+  row-gap: 0;
+  align-items: center;
+}
+
+.pub-venue {
+  font-weight: 500;
+  white-space: nowrap;
+  font-size: var(--font-size);
+}
+
+.pub-title {
+  font-size: var(--font-size);
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  min-width: 0;
+}
+
+.pub-title a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+.pub-title a:hover {
+  color: var(--link-color);
+}
+
+/* ─── Buttons ────────────────────────────── */
+
+button, .button {
+  background-color: #ececec;
+  border-radius: 10px;
+  padding: 0.75em 1em;
+  color: #353535;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size);
+  font-weight: 400;
+  letter-spacing: 0.075em;
+  text-decoration: none;
+  text-transform: uppercase;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  box-sizing: content-box;
+  border: none;
+}
+
+button:hover, .button:hover {
+  background-color: #ececec;
+  opacity: 0.8;
+  color: #353535;
+  text-decoration: none;
+}
+
+button:active, .button:active {
+  opacity: 0.5;
+  background-color: #ececec;
+  color: #353535;
+}
+
+.button.pill {
+  font-weight: 500;
+  padding: 0.5em 0.85em;
+  font-size: 0.85em;
+  color: #353535;
+  flex-shrink: 0;
+}
+
+.button.pill.active {
+  background-color: #0f2440;
+  color: #ffffff;
+}
+
+/* Hero-specific pill buttons: semi-transparent white over the grey background */
+.hero .button.pill {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #1a1a1a;
+}
+
+.hero .button.pill:hover {
+  background-color: rgba(255, 255, 255, 0.35);
+  opacity: 1;
+}
+
+/* ─── Sort controls (publications page) ──── */
+
+.sort-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  align-items: center;
+  margin: 0;
+}
+
+/* ─── Responsive ─────────────────────────── */
+
+@media (max-width: 992px) {
+  button, .button {
+    font-size: 0.6em;
+  }
+}
+
+@media (max-width: 896px) {
+  .container, .container.publications {
+    max-width: calc(100% - 80px); /* 40px each side */
+  }
+  .profile-links {
+    gap: 14px;
+  }
+}
+
+@media (max-width: 600px) {
+  .container, .container.publications {
+    max-width: calc(100% - 64px); /* 32px each side */
+  }
+  .profile-links {
+    gap: 10px;
+    justify-content: flex-start;
+  }
+  .hero h1 {
+    text-align: left;
+  }
+  .pub-item {
+    grid-template-columns: 1fr;
+    row-gap: 0px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container, .container.publications {
+    max-width: calc(100% - 48px); /* 24px each side */
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --font-size: 14px;
+  }
+  h2 {
+    font-size: 24px;
+  }
+  .pub-item {
+    grid-template-columns: 140px 1fr;
+  }
+}
