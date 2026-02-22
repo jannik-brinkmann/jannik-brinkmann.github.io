@@ -53,6 +53,14 @@ sup {
   margin-top: 32px;
 }
 
+main.container {
+  padding-top: 32px;
+}
+
+main > h2:first-child {
+  padding-top: 0;
+}
+
 h1 {
   font-weight: 400;
   font-size: 30px;
@@ -120,7 +128,7 @@ hr.soft {
 
 .hero {
   background-color: #AFB6BD;
-  padding: min(16vh, 120px) 0 min(7.7vh, 60px);
+  padding: min(16vh, 120px) 0 min(8vh, 64px);
   width: 100%;
 }
 
@@ -154,17 +162,22 @@ hr.soft {
 
 main ol {
   padding-left: 1.5em;
+  margin-block-start: 0.5em;
   list-style-position: outside;
 }
 
 main ol li {
-  margin-bottom: 4px;
+  margin-bottom: 10px;
+}
+
+main ol li p {
+  margin-bottom: 0;
 }
 
 /* ─── Publications list (publications page) ─ */
 
 .publications-list {
-  padding-inline-start: 25px;
+  padding-inline-start: 24px;
   margin: 0;
   list-style-type: disc;
   max-width: 100%;
@@ -237,7 +250,7 @@ main ol li {
 .pub-list {
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 4px;
   padding: 0;
   margin: 0;
 }
@@ -386,9 +399,6 @@ button:active, .button:active {
 @media (min-width: 1024px) {
   :root {
     --font-size: 14px;
-  }
-  h2 {
-    font-size: 24px;
   }
   .pub-item {
     grid-template-columns: 140px 1fr;
