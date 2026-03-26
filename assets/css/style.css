@@ -7,8 +7,8 @@
   --publication-link-color: #3164aa;
   --background-color: white;
   --font-size: 13px;
-  --measure: 74ch;
-  --wide-page: 74ch;
+  --measure: 70ch;
+  --wide-page: 70ch;
 }
 
 html, body {
@@ -16,11 +16,11 @@ html, body {
 }
 
 body {
-  font-family: "Poppins", Palatino, "Book Antiqua", Georgia, serif;
+  font-family: "Inter", sans-serif;
   font-weight: 400;
   min-height: 100vh;
   margin: 0;
-  padding-bottom: 32px;
+  padding-bottom: 80px;
   line-height: 1.6;
   font-size: var(--font-size);
   background-color: var(--background-color);
@@ -54,23 +54,21 @@ sup {
 }
 
 main.container {
-  padding-top: 32px;
-}
-
-main > h2:first-child {
-  padding-top: 0;
+  padding-top: 6px;
 }
 
 h1 {
+  font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-size: 30px;
-  line-height: 0.9;
+  line-height: 1;
   padding: 36px 0 36px 0;
   margin: 0;
 }
 
 h2 {
-  font-size: 26px;
+  font-family: "Sora", sans-serif;
+  font-size: 22px;
   font-weight: 500;
   margin: 0;
   padding: 36px 0 12px 0;
@@ -128,8 +126,9 @@ hr.soft {
 
 .hero {
   background-color: #AFB6BD;
-  padding: min(16vh, 120px) 0 min(8vh, 64px);
+  padding: min(10vh, 80px) 0 min(6vh, 48px);
   width: 100%;
+  font-family: "Poppins", sans-serif;
 }
 
 .hero h1 {
@@ -160,17 +159,21 @@ hr.soft {
 
 /* ─── Selected publications list (index page) ─ */
 
-main ol {
+main ol,
+main ul {
   padding-left: 1.5em;
-  margin-block-start: 0.5em;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
   list-style-position: outside;
 }
 
-main ol li {
-  margin-bottom: 10px;
+main ol li,
+main ul li {
+  margin: 5px 0;
 }
 
-main ol li p {
+main ol li p,
+main ul li p {
   margin-bottom: 0;
 }
 
@@ -250,27 +253,37 @@ main ol li p {
 .pub-list {
   display: flex;
   flex-direction: column;
-  gap: 4px;
   padding: 0;
   margin: 0;
 }
 
 .pub-item {
   display: grid;
-  grid-template-columns: 120px 1fr;
-  column-gap: 12px;
-  row-gap: 0;
-  align-items: center;
+  grid-template-columns: 1fr;
+  row-gap: 2px;
+  align-items: baseline;
+  padding: 6px 0;
 }
 
-.pub-venue {
-  font-weight: 500;
-  white-space: nowrap;
+.pub-item + .pub-item {
+  margin-top: 8px;
+}
+
+.pub-date {
+  font-size: 0.85em;
+  color: rgba(0, 0, 0, 0.4);
+  margin-bottom: 1px;
+}
+
+.pub-authors {
   font-size: var(--font-size);
+  color: rgba(0, 0, 0, 0.55);
+  margin-top: 1px;
 }
 
 .pub-title {
   font-size: var(--font-size);
+  font-weight: 500;
   overflow-wrap: break-word;
   word-wrap: break-word;
   min-width: 0;
@@ -278,18 +291,72 @@ main ol li p {
 
 .pub-title a {
   color: inherit;
+  font-weight: inherit;
   text-decoration: none;
   transition: color 0.2s ease-in-out;
 }
 
 .pub-title a:hover {
   color: var(--link-color);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.exp-list {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+}
+
+.exp-item {
+  padding: 6px 0;
+}
+
+.exp-item + .exp-item {
+  margin-top: 8px;
+}
+
+.exp-date {
+  font-size: 0.85em;
+  color: rgba(0, 0, 0, 0.4);
+  margin-bottom: 1px;
+}
+
+.exp-org {
+  font-weight: 500;
+  font-size: var(--font-size);
+}
+
+.exp-org a {
+  color: inherit;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.exp-org a:hover {
+  text-decoration: underline;
+}
+
+.exp-role {
+  font-size: var(--font-size);
+  color: rgba(0, 0, 0, 0.55);
+  margin-top: 1px;
+}
+
+.exp-role a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.exp-role a:hover {
+  text-decoration: underline;
 }
 
 /* ─── Buttons ────────────────────────────── */
 
 button, .button {
-  background-color: #ececec;
+  background-color: #a9a79f;
   border-radius: 10px;
   padding: 0.75em 1em;
   color: #353535;
@@ -297,11 +364,12 @@ button, .button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  font-family: "Sora", sans-serif;
   font-size: var(--font-size);
   font-weight: 400;
-  letter-spacing: 0.075em;
+  letter-spacing: 0.03em;
+  gap: 6px;
   text-decoration: none;
-  text-transform: uppercase;
   -webkit-user-select: none;
   -moz-user-select: none;
   user-select: none;
@@ -328,6 +396,10 @@ button:active, .button:active {
   font-size: 0.85em;
   color: #353535;
   flex-shrink: 0;
+}
+
+.button.pill i {
+  font-size: 1.3em;
 }
 
 .button.pill.active {
@@ -384,11 +456,8 @@ button:active, .button:active {
   .hero h1 {
     text-align: left;
   }
-  .pub-item {
-    grid-template-columns: 1fr;
-    row-gap: 0px;
-  }
 }
+
 
 @media (max-width: 480px) {
   .container, .container.publications {
@@ -399,8 +468,5 @@ button:active, .button:active {
 @media (min-width: 1024px) {
   :root {
     --font-size: 14px;
-  }
-  .pub-item {
-    grid-template-columns: 140px 1fr;
   }
 }
