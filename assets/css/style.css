@@ -11,7 +11,7 @@
   --wide-page: 70ch;
 }
 
-html, body {
+html {
   overflow-x: hidden;
 }
 
@@ -43,6 +43,8 @@ sup {
   max-width: calc(100% - 144px); /* 72px breathing room on each side */
   margin: 0 auto;
   padding-inline: 0;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .container.publications {
@@ -128,6 +130,7 @@ hr.soft {
   background-color: #AFB6BD;
   padding: min(10vh, 80px) 0 min(6vh, 48px);
   width: 100%;
+  overflow: hidden;
   font-family: "Poppins", sans-serif;
 }
 
@@ -446,6 +449,9 @@ button:active, .button:active {
 }
 
 @media (max-width: 600px) {
+  body {
+    padding-bottom: 40px;
+  }
   .container, .container.publications {
     max-width: calc(100% - 64px); /* 32px each side */
   }
