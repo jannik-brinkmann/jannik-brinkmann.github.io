@@ -6,20 +6,22 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..600;1,14..32,400&family=Poppins:wght@300;400;500;600&family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <title>Jannik Brinkmann</title>
+    <title>Jannik Brinkmann — Mechanistic Interpretability &amp; AI Safety</title>
+    <meta name="description" content="Jannik Brinkmann reverse-engineers how language models represent concepts internally, and uses that understanding to make frontier AI systems more controllable and robust.">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/profile.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/themes.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css">
 </head>
-<body>
+<body data-theme="classic" data-hero="plain">
 
   <header class="hero">
     <div class="container">
       <h1>Jannik Brinkmann</h1>
       <div class="abstract">
-        <p>
-          I am a Ph.D. student interested in the structure and interpretation of natural and artificial systems.
-          I am advised by <a href="https://scholar.google.com/citations?user=9FcF1gwAAAAJ&hl=de">Christian Bartelt</a> and affiliated with the <a href="https://baulab.info">Interpretable Neural Networks</a> group, led by <a href="https://scholar.google.com/citations?user=CYI6cKgAAAAJ&hl=en">David Bau</a>.
+        <p class="bio-flex-thesis">
+          I am a Ph.D. student interested in the structure and interpretation of natural and artificial systems. I am advised by <a href="https://scholar.google.com/citations?user=9FcF1gwAAAAJ&hl=de">Christian Bartelt</a> and affiliated with the <a href="https://baulab.info">Interpretable Neural Networks</a> group, led by <a href="https://scholar.google.com/citations?user=CYI6cKgAAAAJ&hl=en">David Bau</a>. I currently red-team frontier models at a frontier lab, building on our <a href="https://agentsofchaos.baulab.info">Agents of Chaos</a> study of the risks of multi-agent systems.
         </p>
         <div class="profile-links">
           <a href="https://scholar.google.com/citations?user=YtdTeaMAAAAJ&hl=en" class="button pill"><i class="fab fa-google-scholar"></i> Google Scholar</a>
@@ -31,55 +33,128 @@
 
   <main class="container">
 
-    <h2>Selected Publications</h2>
-    <div class="pub-list">
-      <div class="pub-item">
-        <span class="pub-date">ICLR 2026</span>
-        <span class="pub-title"><a href="https://arxiv.org/abs/2506.12913">Jailbreak Transferability Emerges From Shared Representations</a></span>
-      </div>
-      <div class="pub-item">
-        <span class="pub-date">Computational Linguistics 2025</span>
-        <span class="pub-title"><a href="https://arxiv.org/abs/2408.01416">The Quest for the Right Mediator: A History, Survey, and Theoretical Grounding of Causal Interpretability</a></span>
-      </div>
-      <div class="pub-item">
-        <span class="pub-date">NAACL 2025 · Oral</span>
-        <span class="pub-title"><a href="https://aclanthology.org/2025.naacl-long.312/">Large Language Models Share Representations of Latent Grammatical Concepts across Typologically Diverse Languages</a></span>
-      </div>
-      <div class="pub-item">
-        <span class="pub-date">ICLR 2025</span>
-        <span class="pub-title"><a href="https://arxiv.org/abs/2407.14561">NNsight and NDIF: Democratizing Access to Open-Weight Foundation Model Internals</a></span>
-      </div>
-      <div class="pub-item">
-        <span class="pub-date">ACL 2024</span>
-        <span class="pub-title"><a href="https://aclanthology.org/2024.findings-acl.242/">A Mechanistic Analysis of a Transformer Trained on a Symbolic Multi-Step Reasoning Task</a></span>
-      </div>
-    </div>
+    <section aria-labelledby="research-heading">
+      <h2 id="research-heading">Selected Publications</h2>
+      <div class="pubs2">
 
-    <h2>Positions</h2>
-    <div class="exp-list">
-      <div class="exp-item">
-        <div class="exp-date">Mar 2026 - Present</div>
-        <div class="exp-org">frontier lab</div>
-        <div class="exp-role">Red-Teaming Contractor</div>
-      </div>
-      <div class="exp-item">
-        <div class="exp-date">Jun 2025 – Oct 2025</div>
-        <div class="exp-org">J.P. Morgan Research</div>
-        <div class="exp-role">Research Intern</div>
-      </div>
-      <div class="exp-item">
-        <div class="exp-date">Nov 2024 – Mar 2025</div>
-        <div class="exp-org">New York University</div>
-        <div class="exp-role">Visiting Researcher</div>
-      </div>
-      <div class="exp-item">
-        <div class="exp-date">Apr 2024 – Aug 2024</div>
-        <div class="exp-org"><a href="https://baulab.info">Northeastern University</a></div>
-        <div class="exp-role">Visiting Researcher</div>
-      </div>
-    </div>
+        <div class="pub2">
+          <div class="pub2-meta"><span class="pub2-cat safety">Safety</span><span class="pub2-venue">ICLR 2026</span></div>
+          <div class="pub2-title"><a href="https://arxiv.org/abs/2506.12913">Jailbreak Transferability Emerges From Shared Representations</a></div>
+          <div class="pub2-desc">A jailbreak built for one model often breaks another. We trace that transfer to shared internal representations: models that encode concepts alike inherit each other's vulnerabilities.</div>
+        </div>
 
+        <div class="pub2">
+          <div class="pub2-meta"><span class="pub2-cat">Interpretability</span><span class="pub2-venue">Computational Linguistics 2025</span></div>
+          <div class="pub2-title"><a href="https://arxiv.org/abs/2408.01416">The Quest for the Right Mediator: A History, Survey, and Theoretical Grounding of Causal Interpretability</a></div>
+          <div class="pub2-desc">We propose a perspective on interpretability grounded in causal mediation analysis.</div>
+        </div>
+
+        <div class="pub2">
+          <div class="pub2-meta"><span class="pub2-cat">Interpretability</span><span class="pub2-venue">NAACL 2025 <span class="hl">· Oral</span></span></div>
+          <div class="pub2-title"><a href="https://aclanthology.org/2025.naacl-long.312/">Large Language Models Share Representations of Latent Grammatical Concepts Across Typologically Diverse Languages</a></div>
+          <div class="pub2-desc">Even models trained almost entirely on English are fluent in other languages. We trace that fluency to shared, language-agnostic representations of grammar that are reused across languages.</div>
+          <!-- FIGURE TEMPORARILY REMOVED
+          <figure class="pub2-fig mlfig2">
+            <div class="mlfig2-cols" role="img" aria-label="Two sparse-autoencoder features — a plural-number feature and a past-tense feature — each fire on the same grammatical morpheme across typologically diverse languages, evidence of shared, language-agnostic feature directions.">
+              <div class="mlfig2-col">
+                <div class="mlfig2-head"><span class="mlfig-swatch"></span>Plural Nouns<span class="mlfig2-id">#31536</span></div>
+                <div class="mlfig2-lines">
+                  <div class="mlfig2-line"><span class="mllang">EN</span><span class="mlsent">The teacher helped the <span class="act">students</span></span></div>
+                  <div class="mlfig2-line"><span class="mllang">FI</span><span class="mlsent">Taiteilij<span class="act">at</span> ovat kokoontuneet</span></div>
+                  <div class="mlfig2-line"><span class="mllang">ID</span><span class="mlsent">Lel<span class="act">aki</span>-lel<span class="act">aki</span> itu juga diekspor</span></div>
+                  <div class="mlfig2-line"><span class="mllang">HE</span><span class="mlsent" dir="rtl">הכלב<span class="act">ים</span> מטייל<span class="act">ים</span> בפארק</span></div>
+                </div>
+              </div>
+              <div class="mlfig2-col">
+                <div class="mlfig2-head"><span class="mlfig-swatch"></span>Past Tense<span class="mlfig2-id">#10710</span></div>
+                <div class="mlfig2-lines">
+                  <div class="mlfig2-line"><span class="mllang">EN</span><span class="mlsent">When Mary <span class="act">was</span> in the bed, she …</span></div>
+                  <div class="mlfig2-line"><span class="mllang">DE</span><span class="mlsent">Als Sam im Park <span class="act">war</span>, …</span></div>
+                  <div class="mlfig2-line"><span class="mllang">FI</span><span class="mlsent">Kun John <span class="act">oli</span> koul<span class="act weak">ussa</span>, hän …</span></div>
+                  <div class="mlfig2-line"><span class="mllang">NL</span><span class="mlsent">Toen James op het strand <span class="act">was</span>, hij …</span></div>
+                </div>
+              </div>
+            </div>
+          </figure>
+          -->
+        </div>
+
+        <div class="pub2">
+          <div class="pub2-meta"><span class="pub2-cat tools">Tools</span><span class="pub2-venue">ICLR 2025</span></div>
+          <div class="pub2-title"><a href="https://arxiv.org/abs/2407.14561">NNsight and NDIF: Democratizing Access to Open-Weight Foundation Model Internals</a></div>
+          <div class="pub2-desc">The internals of the largest open models are effectively out of reach for most researchers. NNsight and NDIF open them up through a transparent interface for running interventions at scale.</div>
+        </div>
+
+        <div class="pub2">
+          <div class="pub2-meta"><span class="pub2-cat">Interpretability</span><span class="pub2-venue">NeurIPS 2024</span></div>
+          <div class="pub2-title"><a href="https://arxiv.org/abs/2408.00113">Measuring Progress in Dictionary Learning for Language Model Interpretability with Board Game Models</a></div>
+          <div class="pub2-desc">Sparse autoencoders decompose activations into candidate features, but there's no ground truth for whether a decomposition is faithful. Board-game models offer one: the true state of the board is known.</div>
+          <!-- FIGURE TEMPORARILY REMOVED
+          <figure class="pub2-fig">
+            <svg viewBox="0 0 680 240" role="img" aria-label="A known board state is encoded by a sparse autoencoder into a sparse feature code, whose active features map back to interpretable board concepts.">
+              <defs>
+                <marker id="bgArr" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#94A3B8"></path></marker>
+              </defs>
+              <text class="fig-lbl" x="183" y="44" text-anchor="middle">BOARD STATE</text>
+              <text class="fig-lbl" x="338" y="44" text-anchor="middle">SPARSE CODE</text>
+              <text class="fig-lbl" x="497" y="44" text-anchor="middle">RECOVERED CONCEPTS</text>
+
+              <path d="M123 58V178 M138 58V178 M153 58V178 M168 58V178 M183 58V178 M198 58V178 M213 58V178 M228 58V178 M243 58V178 M123 58H243 M123 73H243 M123 88H243 M123 103H243 M123 118H243 M123 133H243 M123 148H243 M123 163H243 M123 178H243" stroke="#E5E7EB" stroke-width="1" fill="none"></path>
+              <g>
+                <circle cx="160.5" cy="110.5" r="5" fill="#1a1a1a"></circle>
+                <circle cx="175.5" cy="110.5" r="5" fill="#1a1a1a"></circle>
+                <circle cx="175.5" cy="125.5" r="5" fill="#1a1a1a"></circle>
+                <circle cx="190.5" cy="125.5" r="5" fill="#1a1a1a"></circle>
+                <circle cx="190.5" cy="95.5" r="5" fill="#1a1a1a"></circle>
+                <circle cx="205.5" cy="125.5" r="5" fill="#1a1a1a"></circle>
+                <circle cx="175.5" cy="95.5" r="5" fill="#fff" stroke="#94A3B8"></circle>
+                <circle cx="190.5" cy="110.5" r="5" fill="#fff" stroke="#94A3B8"></circle>
+                <circle cx="160.5" cy="125.5" r="5" fill="#fff" stroke="#94A3B8"></circle>
+                <circle cx="205.5" cy="110.5" r="5" fill="#fff" stroke="#94A3B8"></circle>
+              </g>
+
+              <line x1="251" y1="118" x2="316" y2="118" stroke="#94A3B8" stroke-width="1.4" marker-end="url(#bgArr)"></line>
+
+              <g>
+                <rect x="330" y="52" width="16" height="16" rx="2" fill="#fff" stroke="#E5E7EB"></rect>
+                <rect x="330" y="68" width="16" height="16" rx="2" fill="#3B82F6"></rect>
+                <rect x="330" y="84" width="16" height="16" rx="2" fill="#fff" stroke="#E5E7EB"></rect>
+                <rect x="330" y="100" width="16" height="16" rx="2" fill="#fff" stroke="#E5E7EB"></rect>
+                <rect x="330" y="116" width="16" height="16" rx="2" fill="#3B82F6"></rect>
+                <rect x="330" y="132" width="16" height="16" rx="2" fill="#fff" stroke="#E5E7EB"></rect>
+                <rect x="330" y="148" width="16" height="16" rx="2" fill="#fff" stroke="#E5E7EB"></rect>
+                <rect x="330" y="164" width="16" height="16" rx="2" fill="#3B82F6"></rect>
+                <rect x="330" y="180" width="16" height="16" rx="2" fill="#fff" stroke="#E5E7EB"></rect>
+              </g>
+
+              <line x1="358" y1="118" x2="429" y2="118" stroke="#94A3B8" stroke-width="1.4" marker-end="url(#bgArr)"></line>
+
+              <path d="M437 58V178 M452 58V178 M467 58V178 M482 58V178 M497 58V178 M512 58V178 M527 58V178 M542 58V178 M557 58V178 M437 58H557 M437 73H557 M437 88H557 M437 103H557 M437 118H557 M437 133H557 M437 148H557 M437 163H557 M437 178H557" stroke="#E5E7EB" stroke-width="1" fill="none"></path>
+              <g>
+                <rect x="467" y="88" width="15" height="15" fill="#3B82F6" fill-opacity="0.16" stroke="#3B82F6"></rect>
+                <rect x="497" y="133" width="15" height="15" fill="#3B82F6" fill-opacity="0.16" stroke="#3B82F6"></rect>
+                <rect x="512" y="103" width="15" height="15" fill="#3B82F6" fill-opacity="0.16" stroke="#3B82F6"></rect>
+                <circle cx="474.5" cy="95.5" r="5" fill="#1a1a1a"></circle>
+              </g>
+            </svg>
+          </figure>
+          -->
+        </div>
+
+      </div>
+    </section>
+
+    <section aria-labelledby="positions-heading">
+      <h2 id="positions-heading">Positions</h2>
+      <div class="exp-list">
+        <div class="exp-item"><div class="exp-date">Mar 2026 – Present</div><div class="exp-head"><span class="exp-org">frontier lab</span><span class="exp-role">Contractor</span></div><div class="exp-description">Multi-agent red-teaming of frontier models in collaboration with a frontier lab's safety team.</div></div>
+        <div class="exp-item"><div class="exp-date">Jun 2025 – Oct 2025</div><div class="exp-head"><span class="exp-org">J.P. Morgan AI Research</span><span class="exp-role">Research Intern</span></div><div class="exp-description">Synthetic data generation and post-training methods for mathematical reasoning in language models, resulting in a NeurIPS 2025 workshop paper.</div></div>
+        <div class="exp-item"><div class="exp-date">Nov 2024 – Mar 2025</div><div class="exp-head"><span class="exp-org">NYU Center for Data Science</span><span class="exp-role">Visiting Researcher</span></div><div class="exp-description">Safety and adversarial robustness of language models with <a href="https://hhexiy.github.io/">Prof. He He</a>, resulting in a paper on the cross-model transferability of jailbreak attacks.</div></div>
+        <div class="exp-item"><div class="exp-date">Apr 2024 – Aug 2024</div><div class="exp-head"><span class="exp-org">Northeastern University</span><span class="exp-role">Visiting Researcher</span></div><div class="exp-description">Structure and interpretation of neural networks with <a href="https://baulab.info">Prof. David Bau</a>, resulting in a journal publication and conference papers at ICLR, NAACL (Oral), and NeurIPS.</div></div>
+      </div>
+    </section>
 
   </main>
+
 </body>
 </html>

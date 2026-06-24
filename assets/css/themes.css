@@ -1,0 +1,214 @@
+/* ─────────────────────────────────────────────
+   themes.css — Minimal palette variations.
+   Each theme is a set of CSS variables on body[data-theme].
+   The brief: drop the colored top band; let color live in
+   the buttons and accents, over a tinted page ground.
+   Switch live via the dev-only Theme bar (delete before ship,
+   then hard-set the winning theme's variables in :root).
+   ───────────────────────────────────────────── */
+
+/* default tokens (Classic) live here so any unset theme is safe */
+:root {
+  --page-bg: #ffffff;
+  --hero-bg: #afb6bd;
+  --hero-rule: none;
+  --accent: #1a1a1a;
+  --pill-bg: rgba(255, 255, 255, 0.2);
+  --pill-fg: #1a1a1a;
+  --pill-bg-hover: rgba(255, 255, 255, 0.35);
+  --pill-border: transparent;
+  --name-color: #000000;
+}
+
+/* ── Classic — the original grey band ── */
+body[data-theme="classic"] {
+  --page-bg: #ffffff;
+  --hero-bg: #afb6bd;
+  --hero-rule: none;
+  --accent: #1a1a1a;
+  --pill-bg: rgba(255, 255, 255, 0.22);
+  --pill-fg: #1a1a1a;
+  --pill-bg-hover: rgba(255, 255, 255, 0.4);
+  --pill-border: transparent;
+}
+
+/* ── Paper — warm ground, solid ink chips, sienna accent ── */
+body[data-theme="paper"] {
+  --page-bg: #faf8f3;
+  --hero-bg: #faf8f3;
+  --hero-rule: 1px solid rgba(0, 0, 0, 0.08);
+  --accent: #a8542a;
+  --pill-bg: #211d18;
+  --pill-fg: #ffffff;
+  --pill-bg-hover: #3a332a;
+  --pill-border: transparent;
+  --name-color: #1f1c17;
+}
+
+/* ── Sky — white page, faint blue wash, solid blue chips ── */
+body[data-theme="sky"] {
+  --page-bg: #ffffff;
+  --hero-bg: radial-gradient(120% 90% at 50% -10%, rgba(37, 99, 235, 0.10), rgba(37, 99, 235, 0) 70%);
+  --hero-rule: none;
+  --accent: #2563eb;
+  --pill-bg: #2563eb;
+  --pill-fg: #ffffff;
+  --pill-bg-hover: #1d4ed8;
+  --pill-border: transparent;
+  --name-color: #0f1729;
+}
+
+/* ── Sage — cool green-grey ground, deep green chips ── */
+body[data-theme="sage"] {
+  --page-bg: #f3f6f2;
+  --hero-bg: #f3f6f2;
+  --hero-rule: 1px solid rgba(0, 0, 0, 0.07);
+  --accent: #2f6b4f;
+  --pill-bg: #2f6b4f;
+  --pill-fg: #ffffff;
+  --pill-bg-hover: #265840;
+  --pill-border: transparent;
+  --name-color: #16271e;
+}
+
+/* ── Teal — cool slate-mint ground, deep teal chips ── */
+body[data-theme="teal"] {
+  --page-bg: #f1f6f6;
+  --hero-bg: #f1f6f6;
+  --hero-rule: 1px solid rgba(0, 0, 0, 0.07);
+  --accent: #0f766e;
+  --pill-bg: #0f766e;
+  --pill-fg: #ffffff;
+  --pill-bg-hover: #0c5e57;
+  --pill-border: transparent;
+  --name-color: #0d2b29;
+}
+
+/* ── Ink — high-contrast mono, solid black chips ── */
+body[data-theme="ink"] {
+  --page-bg: #ffffff;
+  --hero-bg: #ffffff;
+  --hero-rule: 1px solid rgba(0, 0, 0, 0.14);
+  --accent: #111111;
+  --pill-bg: #111111;
+  --pill-fg: #ffffff;
+  --pill-bg-hover: #333333;
+  --pill-border: transparent;
+  --name-color: #000000;
+}
+
+/* ── Apply the variables ── */
+body { background-color: var(--page-bg); transition: background-color 0.25s ease; }
+
+.hero {
+  background: var(--hero-bg);
+  border-bottom: var(--hero-rule);
+  padding: 104px 0 48px;
+}
+.hero h1 { color: var(--name-color); }
+
+/* Themed hero pills (override the translucent-white default) */
+.hero .button.pill {
+  background: var(--pill-bg);
+  color: var(--pill-fg);
+  border: 1px solid var(--pill-border);
+  transition: background 0.18s ease, color 0.18s ease, opacity 0.18s ease;
+}
+.hero .button.pill:hover {
+  background: var(--pill-bg-hover);
+  color: var(--pill-fg);
+  opacity: 1;
+}
+.hero .button.pill:active { opacity: 0.7; }
+
+/* ─────────────────────────────────────────────
+   Hero background variations (dev toggle: body[data-hero])
+   band  = the grey/themed band (default)
+   plain = no band, hero on the page ground
+   rule  = no band + a hairline rule under the hero
+   On a plain hero the translucent pills would vanish, so they
+   switch to a clean bordered chip.
+   ───────────────────────────────────────────── */
+body[data-hero="plain"] .hero,
+body[data-hero="rule"] .hero {
+  background: var(--page-bg);
+}
+body[data-hero="plain"] .hero {
+  border-bottom: none;
+  padding-bottom: 8px;
+}
+body[data-hero="rule"] .hero {
+  border-bottom: 1px solid var(--soft-border);
+}
+body[data-hero="plain"] .hero .button.pill,
+body[data-hero="rule"] .hero .button.pill {
+  background: #e7e8ea;
+  color: #1a1a1a;
+  border: none;
+}
+body[data-hero="plain"] .hero .button.pill:hover,
+body[data-hero="rule"] .hero .button.pill:hover {
+  background: #dcdde0;
+  color: #1a1a1a;
+  opacity: 1;
+}
+
+/* ── Dev-only Theme bar ── */
+.themebar {
+  position: fixed;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3000;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  background: rgba(255, 255, 255, 0.86);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border: 1px solid #e5e7eb;
+  border-radius: 999px;
+  padding: 4px 5px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  font-family: "Sora", sans-serif;
+}
+.themebar .tb-label {
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.4);
+  padding: 0 6px 0 6px;
+}
+.themebar button {
+  font-family: "Sora", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: #353535;
+  background: transparent;
+  border: none;
+  padding: 5px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  letter-spacing: 0.01em;
+  transition: background 0.18s ease, color 0.18s ease;
+}
+.themebar button .sw {
+  width: 11px; height: 11px; border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  flex-shrink: 0;
+}
+.themebar button:hover { background: #f0f0f0; }
+.themebar button.on { background: #0f2440; color: #fff; }
+.themebar button.on:hover { background: #0f2440; }
+
+@media print { .themebar { display: none !important; } }
+@media (max-width: 640px) {
+  .themebar { top: 8px; padding: 3px 4px; }
+  .themebar .tb-label { display: none; }
+  .themebar button { padding: 5px 9px; font-size: 11px; }
+  .themebar button .sw { display: none; }
+}

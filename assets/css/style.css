@@ -4,11 +4,28 @@
 
 :root {
   --link-color: black;
-  --publication-link-color: #3164aa;
+  --publication-link-color: #1a1a1a;
   --background-color: white;
   --font-size: 13px;
-  --measure: 70ch;
-  --wide-page: 70ch;
+  --measure: 77ch;
+  --wide-page: 77ch;
+
+  /* Type scale — calibrated to the original site (roots).
+     Four sizes total; hierarchy otherwise comes from weight / case / color. */
+  --fs-1: 30px;              /* the name (wordmark) */
+  --fs-2: 22px;              /* section headings */
+  --fs-3: var(--font-size);  /* body & item titles (14px on desktop) */
+  --fs-4: 0.85em;            /* small labels: meta, dates, captions */
+
+  /* Shared neutral tokens used by profile.css + direction stylesheets.
+     (Mirror the design-system color tokens so the vanilla pages are
+     self-contained without linking the DS bundle.) */
+  --soft-border: #e5e7eb;
+  --border-gray: #e5e7eb;
+  --muted-color: rgba(0, 0, 0, 0.55);
+  --ink-a10: rgba(0, 0, 0, 0.1);
+  --ink-a40: rgba(0, 0, 0, 0.4);
+  --ink-a55: rgba(0, 0, 0, 0.55);
 }
 
 html {
@@ -21,7 +38,7 @@ body {
   min-height: 100vh;
   margin: 0;
   padding-bottom: 80px;
-  line-height: 1.6;
+  line-height: 1.65;
   font-size: var(--font-size);
   background-color: var(--background-color);
 }
@@ -62,7 +79,7 @@ main.container {
 h1 {
   font-family: "Poppins", sans-serif;
   font-weight: 400;
-  font-size: 30px;
+  font-size: var(--fs-1);
   line-height: 1;
   padding: 36px 0 36px 0;
   margin: 0;
@@ -70,7 +87,7 @@ h1 {
 
 h2 {
   font-family: "Sora", sans-serif;
-  font-size: 22px;
+  font-size: var(--fs-2);
   font-weight: 500;
   margin: 0;
   padding: 36px 0 12px 0;
