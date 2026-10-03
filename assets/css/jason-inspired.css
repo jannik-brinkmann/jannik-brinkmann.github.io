@@ -1,0 +1,277 @@
+/* Experimental single-page layout inspired by Jason Wei's academic website. */
+
+body.jason-inspired {
+  --page-ground: #f4f4f3;
+  --page-bg: #f4f4f3;
+  --page-ink: #000000;
+  --quiet-ink: #555552;
+  --body-font: "Poppins", "Helvetica Neue", Arial, sans-serif;
+
+  background: var(--page-ground);
+  color: var(--page-ink);
+  font-family: var(--body-font);
+  font-size: 18px;
+  line-height: 1.45;
+  padding-bottom: 72px;
+}
+
+/* Optional body font preview, independent of the name font. */
+html[data-body-font="google-sans"] body.jason-inspired {
+  --body-font: "Google Sans", "Helvetica Neue", Arial, sans-serif;
+}
+
+.jason-inspired .position-org,
+.jason-inspired .position-role {
+  font-family: var(--body-font);
+}
+
+.jason-inspired .container,
+.jason-inspired .container.publications {
+  width: 700px;
+  max-width: calc(100% - 48px);
+  margin-inline: auto;
+  padding-inline: 0;
+}
+
+.jason-inspired .hero {
+  background: transparent;
+  border: 0;
+  padding: 88px 0 24px;
+}
+
+.jason-inspired .hero h1 {
+  color: var(--page-ink);
+  font-family: "Butler", Georgia, serif;
+  font-size: clamp(2.2rem, 6vw, 2.65rem);
+  font-weight: 300;
+  line-height: 1.05;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+html[data-name-font="poppins"] .jason-inspired .hero h1 {
+  font-family: "Poppins", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 400;
+}
+
+.jason-inspired .abstract,
+.jason-inspired .abstract p {
+  font-family: var(--body-font);
+}
+
+.jason-inspired .abstract p {
+  margin: 0;
+  padding: 0;
+}
+
+.jason-inspired a {
+  color: inherit;
+  font-weight: inherit;
+  text-decoration-color: rgba(0, 0, 0, 0.34);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.jason-inspired a:hover {
+  text-decoration-color: currentColor;
+}
+
+.jason-inspired a:focus-visible {
+  border-radius: 2px;
+  outline: 2px solid #2458a6;
+  outline-offset: 3px;
+}
+
+.jason-inspired .profile-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 9px;
+  justify-content: flex-start;
+  min-height: 32px;
+  margin: 20px 0;
+}
+
+.jason-inspired .profile-link-separator {
+  color: var(--quiet-ink);
+}
+
+.jason-inspired .profile-link-icon {
+  display: none;
+}
+
+html[data-profile-links="icons"] .jason-inspired .profile-links {
+  gap: 12px;
+}
+
+html[data-profile-links="icons"] .jason-inspired .profile-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  text-decoration: none;
+}
+
+html[data-profile-links="icons"] .jason-inspired .profile-links a:hover {
+  color: var(--quiet-ink);
+}
+
+html[data-profile-links="icons"] .jason-inspired .profile-link-icon {
+  display: block;
+  width: 22px;
+  height: 22px;
+}
+
+html[data-profile-links="icons"] .jason-inspired .profile-link-label,
+html[data-profile-links="icons"] .jason-inspired .profile-link-separator {
+  display: none;
+}
+
+.jason-inspired main.container {
+  padding-top: 0;
+}
+
+.jason-inspired h2 {
+  color: var(--page-ink);
+  font-family: var(--body-font);
+  font-size: 1.45rem;
+  font-weight: 500;
+  line-height: 1.2;
+  margin: 0;
+  padding: 48px 0 20px;
+}
+
+.jason-inspired .simple-list {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.jason-inspired .publication-row,
+.jason-inspired .position-row {
+  display: grid;
+  align-items: start;
+  margin: 0;
+  padding: 0;
+}
+
+.jason-inspired .publication-row {
+  grid-template-columns: 58px minmax(0, 1fr);
+  column-gap: 18px;
+}
+
+.jason-inspired .publications-list {
+  list-style: none;
+}
+
+.jason-inspired .publication-venue {
+  display: none;
+  color: var(--quiet-ink);
+}
+
+html[data-publications="bullets"] .jason-inspired .publications-list {
+  display: block;
+  padding-inline-start: 1.15em;
+  list-style: disc outside;
+}
+
+html[data-publications="bullets"] .jason-inspired .publication-row {
+  display: list-item;
+}
+
+html[data-publications="bullets"] .jason-inspired .publication-row + .publication-row {
+  margin-top: 13px;
+}
+
+html[data-publications="bullets"] .jason-inspired .publication-row .entry-date {
+  display: none;
+}
+
+html[data-publications="bullets"] .jason-inspired .publication-row .entry-content,
+html[data-publications="bullets"] .jason-inspired .publication-venue {
+  display: inline;
+}
+
+.jason-inspired .position-row {
+  grid-template-columns: 11em minmax(0, 1fr);
+  column-gap: 18px;
+}
+
+.jason-inspired .entry-date {
+  color: var(--quiet-ink);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.45;
+}
+
+.jason-inspired .position-row .entry-date {
+  white-space: nowrap;
+}
+
+.jason-inspired .entry-content {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.jason-inspired .publication-row .entry-content a {
+  text-decoration-color: rgba(0, 0, 0, 0.23);
+}
+
+.jason-inspired .publication-row .entry-content a:hover {
+  text-decoration-color: currentColor;
+}
+
+.jason-inspired .positions-list {
+  gap: 19px;
+}
+
+.jason-inspired .position-heading {
+  line-height: 1.35;
+}
+
+.jason-inspired .position-org {
+  font-weight: 600;
+}
+
+.jason-inspired .position-role::before {
+  color: var(--quiet-ink);
+  content: ", ";
+}
+
+.jason-inspired .position-row p {
+  color: var(--quiet-ink);
+  font-size: 0.94em;
+  line-height: 1.42;
+  margin: 4px 0 0;
+}
+
+@media (max-width: 600px) {
+  body.jason-inspired {
+    font-size: 17px;
+    padding-bottom: 48px;
+  }
+
+  .jason-inspired .container,
+  .jason-inspired .container.publications {
+    max-width: calc(100% - 40px);
+  }
+
+  .jason-inspired .hero {
+    padding-top: 60px;
+  }
+
+  .jason-inspired h2 {
+    padding-top: 42px;
+  }
+
+  .jason-inspired .publication-row {
+    grid-template-columns: 48px minmax(0, 1fr);
+    column-gap: 12px;
+  }
+
+  .jason-inspired .position-row {
+    grid-template-columns: 1fr;
+    row-gap: 2px;
+  }
+}

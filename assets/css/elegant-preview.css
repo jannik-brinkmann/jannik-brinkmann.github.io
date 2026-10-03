@@ -1,0 +1,178 @@
+/* Calm text-only layout shared by the selected homepage and font previews. */
+body.jason-inspired.elegant-preview {
+  --page-ground: #faf9f6;
+  --page-bg: #faf9f6;
+  --page-ink: #282824;
+  --quiet-ink: #62625b;
+  --preview-link: #435966;
+  --preview-underline: rgba(67, 89, 102, 0.48);
+  --body-font: "Poppins", "Helvetica Neue", Arial, sans-serif;
+  --preview-body-size: 17px;
+  --preview-heading-size: 22px;
+  --preview-heading-weight: 500;
+
+  background: var(--page-ground);
+  color: var(--page-ink);
+  font-family: var(--body-font);
+  font-size: var(--preview-body-size);
+  line-height: 1.65;
+  padding-bottom: 96px;
+  transition: none;
+}
+
+/* The homepage uses the same main text font as the public website. */
+html[data-elegant-font="sora"] body.jason-inspired.elegant-preview {
+  --body-font: "Sora", sans-serif;
+}
+
+html[data-elegant-font="sora"] body.jason-inspired.elegant-preview .profile-links {
+  font-family: var(--body-font);
+}
+
+/* Charter regular and bold are declared in profile.css; see Charter-LICENSE.txt. */
+html[data-elegant-font="charter"] body.jason-inspired.elegant-preview {
+  --body-font: "Charter", Georgia, serif;
+  --preview-body-size: 19px;
+  --preview-heading-size: 24px;
+  --preview-heading-weight: 700;
+}
+
+body.jason-inspired.elegant-preview .container {
+  width: 720px;
+  max-width: calc(100% - 64px);
+  text-align: left;
+}
+
+body.jason-inspired.elegant-preview .hero {
+  background: transparent;
+  padding: 96px 0 0;
+  overflow: visible;
+}
+
+body.jason-inspired.elegant-preview .hero h1 {
+  font-family: "Butler", Georgia, serif;
+  font-size: 48px;
+  font-weight: 300;
+  line-height: 1.1;
+}
+
+body.jason-inspired.elegant-preview .profile-links {
+  font-family: "Poppins", "Helvetica Neue", Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  gap: 0 20px;
+  margin: 24px 0;
+}
+
+body.jason-inspired.elegant-preview .profile-links a {
+  padding-block: 4px;
+}
+
+body.jason-inspired.elegant-preview a,
+body.jason-inspired.elegant-preview .publication-row .entry-content a {
+  color: var(--preview-link);
+  text-decoration-line: underline;
+  text-decoration-color: var(--preview-underline);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+body.jason-inspired.elegant-preview a:hover,
+body.jason-inspired.elegant-preview .publication-row .entry-content a:hover {
+  text-decoration-color: currentColor;
+}
+
+body.jason-inspired.elegant-preview a:focus-visible {
+  outline: 2px solid var(--preview-link);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+body.jason-inspired.elegant-preview main.container {
+  padding-top: 64px;
+}
+
+body.jason-inspired.elegant-preview main section + section {
+  margin-top: 64px;
+}
+
+body.jason-inspired.elegant-preview h2 {
+  font-size: var(--preview-heading-size);
+  font-weight: var(--preview-heading-weight);
+  line-height: 1.3;
+  margin: 0 0 22px;
+  padding: 0;
+}
+
+body.jason-inspired.elegant-preview .publication-row + .publication-row {
+  margin-top: 18px;
+}
+
+body.jason-inspired.elegant-preview .publication-row::marker {
+  color: var(--quiet-ink);
+  font-size: 0.8em;
+}
+
+body.jason-inspired.elegant-preview .publication-venue {
+  font-size: 1em;
+  margin-left: 0;
+}
+
+body.jason-inspired.elegant-preview .positions-list {
+  gap: 28px;
+}
+
+body.jason-inspired.elegant-preview .position-row {
+  grid-template-columns: 10.5rem minmax(0, 1fr);
+  column-gap: 28px;
+}
+
+body.jason-inspired.elegant-preview .entry-date {
+  font-size: 0.85em;
+  line-height: 1.65;
+}
+
+body.jason-inspired.elegant-preview .position-heading {
+  line-height: 1.5;
+}
+
+body.jason-inspired.elegant-preview .position-org {
+  color: var(--page-ink);
+  font-size: 1em;
+  font-weight: var(--preview-heading-weight);
+}
+
+body.jason-inspired.elegant-preview .position-role {
+  color: var(--quiet-ink);
+  font-size: 0.9em;
+  margin-top: 0;
+}
+
+body.jason-inspired.elegant-preview .position-row p {
+  font-size: 0.9em;
+  line-height: 1.65;
+  margin-top: 6px;
+}
+
+@media (max-width: 600px) {
+  body.jason-inspired.elegant-preview {
+    padding-bottom: 64px;
+  }
+
+  body.jason-inspired.elegant-preview .container {
+    max-width: calc(100% - 40px);
+  }
+
+  body.jason-inspired.elegant-preview .hero {
+    padding-top: 48px;
+  }
+
+  body.jason-inspired.elegant-preview .hero h1 {
+    font-size: 36px;
+  }
+
+  body.jason-inspired.elegant-preview .position-row {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 4px;
+  }
+}

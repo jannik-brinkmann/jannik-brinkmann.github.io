@@ -170,7 +170,7 @@ body[data-hero="rule"] .hero .button.pill:hover {
   border-radius: 999px;
   padding: 4px 5px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-  font-family: "Sora", sans-serif;
+  font-family: "EB Garamond", Garamond, serif;
 }
 .themebar .tb-label {
   font-size: 9.5px;
@@ -181,7 +181,7 @@ body[data-hero="rule"] .hero .button.pill:hover {
   padding: 0 6px 0 6px;
 }
 .themebar button {
-  font-family: "Sora", sans-serif;
+  font-family: "EB Garamond", Garamond, serif;
   font-size: 12px;
   font-weight: 500;
   color: #353535;
