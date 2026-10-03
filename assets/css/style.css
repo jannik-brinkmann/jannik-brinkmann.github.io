@@ -1,12 +1,3 @@
-/* Butler by Fabian De Smet, licensed under CC BY-SA 4.0. */
-@font-face {
-  font-family: "Butler";
-  src: url("../fonts/butler-light.otf") format("opentype");
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
 * {
   box-sizing: border-box;
 }
@@ -15,7 +6,7 @@
   --link-color: black;
   --publication-link-color: #1a1a1a;
   --background-color: white;
-  --font-size: 16px;
+  --font-size: 13px;
   --measure: 77ch;
   --wide-page: 77ch;
 
@@ -23,7 +14,7 @@
      Four sizes total; hierarchy otherwise comes from weight / case / color. */
   --fs-1: 30px;              /* the name (wordmark) */
   --fs-2: 22px;              /* section headings */
-  --fs-3: var(--font-size);  /* body & item titles */
+  --fs-3: var(--font-size);  /* body & item titles (14px on desktop) */
   --fs-4: 0.85em;            /* small labels: meta, dates, captions */
 
   /* Shared neutral tokens used by profile.css + direction stylesheets.
@@ -42,7 +33,7 @@ html {
 }
 
 body {
-  font-family: "EB Garamond", Garamond, serif;
+  font-family: "Inter", sans-serif;
   font-weight: 400;
   min-height: 100vh;
   margin: 0;
@@ -86,7 +77,7 @@ main.container {
 }
 
 h1 {
-  font-family: "EB Garamond", Garamond, serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-size: var(--fs-1);
   line-height: 1;
@@ -95,7 +86,7 @@ h1 {
 }
 
 h2 {
-  font-family: "EB Garamond", Garamond, serif;
+  font-family: "Sora", sans-serif;
   font-size: var(--fs-2);
   font-weight: 500;
   margin: 0;
@@ -160,17 +151,16 @@ hr.soft {
 }
 
 .hero .abstract {
-  font-family: "EB Garamond", Garamond, serif;
+  font-family: "Sora", sans-serif;
 }
 
 .hero h1 {
-  font-family: "Butler", Georgia, serif;
-  font-weight: 300;
-  font-synthesis: none;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
 }
 
 .hero h1 {
-  text-align: left;
+  text-align: center;
   padding-top: 0; /* hero's own padding handles top space */
 }
 
@@ -189,7 +179,7 @@ hr.soft {
 .profile-links {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 18px;
   align-items: center;
   margin: 32px 0 0 0; /* hero padding-bottom handles space below */
@@ -402,7 +392,7 @@ button, .button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-family: "EB Garamond", Garamond, serif;
+  font-family: "Sora", sans-serif;
   font-size: var(--font-size);
   font-weight: 400;
   letter-spacing: 0.03em;

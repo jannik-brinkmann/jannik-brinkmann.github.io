@@ -18,14 +18,14 @@ body[data-bio="c"] .bio-variant[data-bio="c"] { display: block; }
 
 .affiliation {
   color: rgba(0, 0, 0, 0.68);
-  font-family: "EB Garamond", Garamond, serif;
+  font-family: "Inter", sans-serif;
   font-size: 0.95em;
   padding-top: 12px;
 }
 
 /* ─── Section intro line under an h2 ──────── */
 .section-lead {
-  font-family: "EB Garamond", Garamond, serif;
+  font-family: "Sora", sans-serif;
   font-size: 1.0em;
   color: rgba(0, 0, 0, 0.7);
   margin: 0 0 8px;
@@ -49,7 +49,7 @@ body[data-research="list"]    .research-framing.list { display: block; }
 .pillar:last-child { border-bottom: 1px solid var(--soft-border); }
 
 .pillar-kicker {
-  font-family: "EB Garamond", Garamond, serif;
+  font-family: "Sora", sans-serif;
   font-size: 0.74em;
   font-weight: 600;
   letter-spacing: 0.07em;
@@ -59,7 +59,7 @@ body[data-research="list"]    .research-framing.list { display: block; }
 }
 
 .pillar-lead {
-  font-family: "EB Garamond", Garamond, serif;
+  font-family: "Sora", sans-serif;
   font-size: 1.0em;
   font-weight: 400;
   color: rgba(0, 0, 0, 0.78);
@@ -79,7 +79,7 @@ body[data-research="list"]    .research-framing.list { display: block; }
 }
 
 .pr-title {
-  font-family: "EB Garamond", Garamond, serif;
+  font-family: "Sora", sans-serif;
   font-weight: 500;
   font-size: 1.0em;
   line-height: 1.4;
@@ -88,7 +88,7 @@ body[data-research="list"]    .research-framing.list { display: block; }
 .pr-title a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
 .pr-venue {
-  font-family: "EB Garamond", Garamond, serif;
+  font-family: "Inter", sans-serif;
   font-size: 0.78em;
   color: var(--muted-color);
   letter-spacing: 0.02em;
@@ -131,7 +131,7 @@ body[data-research="list"]    .research-framing.list { display: block; }
 .award-item:last-child { border-bottom: 1px solid var(--soft-border); }
 
 .award-year {
-  font-family: "EB Garamond", Garamond, serif;
+  font-family: "Sora", sans-serif;
   font-size: 0.82em;
   color: rgba(0, 0, 0, 0.4);
   width: 48px;
@@ -150,7 +150,7 @@ body[data-research="list"]    .research-framing.list { display: block; }
 .talk-item + .talk-item { border-top: 1px solid var(--soft-border); }
 
 .talk-title {
-  font-family: "EB Garamond", Garamond, serif;
+  font-family: "Sora", sans-serif;
   font-weight: 500;
   font-size: 0.98em;
   line-height: 1.45;
@@ -161,7 +161,7 @@ body[data-research="list"]    .research-framing.list { display: block; }
   margin-top: 3px;
 }
 .talk-date {
-  font-family: "EB Garamond", Garamond, serif;
+  font-family: "Sora", sans-serif;
   font-size: 0.82em;
   color: rgba(0, 0, 0, 0.4);
   margin-bottom: 2px;
@@ -211,7 +211,7 @@ body[data-research="list"]    .research-framing.list { display: block; }
   border-radius: 12px;
   padding: 12px 14px 13px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.10);
-  font-family: "EB Garamond", Garamond, serif;
+  font-family: "Sora", sans-serif;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -242,7 +242,7 @@ body[data-research="list"]    .research-framing.list { display: block; }
 .compare-bar .seg { display: flex; gap: 4px; }
 .compare-bar .seg button {
   flex: 1;
-  font-family: "EB Garamond", Garamond, serif;
+  font-family: "Sora", sans-serif;
   font-size: 11.5px;
   font-weight: 500;
   padding: 5px 6px;
@@ -278,7 +278,7 @@ body[data-research="list"]    .research-framing.list { display: block; }
 }
 .news-date {
   display: inline;
-  font-family: "EB Garamond", Garamond, serif;
+  font-family: "Sora", sans-serif;
   font-size: 0.8em;
   color: var(--muted-color);
   font-variant-numeric: tabular-nums;
@@ -297,7 +297,7 @@ body[data-research="list"]    .research-framing.list { display: block; }
 /* Collapse: show the 4 most recent, tuck the rest behind a toggle */
 .news-list:not(.expanded) .news-item:nth-child(n+5) { display: none; }
 .news-more {
-  font-family: "EB Garamond", Garamond, serif;
+  font-family: "Sora", sans-serif;
   font-size: var(--fs-4);
   font-weight: 500;
   letter-spacing: 0.02em;
@@ -327,7 +327,7 @@ body[data-research="list"]    .research-framing.list { display: block; }
 }
 .position-item:last-child { border-bottom: 1px solid var(--soft-border); }
 .position-date {
-  font-family: "EB Garamond", Garamond, serif;
+  font-family: "Sora", sans-serif;
   font-size: 0.82em;
   color: var(--muted-color);
   padding-top: 4px;
@@ -336,7 +336,7 @@ body[data-research="list"]    .research-framing.list { display: block; }
 }
 .position-main { min-width: 0; }
 .position-org {
-  font-family: "EB Garamond", Garamond, serif;
+  font-family: "Sora", sans-serif;
   font-weight: 600;
   font-size: 1.12em;
   line-height: 1.25;
@@ -345,7 +345,7 @@ body[data-research="list"]    .research-framing.list { display: block; }
 .position-org a { color: inherit; text-decoration: none; }
 .position-org a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .position-role {
-  font-family: "EB Garamond", Garamond, serif;
+  font-family: "Sora", sans-serif;
   font-size: 0.9em;
   color: var(--accent, var(--publication-link-color));
   margin-top: 2px;
@@ -389,7 +389,7 @@ body[data-research="list"]    .research-framing.list { display: block; }
   overflow: hidden;
 }
 .pub2-fig svg { width: 100%; height: 100%; display: block; }
-.pub2-fig text { font-family: "EB Garamond", Garamond, serif; }
+.pub2-fig text { font-family: "Sora", sans-serif; }
 .fig-lbl { font-size: 11px; letter-spacing: 0.13em; fill: rgba(0, 0, 0, 0.42); }
 .fig-cap { font-size: 11.5px; letter-spacing: 0.02em; }
 @media (max-width: 640px) {
@@ -405,14 +405,14 @@ body[data-research="list"]    .research-framing.list { display: block; }
 .mlfig-inner { display: flex; flex-direction: column; align-items: flex-start; gap: 18px; }
 .mlfig-head {
   display: flex; align-items: center; gap: 8px;
-  font-family: "EB Garamond", Garamond, serif; font-size: 11px; letter-spacing: 0.13em;
+  font-family: "Sora", sans-serif; font-size: 11px; letter-spacing: 0.13em;
   text-transform: uppercase; color: rgba(0, 0, 0, 0.42);
 }
 .mlfig-swatch { width: 12px; height: 12px; border-radius: 3px; background: #3b82f6; }
 .mlfig-rows { display: flex; flex-direction: column; gap: 13px; }
 .mlrow { display: flex; align-items: baseline; gap: 16px; }
 .mllang {
-  font-family: "EB Garamond", Garamond, serif; font-size: 11px; letter-spacing: 0.08em;
+  font-family: "Sora", sans-serif; font-size: 11px; letter-spacing: 0.08em;
   text-transform: uppercase; color: rgba(0, 0, 0, 0.38);
   width: 26px; flex: none; text-align: right;
 }
@@ -430,7 +430,7 @@ body[data-research="list"]    .research-framing.list { display: block; }
 .mlfig2-col:last-child { padding-left: 24px; border-left: 1px solid var(--soft-border, #e5e7eb); }
 .mlfig2-head {
   display: flex; align-items: center; gap: 8px;
-  font-family: "EB Garamond", Garamond, serif; font-size: 11px; letter-spacing: 0.1em;
+  font-family: "Sora", sans-serif; font-size: 11px; letter-spacing: 0.1em;
   text-transform: uppercase; color: rgba(0, 0, 0, 0.6);
   padding-bottom: 9px; border-bottom: 1px solid var(--soft-border, #e5e7eb);
 }
@@ -465,7 +465,7 @@ body[data-research="list"]    .research-framing.list { display: block; }
   display: flex;
   align-items: baseline;
   gap: 12px;
-  font-family: "EB Garamond", Garamond, serif;
+  font-family: "Sora", sans-serif;
   font-weight: 500;
   margin-bottom: 7px;
 }
@@ -474,7 +474,7 @@ body[data-research="list"]    .research-framing.list { display: block; }
 .pub2-cat.tools { color: rgba(0, 0, 0, 0.82); }
 .pub2-dot { display: none; }
 .pub2-venue {
-  font-family: "EB Garamond", Garamond, serif;
+  font-family: "Inter", sans-serif;
   font-weight: 400;
   color: rgba(0, 0, 0, 0.42);
   white-space: nowrap;
@@ -503,7 +503,7 @@ body[data-research="list"]    .research-framing.list { display: block; }
   flex-wrap: wrap;
   gap: 16px;
   margin-top: 11px;
-  font-family: "EB Garamond", Garamond, serif;
+  font-family: "Sora", sans-serif;
   font-size: 0.76em;
   font-weight: 500;
 }
@@ -525,7 +525,7 @@ body[data-research="list"]    .research-framing.list { display: block; }
   background: #fff;
 }
 .pub2-figcap {
-  font-family: "EB Garamond", Garamond, serif;
+  font-family: "Inter", sans-serif;
   font-size: 0.72em;
   color: var(--muted-color);
   margin-top: 9px;
@@ -551,7 +551,7 @@ body[data-research="list"]    .research-framing.list { display: block; }
 .actfig-lang {
   display: inline-block;
   width: 26px;
-  font-family: "EB Garamond", Garamond, serif;
+  font-family: "Sora", sans-serif;
   font-size: 0.56em;
   font-weight: 600;
   letter-spacing: 0.04em;
@@ -571,7 +571,7 @@ body[data-research="list"]    .research-framing.list { display: block; }
   margin-top: 14px;
 }
 .actfig-legend .lab {
-  font-family: "EB Garamond", Garamond, serif;
+  font-family: "Sora", sans-serif;
   font-size: 0.56em;
   letter-spacing: 0.03em;
   color: rgba(0, 0, 0, 0.4);
@@ -704,7 +704,7 @@ body[data-hl="reel"] .highlights-section { display: block; }
   border-radius: 999px;
   padding: 4px 6px 4px 10px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-  font-family: "EB Garamond", Garamond, serif;
+  font-family: "Sora", sans-serif;
 }
 .hlbar .hb-label {
   font-size: 9.5px; font-weight: 600; letter-spacing: 0.08em;
@@ -712,7 +712,7 @@ body[data-hl="reel"] .highlights-section { display: block; }
 }
 .hlbar .seg { display: flex; gap: 2px; }
 .hlbar button {
-  font-family: "EB Garamond", Garamond, serif; font-size: 12px; font-weight: 500;
+  font-family: "Sora", sans-serif; font-size: 12px; font-weight: 500;
   color: #353535; background: transparent; border: none;
   padding: 5px 12px; border-radius: 999px; cursor: pointer; letter-spacing: 0.01em;
   transition: background 0.18s ease, color 0.18s ease;
